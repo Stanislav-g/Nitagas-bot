@@ -1,1 +1,1 @@
-worker: python rrnbot.py
+worker: python rrrnbot.py
