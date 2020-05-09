@@ -7,14 +7,12 @@ from time import sleep
 from colorsys import hls_to_rgb
 import youtube_dl
 import os
-import requests
 import random
 from random import randint, choice, choices
 from PIL import Image, ImageFont, ImageDraw
 import io
 import sqlite3
 import random as r
-import requests
 import io
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
