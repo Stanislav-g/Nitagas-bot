@@ -4,6 +4,6 @@ websockets
 chardet
 youtube_dl
 requests
-PIL
+
 
 
