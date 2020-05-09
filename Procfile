@@ -1,1 +1,1 @@
-worker: python3 botnitagas.py
+worker: python botnitagas.py
