@@ -324,81 +324,12 @@ async def yt8( ctx ):
     await ctx.send( embed = emb )
 
 
-
-
-
-
-
-
-
-
-@client.command()
-async def play(ctx, url : str):
-    song_there = os.path.isfile('song.mp3')
-
-    try:
-        if song_there:
-            os.remove('song.mp3')
-            print('[log] Старый файл удален')
-    except PermissionError:
-        print('[log] Не удалось удалить файл')
-
-    await ctx.send('Пожалуйста ожидайте')
-
-    voice = get(client.voice_clients, guild = ctx.guild)
-
-    ydl_opts = {
-        'format' : 'bestaudio/best',
-        'postprocessors' : [{
-            'key' : 'FFmpegExtractAudio',
-            'preferredcodec' : 'mp3',
-            'preferredquality' : '192'
-        }],
-    }
-
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        print('[log] Загружаю музыку...')
-        ydl.download([url])
-
-    for file in os.listdir('./'):
-        if file.endswith('.mp3'):
-            name = file
-            print(f'[log] Переименовываю файл: {file}')
-            os.rename(file, 'song.mp3')
-
-    voice.play(discord.FFmpegPCMAudio('song.mp3'), after = lambda e: print(f'[log] {name}, музыка закончила свое проигрывание'))
-    voice.source = discord.PCMVolumeTransformer(voice.source)
-    voice.source.volume = 0.07
-
-    song_name = name.rsplit('-', 2)
-    await ctx.send(f'Сейчас проигрывает музыка: {song_name[0]}')
-
-
-
-
-
-
 #num 
 @client.command( pass_context = True )
 
 async def num( ctx ):
     await ctx.send(random.randint(1,101))
   
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
 
 #text
 @client.command()
@@ -929,29 +860,6 @@ async def rps(ctx, *, mess):
 
 
 
-
-
-
-
-
-
-#botinfo
-@client.command( pass_context = True )
-
-
-async def botinfo( ctx ):
-    await ctx.channel.purge( limit = 1 )
-    emt = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **NITAGAS bot**.\n Бот был написан специально для проекта Nitagas,\n подробнее о командах  -help", color = 000000)
-    emt.add_field(name=f'**Меня создал:**', value="Stanislav", inline=True)  # Создает строку
-    emt.add_field(name=f'**Помощь в создании:**', value="---", inline=True)  # Создает строку
-    emt.add_field(name=f'**Лицензия:**', value="Nitagas", inline=True)  # Создает строку
-    emt.add_field(name=f'**Я написан на:**', value="Discord.py", inline=True)  # Создает строку
-    emt.add_field(name=f'**Версия:**', value="1.0", inline=True)  # Создает строку
-    emt.add_field(name=f'**Патч:**', value="1.0", inline=True)  # Создает строку
-    emt.set_footer(text=f"© Copyright 2020 Stanislav | Все права защищены")  # создаение футера
-    await ctx.send(embed=emt)
-
-
 #tmute
 @client.command()
 @commands.has_permissions( administrator = True )
@@ -1188,37 +1096,6 @@ async def channel_create(ctx, *, arg):
     await ctx.send(embed = discord.Embed(description = f'**:keyboard: Текстовый канал "{arg}" успешно создан!**', color=0x0c0c0c))
 
 
-
-@client.command()
-async def avatar(ctx, member : discord.Member = None):
-
-    user = ctx.message.author if (member == None) else member
-
-    embed = discord.Embed(title=f'Аватар пользователя {user}', color= 0x0c0c0c)
-
-    embed.set_image(url=user.avatar_url)
-
-    await ctx.send(embed=embed)
-
-# userinfo
-@client.command()
-async def userinfo(ctx, Member: discord.Member = None ):
-    if not Member:
-        Member = ctx.author
-    roles = (role for role in Member.roles )
-    emb = discord.Embed(title='Информация о пользователе.'.format(Member.name), description=f"Участник зашёл на сервер: {Member.joined_at.strftime('%b %#d, %Y')}\n\n "
-                                                                                      f"Имя: {Member.name}\n\n"
-                                                                                      f"Никнейм: {Member.nick}\n\n"
-                                                                                      f"Статус: {Member.status}\n\n"
-                                                                                      f"ID: {Member.id}\n\n"
-                                                                                      f"Высшая роль: {Member.top_role}\n\n"
-                                                                                      f"Аккаунт создан: {Member.created_at.strftime('%b %#d, %Y')}", 
-                                                                                      color=0xff0000, timestamp=ctx.message.created_at)
-
-    emb.set_thumbnail(url= Member.avatar_url)
-    emb.set_footer(icon_url= Member.avatar_url)
-    emb.set_footer(text='Команда вызвана: {}'.format(ctx.author.name), icon_url=ctx.author.avatar_url)
-    await ctx.send(embed=emb)
 
 
 @client.command()
