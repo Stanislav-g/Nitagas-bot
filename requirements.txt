@@ -3,8 +3,8 @@ aiohttp
 websockets
 chardet
 youtube_dl
-
-
-
-
+requests
+random
+io
+sqlite3
 
