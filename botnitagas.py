@@ -9,7 +9,7 @@ import youtube_dl
 import os
 import random
 from random import randint, choice, choices
-from PIL import Image, ImageFont, ImageDraw
+import PIL
 import io
 import sqlite3
 import random as r
