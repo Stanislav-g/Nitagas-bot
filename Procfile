@@ -1,1 +1,1 @@
-Procfile: worker: python3 botnitagas.py
+worker: python3 botnitagas.py
