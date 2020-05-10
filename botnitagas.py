@@ -50,7 +50,7 @@ async def hello( ctx ):
 @client.command( pass_context = True )
 
 async def info( ctx ):
-    emb = discord.Embed( title = 'HELP', colour = discord.Color.red() )
+    emb = discord.Embed( title = 'INFO', colour = discord.Color.red() )
     emb.add_field( name = 'Commands',value = 'Welcome to our server, it is designed for communication, sharing memes and also supports the themes of games, youtube and everything related to it. There are currently six bots on our server, and the commands for them are listed below.                                                                                           :arrow_right:pls help:arrow_left: :arrow_right:_help:arrow_left::arrow_right:.help:arrow_left:                                                      :arrow_right:/help:arrow_left::arrow_right:!help:arrow_left:')
     await ctx.send( embed = emb )
 
@@ -138,7 +138,7 @@ async def unban( ctx, *, member ):
 
 async def help( ctx ):
     emb = discord.Embed( title = 'HELP', colour = discord.Color.red() )
-    emb.add_field( name = 'Commands',value = ' info- Информация\nserverinfo- информация о сервере\nbotinfo- информация о боте\nuserinfo- информация о пользователе\nhello- Приветствие \navatar- фото профиля\ncovid\ntime- Время\n j- Добавить бота в голосовой канал\n l- Удалить бота из голового канала\nnum- рандомное число от 1-101\n \n Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?\n\n\nTEXT\n \nsend_m- отправить сообщение другому участнику через бота\nping\nmath- калькулятор\nslap- ударить рандомного участника\nunion- узнать ник\n slapperson- ударить определенного игрока\nroles- узнать роли игрока\nadd- суммировать числа\nwordnum- количество слов в тексте\ntext2- ???\nytn- рандомное видео с канала Nitagas\nyt,yt2,yt3...yt7- видео с канала nitagas\nemoji_random- рандомное эмоджи\nsearch- поиск\nyoutube_search- поиск в youtube\nwiki- поиск в википедия\nyandex- поиск в яндекс\ngoogle- поиск в гугл\nkill\n \n ')
+    emb.add_field( name = 'Commands',value = ' info- Информация\nserverinfo- информация о сервере\nbotinfo- информация о боте\nuserinfo- информация о пользователе\nhello- Приветствие \navatar- фото профиля\ncovid\ntime- Время\nnum- рандомное число от 1-101\n \n Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?\n\n\nTEXT\n \nsend_m- отправить сообщение другому участнику через бота\nping\nmath- калькулятор\nslap- ударить рандомного участника\nunion- узнать ник\n slapperson- ударить определенного игрока\nroles- узнать роли игрока\nadd- суммировать числа\nwordnum- количество слов в тексте\ntext2- ???\nytn- рандомное видео с канала Nitagas\nyt,yt2,yt3...yt7- видео с канала nitagas\nemoji_random- рандомное эмоджи\nsearch- поиск\nyoutube_search- поиск в youtube\nwiki- поиск в википедия\nyandex- поиск в яндекс\ngoogle- поиск в гугл\nkill\n \n ')
     await ctx.send( embed = emb )
 
 #help
@@ -181,10 +181,7 @@ async def on_member_join( member ):
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}, присоеденился к нам!') )
     await member.send( f'{ member.name}, Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\n\nБудьте дружелюбны к другим участникам\n\nМат запрещен\n\nЭтот сервер создан для общения\n\nПропиши команду -help что-бы узнать мои комманды')
 
-@client.command()
-async def send_a( ctx ):
-    await ctx.autor.send('kj')
-#отправка личных сообщений
+#send_m
 @client.command()
 
 async def send_m( ctx, member: discord.Member ):
@@ -325,82 +322,12 @@ async def yt8( ctx ):
     await ctx.send(f'https://youtu.be/3MsvbceklK8')
     await ctx.send( embed = emb )
 
-
-
-
-
-
-
-
-
-
-@client.command()
-async def play(ctx, url : str):
-    song_there = os.path.isfile('song.mp3')
-
-    try:
-        if song_there:
-            os.remove('song.mp3')
-            print('[log] Старый файл удален')
-    except PermissionError:
-        print('[log] Не удалось удалить файл')
-
-    await ctx.send('Пожалуйста ожидайте')
-
-    voice = get(client.voice_clients, guild = ctx.guild)
-
-    ydl_opts = {
-        'format' : 'bestaudio/best',
-        'postprocessors' : [{
-            'key' : 'FFmpegExtractAudio',
-            'preferredcodec' : 'mp3',
-            'preferredquality' : '192'
-        }],
-    }
-
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        print('[log] Загружаю музыку...')
-        ydl.download([url])
-
-    for file in os.listdir('./'):
-        if file.endswith('.mp3'):
-            name = file
-            print(f'[log] Переименовываю файл: {file}')
-            os.rename(file, 'song.mp3')
-
-    voice.play(discord.FFmpegPCMAudio('song.mp3'), after = lambda e: print(f'[log] {name}, музыка закончила свое проигрывание'))
-    voice.source = discord.PCMVolumeTransformer(voice.source)
-    voice.source.volume = 0.07
-
-    song_name = name.rsplit('-', 2)
-    await ctx.send(f'Сейчас проигрывает музыка: {song_name[0]}')
-
-
-
-
-
-
 #num 
 @client.command( pass_context = True )
 
 async def num( ctx ):
     await ctx.send(random.randint(1,101))
   
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
 
 #text
 @client.command()
@@ -522,7 +449,10 @@ async def youtube( ctx,  ):
         
 
 
-
+@youtube.error    
+async def youtube_error( ctx, error ):
+    if isinstance( error, commands.MissingPermissions ):
+        await ctx.send( f'{ ctx.author.name }, у вас недостаточно прав ')
 
 
 
@@ -863,6 +793,14 @@ async def search(ctx, *, question):  # пояндексить
     # сам сайт
     url = 'https://www.bing.com/search?q=' + str(question).replace(' ', '+')
     await ctx.send(f'Кое кто не умеет пользоваться поисковиками , я сделал это за него.\n{url}')
+    
+    
+@search.error    
+async def search_error( ctx, error ):
+    if isinstance( error, commands.MissingRequiredArgument ):
+        await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
+    
+    
 
 #youtube_search
 @client.command()
@@ -870,12 +808,30 @@ async def youtube_search(ctx, *, question):  # пояндексить
     # сам сайт
     url = 'https://www.youtube.com/results?search_query=' + str(question).replace(' ', '+')
     await ctx.send(f'Так как кое кто не умеет ютубить , я сделал это за него.\n{url}')
+    
+    
+@youtube_search.error    
+async def youtube_search_error( ctx, error ):
+    if isinstance( error, commands.MissingRequiredArgument ):
+        await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
+
+    if isinstance( error, commands.MissingPermissions ):
+        await ctx.send( f'{ ctx.author.name }, у вас недостаточно прав ')   
+  
 #yandex
 @client.command()
 async def yandex(ctx, *, question):  # пояндексить
     # сам сайт
     url = 'https://yandex.ua/search/?lr=142&text=' + str(question).replace(' ', '%20')
     await ctx.send(f'Так как кое кто не умеет яндексить , я сделал это за него.\n{url}')
+    
+@yandex.error    
+async def yandex_error( ctx, error ):
+    if isinstance( error, commands.MissingRequiredArgument ):
+        await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
+      
+    
+    
 #wiki
 @client.command(pass_context = True,aliases=['вики']) #!!wiki  !!вики
 async def wiki( ctx,*, amount: str):
@@ -884,6 +840,14 @@ async def wiki( ctx,*, amount: str):
         await ctx.send("Пожалуйста, используйте такую кострукцию: `!!wiki [вики запрос]`")
     a = '_'.join(amount.split())
     await ctx.send(f'https://ru.wikipedia.org/wiki/{a}')
+    
+    
+@wiki.error    
+async def wiki_error( ctx, error ):
+    if isinstance( error, commands.MissingRequiredArgument ):
+        await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
+
+ 
 
 #google
 @client.command()
@@ -891,6 +855,14 @@ async def google(ctx, *, question):  # погуглить
     # сам сайт
     url = 'https://google.gik-team.com/?q=' + str(question).replace(' ', '+')
     await ctx.send(f'Так как кое кто не умеет гуглить , я сделал это за него.\n{url}')
+    
+    
+@google.error    
+async def google_error( ctx, error ):
+    if isinstance( error, commands.MissingRequiredArgument ):
+        await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
+
+ 
 
 #rps
 @client.command()
@@ -931,7 +903,10 @@ async def rps(ctx, *, mess):
 
 
 
-
+@rps.error    
+async def rps_error( ctx, error ):
+    if isinstance( error, commands.MissingRequiredArgument ):
+        await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
 
 
 
@@ -1012,6 +987,7 @@ async def участвую( ctx ):
 
        
 @client.command()
+@commands.has_permissions( administrator = True )
 
 async def emoji(ctx,id:int,reaction:str):
         await ctx.message.delete()
@@ -1170,7 +1146,10 @@ async def math( ctx, a : int, arg, b : int ):
         
         await ctx.send(embed = discord.Embed(description = f'**:exclamation: Произошла ошибка.**', color=0x0c0c0c))
 
-
+@math.error    
+async def math_error( ctx, error ):
+    if isinstance( error, commands.MissingRequiredArgument ):
+        await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
 
 
 
@@ -1240,7 +1219,7 @@ async def changing_name(ctx, member: discord.Member = None, nickname: str = None
 
 #suggest
 @client.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
-
+@commands.has_permissions( administrator = True )
 async def suggest( ctx , * , agr ):
     suggest_chanell = client.get_channel( 705461507953262793 ) #Айди канала предложки
     embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {agr} \n\n")
