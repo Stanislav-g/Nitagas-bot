@@ -4,4 +4,4 @@ websockets
 chardet
 youtube_dl
 requests
-Pillow=6.2.1
+
