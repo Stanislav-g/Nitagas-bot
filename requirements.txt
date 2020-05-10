@@ -4,5 +4,5 @@ websockets
 chardet
 youtube_dl
 requests
--e hg+https://bitbucket.org/etienned/pil-2009-raclette/#egg=PIL
+pillow=1.1.7
 
