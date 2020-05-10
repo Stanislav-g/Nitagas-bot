@@ -4,7 +4,6 @@ websockets
 chardet
 youtube_dl
 requests
-from PIL import Image, ImageDraw, ImageFont, ImageOps
 PIL
 
 
