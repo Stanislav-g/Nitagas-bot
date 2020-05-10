@@ -4,6 +4,5 @@ websockets
 chardet
 youtube_dl
 requests
-PIL=1.1.7
 -e hg+https://bitbucket.org/etienned/pil-2009-raclette/#egg=PIL
 
