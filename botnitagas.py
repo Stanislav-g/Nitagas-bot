@@ -1275,7 +1275,7 @@ async def covid(ctx):
 #games
 @client.command()
 @commands.has_permissions( administrator = True )
-async def event_roles(сtx):
+async def games(сtx):
     general = client.get_channel(709360100527308851)
     await ctx.send( 'Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?')
 
