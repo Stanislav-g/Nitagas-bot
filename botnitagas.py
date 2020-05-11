@@ -868,6 +868,7 @@ async def google_error( ctx, error ):
 #rps
 @client.command()
 async def rps(ctx, *, mess):
+    general = client.get_channel(705461507953262793)
     robot = ['Камень', 'Ножницы', 'Бумага']
     if mess == "Камень" or mess == "К" or mess == "камень" or mess == "к":
         robot_choice = random.choice(robot)
@@ -878,7 +879,7 @@ async def rps(ctx, *, mess):
             emb.add_field(name = ':scissors:', value = 'Вы проиграли :с')
         else:
             emb.add_field(name = ':moyai:', value = 'Ничья!')
-        await ctx.send(embed = emb)
+        await general.send(embed = emb)
 
     elif mess == "Бумага" or mess == "Б" or mess == "бумага" or mess == "б":
         robot_choice = random.choice(robot)
@@ -889,7 +890,7 @@ async def rps(ctx, *, mess):
             emb.add_field(name = ':moyai:', value = 'Вы выиграли!')
         else:
             emb.add_field(name = ':scissors:', value = 'Ничья!')
-        await ctx.send(embed = emb)
+        await general.send(embed = emb)
             
     elif mess == "Ножницы" or mess == "Н" or mess == "ножницы" or mess == "н":
         robot_choice = random.choice(robot)
@@ -900,7 +901,7 @@ async def rps(ctx, *, mess):
             emb.add_field(name = ':moyai:', value = 'Вы проиграли :с')
         else:
             emb.add_field(name = ':scroll:', value = 'Ничья!')
-        await ctx.send(embed = emb)
+        await general.send(embed = emb)
 
 
 
@@ -934,6 +935,7 @@ async def botinfo( ctx ):
 @client.command()
 @commands.has_permissions( administrator = True )
 async def tmute(ctx, member: discord.Member):
+    await ctx.channel.purge( limit = 1 )
     await member.edit(mute=True)
 
 
@@ -1016,6 +1018,7 @@ async def kill(  ctx, member: discord.Member ):
 @client.command()
 @commands.has_permissions( administrator = True )
 async def tempban(ctx, member : discord.Member, time:int, arg:str, *, reason=None):
+    await ctx.channel.purge( limit = 1 )
     if member == ctx.message.author:
         return await ctx.send("Ты не можешь забанить сам себя.")
     msgg =  f'Пользователь : {member}, забанен по причине : {reason}.'
@@ -1046,6 +1049,7 @@ async def tempban(ctx, member : discord.Member, time:int, arg:str, *, reason=Non
 @client.command()
 @commands.has_permissions(administrator = True)
 async def temp_add_role(ctx, amount : int, member: discord.Member = None, role: discord.Role = None):
+    await ctx.channel.purge( limit = 1 )
 
     try:
 
@@ -1071,6 +1075,7 @@ async def temp_add_role(ctx, amount : int, member: discord.Member = None, role: 
 @client.command()
 @commands.has_permissions(administrator = True)
 async def add_role(ctx, member: discord.Member = None, role: discord.Role = None):
+    await ctx.channel.purge( limit = 1 )
 
     try:
 
@@ -1094,6 +1099,7 @@ async def add_role(ctx, member: discord.Member = None, role: discord.Role = None
 #tempmute
 @client.command()
 @commands.has_permissions( administrator = True )
+await ctx.channel.purge( limit = 1 )
 async def tempmute(ctx,amount : int,member: discord.Member = None, reason = None):
     mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
     channel_log = client.get_channel(705461507953262793) #Айди канала логов
@@ -1157,6 +1163,7 @@ async def math_error( ctx, error ):
 
 @client.command()
 @commands.has_permissions(administrator = True)
+await ctx.channel.purge( limit = 1 )
 async def voice_create(ctx, *, arg): 
     guild = ctx.guild
     channel = await guild.create_voice_channel(f'{arg}')
@@ -1164,6 +1171,7 @@ async def voice_create(ctx, *, arg):
 
 @client.command()
 @commands.has_permissions(administrator = True)
+await ctx.channel.purge( limit = 1 )
 async def channel_create(ctx, *, arg): 
     guild = ctx.guild
     channel = await guild.create_text_channel(f'{arg}')
@@ -1185,6 +1193,7 @@ async def avatar(ctx, member : discord.Member = None):
 # userinfo
 @client.command()
 async def userinfo(ctx, Member: discord.Member = None ):
+    await ctx.channel.purge( limit = 1 )
     if not Member:
         Member = ctx.author
     roles = (role for role in Member.roles )
@@ -1206,6 +1215,7 @@ async def userinfo(ctx, Member: discord.Member = None ):
 @client.command()
 @commands.has_permissions(administrator = True)
 async def changing_name(ctx, member: discord.Member = None, nickname: str = None):
+    await ctx.channel.purge( limit = 1 )
     await ctx.send('Info')
     try:
         if member is None:
@@ -1234,6 +1244,7 @@ async def suggest( ctx , * , agr ):
 
 @client.command()
 async def serverinfo(ctx):
+    await ctx.channel.purge( limit = 1 )
     members = ctx.guild.members
     online = len(list(filter(lambda x: x.status == discord.Status.online, members)))
     offline = len(list(filter(lambda x: x.status == discord.Status.offline, members)))
@@ -1276,6 +1287,7 @@ async def covid(ctx):
 @client.command()
 @commands.has_permissions( administrator = True )
 async def games(сtx):
+    await ctx.channel.purge( limit = 1 )
     general = client.get_channel(709360100527308851)
     await general.send( 'Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?')
 
