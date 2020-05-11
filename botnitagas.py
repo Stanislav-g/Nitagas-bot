@@ -606,9 +606,9 @@ async def knb_error( ctx, error ):
 #sapper
 @client.command()
 async def sapper(ctx):
-  
+    general = client.get_channel(705461507953262793) 
     emg = discord.Embed( title = f'Game sapper\n Rules you must select a number and enter it as shown in the table below\n 1- first \n2- second\n3- third\n4- fouth\n5- fifth\n6- sixth\n7- seventh\n8- eighth\n9- ninth \ndo not forget about the prefix (-)\n\n1      2     3\n4     5     6     \n7     8     9', colour = discord.Color.red() )
-    await ctx.send( embed = emg )
+    await general.send( embed = emg )
     
 
 @client.command()    
@@ -868,7 +868,6 @@ async def google_error( ctx, error ):
 #rps
 @client.command()
 async def rps(ctx, *, mess):
-    general = client.get_channel(705461507953262793)
     robot = ['Камень', 'Ножницы', 'Бумага']
     if mess == "Камень" or mess == "К" or mess == "камень" or mess == "к":
         robot_choice = random.choice(robot)
@@ -879,7 +878,7 @@ async def rps(ctx, *, mess):
             emb.add_field(name = ':scissors:', value = 'Вы проиграли :с')
         else:
             emb.add_field(name = ':moyai:', value = 'Ничья!')
-        await general.send(embed = emb)
+        await ctx.send(embed = emb)
 
     elif mess == "Бумага" or mess == "Б" or mess == "бумага" or mess == "б":
         robot_choice = random.choice(robot)
@@ -890,7 +889,7 @@ async def rps(ctx, *, mess):
             emb.add_field(name = ':moyai:', value = 'Вы выиграли!')
         else:
             emb.add_field(name = ':scissors:', value = 'Ничья!')
-        await general.send(embed = emb)
+        await ctx.send(embed = emb)
             
     elif mess == "Ножницы" or mess == "Н" or mess == "ножницы" or mess == "н":
         robot_choice = random.choice(robot)
@@ -901,7 +900,7 @@ async def rps(ctx, *, mess):
             emb.add_field(name = ':moyai:', value = 'Вы проиграли :с')
         else:
             emb.add_field(name = ':scroll:', value = 'Ничья!')
-        await general.send(embed = emb)
+        await ctx.send(embed = emb)
 
 
 
