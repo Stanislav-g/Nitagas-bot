@@ -1282,7 +1282,7 @@ async def covid(ctx):
     
  
 @client.command()
-async def ngam(ctx):   
+async def ngame(ctx):   
     await ctx.send(f'Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?') 
        
 
