@@ -574,8 +574,8 @@ async def coinflip(ctx ):
 #knb
 @client.command()
 async def knb(ctx, member: discord.Member ):
-    a = random.choice(['камень','ножницы','бумага'])
-    v = random.choice(['камень','ножницы','бумага'])
+    a = random.choice([':moyai: камень',':scissors: ножницы',':scroll: бумага'])
+    v = random.choice([':moyai: камень',':scissors: ножницы',':scroll: бумага'])
 
     emb = discord.Embed( title = 'Камень, ножницы, бумага', colour = discord.Color.blue() )
     
