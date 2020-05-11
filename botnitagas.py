@@ -1280,12 +1280,12 @@ async def serverinfo(ctx):
 async def covid(ctx):   
     await ctx.send(f'https://www.worldometers.info/coronavirus/') 
     
-    
-    
-#games
+ 
 @client.command()
-async def game(сtx):
-    await ctx.send(f'https://www.worldometers.info/coronavirus/')
+async def ngam(ctx):   
+    await ctx.send(f'https://www.worldometers.info/coronavirus/') 
+       
+
 
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
