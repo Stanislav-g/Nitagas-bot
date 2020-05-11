@@ -1163,8 +1163,8 @@ async def math_error( ctx, error ):
 
 @client.command()
 @commands.has_permissions(administrator = True)
-await ctx.channel.purge( limit = 1 )
-async def voice_create(ctx, *, arg): 
+async def voice_create(ctx, *, arg):
+    await ctx.channel.purge( limit = 1 )
     guild = ctx.guild
     channel = await guild.create_voice_channel(f'{arg}')
     await ctx.send(embed = discord.Embed(description = f'**:microphone2: Голосовой канал "{arg}" успешно создан!**', color=0x0c0c0c))
