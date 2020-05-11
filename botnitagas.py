@@ -1171,8 +1171,8 @@ async def voice_create(ctx, *, arg):
 
 @client.command()
 @commands.has_permissions(administrator = True)
-await ctx.channel.purge( limit = 1 )
 async def channel_create(ctx, *, arg): 
+    await ctx.channel.purge( limit = 1 )
     guild = ctx.guild
     channel = await guild.create_text_channel(f'{arg}')
     await ctx.send(embed = discord.Embed(description = f'**:keyboard: Текстовый канал "{arg}" успешно создан!**', color=0x0c0c0c))
