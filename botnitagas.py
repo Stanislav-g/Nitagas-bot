@@ -1269,7 +1269,15 @@ async def serverinfo(ctx):
 @client.command()
 async def covid(ctx):   
     await ctx.send(f'https://www.worldometers.info/coronavirus/') 
-   
+    
+    
+    
+#games
+@client.command()
+@commands.has_permissions( administrator = True )
+async def event_roles(сtx):
+    general = client.get_channel(709360100527308851)
+    await ctx.send( 'Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?')
 
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
