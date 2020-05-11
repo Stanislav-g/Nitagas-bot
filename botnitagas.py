@@ -895,11 +895,11 @@ async def rps(ctx, *, mess):
         robot_choice = random.choice(robot)
         emb = discord.Embed(title = robot_choice, colour = discord.Colour.lighter_grey())
         if robot_choice == 'Бумага':
-            emb.add_field(name = ':scissors:', value = 'Вы выиграли!')
+            emb.add_field(name = ':scroll:', value = 'Вы выиграли!')
         elif robot_choice == 'Камень':
             emb.add_field(name = ':moyai:', value = 'Вы проиграли :с')
         else:
-            emb.add_field(name = ':scroll:', value = 'Ничья!')
+            emb.add_field(name = ':scissors:', value = 'Ничья!')
         await ctx.send(embed = emb)
 
 
