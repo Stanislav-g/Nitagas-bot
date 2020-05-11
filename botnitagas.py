@@ -1287,8 +1287,7 @@ async def covid(ctx):
 @commands.has_permissions( administrator = True )
 async def games(сtx):
     await ctx.channel.purge( limit = 1 )
-    general = client.get_channel(709360100527308851)
-    await general.send( 'Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?')
+    await ctx.send( 'Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?')
 
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
