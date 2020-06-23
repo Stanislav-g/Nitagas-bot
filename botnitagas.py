@@ -53,7 +53,7 @@ async def hello( ctx ):
 async def info( ctx ):
     emb = discord.Embed( title = 'INFO', colour = discord.Color.red() )
     emb.add_field( name = 'Commands',value = 'Welcome to our server, it is designed for communication, sharing memes and also supports the themes of games, youtube and everything related to it. There are currently six bots on our server, and the commands for them are listed below.                                                                                           :arrow_right:pls help:arrow_left: :arrow_right:_help:arrow_left::arrow_right:.help:arrow_left:                                                      :arrow_right:/help:arrow_left::arrow_right:!help:arrow_left:')
-    await member.send( embed = emb )
+    await ctx.author.send( embed = emb )
 
 
 
@@ -181,7 +181,7 @@ async def unban( ctx, *, member ):
 async def help( ctx ):
     emb = discord.Embed( title = 'HELP', colour = discord.Color.red() )
     emb.add_field( name = 'Commands',value = ' info- Информация\nserverinfo - информация о сервере\nbotinfo - информация о боте\nuserinfo - информация о пользователе\nhello - Приветствие \navatar- фото профиля\ncovid\ntime- Время\nnum- рандомное число от 1-101\n \n Games\n\nугадайка - угадай число от 1 до 20\n sapper- сапер\nknb - камень, ножницы, бумага\nrps - камень, ножницы, бумага с ботом\ncoinflip - орел или решка?\nball - шар предсказаний\n\n\nTEXT\n \nsend_m - отправить сообщение другому участнику через бота\nping - пинг\nmath - калькулятор\nslap - ударить рандомного участника\nunion - узнать ник\n slapperson - ударить определенного игрока\nroles - узнать роли игрока\nadd - суммировать числа\nwordnum - количество слов в тексте\ntext2 - ???\nytn - рандомное видео с канала Nitagas\nyt,yt2,yt3...yt7 - видео с канала nitagas\nemoji_random - рандомное эмоджи\nsearch - поиск\nyoutube_search - поиск в youtube\nwiki - поиск в википедия\nyandex - поиск в яндекс\ngoogle - поиск в гугл\nkill\n \n ')
-    await ctx.send( embed = emb )
+    await ctx.author.send( embed = emb )
 
 #help
 @client.command( pass_context = True )
@@ -190,7 +190,7 @@ async def helpadmin( ctx ):
     await ctx.channel.purge( limit = 1 )
     emb = discord.Embed( title = 'HELP', colour = discord.Color.red() )
     emb.add_field( name = 'Commands',value = ' info- Информация\n\n Для админов \n \n text- писать от бота\nclear\n ban\n unban\n kick\nrainbow\n youtube- видео с nitagas\n\nchanging_name- изменить ник\nevent_roles- розогрыш ролей\ntempban s m h d\ntmute- voice mute\ntemp_add_role +time @ role\nadd_role +@ +role\ntempmute +time @ arg\nchannel_create +name\nvoice_create +name\nemojie +id message + emoji\nsuggest +arg')
-    await member.send( embed = emb )
+    await ctx.author.send( embed = emb )
 #time
 @client.command( pass_context = True )
 
