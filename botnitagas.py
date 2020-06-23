@@ -606,7 +606,7 @@ async def knb_error( ctx, error ):
 #sapper
 @client.command()
 async def sapper(ctx):
-    
+    general = client.get_channel(724954151263404086)
     emg = discord.Embed( title = f'Game sapper\n Rules you must select a number and enter it as shown in the table below\n 1- first \n2- second\n3- third\n4- fouth\n5- fifth\n6- sixth\n7- seventh\n8- eighth\n9- ninth \ndo not forget about the prefix (-)\n\n1      2     3\n4     5     6     \n7     8     9', colour = discord.Color.red() )
     await general.send( embed = emg )
     
