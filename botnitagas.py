@@ -190,7 +190,7 @@ async def helpadmin( ctx ):
     await ctx.channel.purge( limit = 1 )
     emb = discord.Embed( title = 'HELP', colour = discord.Color.red() )
     emb.add_field( name = 'Commands',value = ' info- Информация\n\n Для админов \n \n text- писать от бота\nclear\n ban\n unban\n kick\nrainbow\n youtube- видео с nitagas\n\nchanging_name- изменить ник\nevent_roles- розогрыш ролей\ntempban s m h d\ntmute- voice mute\ntemp_add_role +time @ role\nadd_role +@ +role\ntempmute +time @ arg\nchannel_create +name\nvoice_create +name\nemojie +id message + emoji\nsuggest +arg')
-    await ctx.send( embed = emb )
+    await member.send( embed = emb )
 #time
 @client.command( pass_context = True )
 
