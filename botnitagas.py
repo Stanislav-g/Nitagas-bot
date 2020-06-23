@@ -1326,7 +1326,13 @@ async def covid(ctx):
 async def ngame(ctx):   
     await ctx.send(f'Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?') 
        
-
+async def 8ball(ctx, arg = None):
+    emb = discord.Embed( title = '8ball', colour = discord.Color.red() )
+    a = random.choice(["Да","Нет","Думаю да","Думаю нет","","","","",""])
+    await member.ban( reason = reason )
+    emb.set_author( name = member.name, icon_url = member.avatar_url)
+    emb.add_field( name = 'arg : {}' ,value = a.format( member.mention ) )
+    await ctx.send( embed = emb )
 
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
