@@ -175,13 +175,15 @@ async def unban( ctx, *, member ):
 
         return
 
-#help
+#help    
 @client.command( pass_context = True )
 
 async def help( ctx ):
+    
     emb = discord.Embed( title = 'HELP', colour = discord.Color.red() )
     emb.add_field( name = 'Commands',value = ' info- Информация\nserverinfo - информация о сервере\nbotinfo - информация о боте\nuserinfo - информация о пользователе\nhello - Приветствие \navatar- фото профиля\ncovid\ntime- Время\nnum- рандомное число от 1-101\n \n Games\n\nугадайка - угадай число от 1 до 20\n sapper- сапер\nknb - камень, ножницы, бумага\nrps - камень, ножницы, бумага с ботом\ncoinflip - орел или решка?\nball - шар предсказаний\n\n\nTEXT\n \nsend_m - отправить сообщение другому участнику через бота\nping - пинг\nmath - калькулятор\nslap - ударить рандомного участника\nunion - узнать ник\n slapperson - ударить определенного игрока\nroles - узнать роли игрока\nadd - суммировать числа\nwordnum - количество слов в тексте\ntext2 - ???\nytn - рандомное видео с канала Nitagas\nyt,yt2,yt3...yt7 - видео с канала nitagas\nemoji_random - рандомное эмоджи\nsearch - поиск\nyoutube_search - поиск в youtube\nwiki - поиск в википедия\nyandex - поиск в яндекс\ngoogle - поиск в гугл\nkill\n \n ')
     await ctx.author.send( embed = emb )
+#help
 
 #help
 @client.command( pass_context = True )
