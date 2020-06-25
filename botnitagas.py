@@ -193,7 +193,7 @@ async def help( ctx ):
 async def helpadmin( ctx ):
     await ctx.channel.purge( limit = 1 )
     emb = discord.Embed( title = 'HELP', colour = discord.Color.red() )
-    emb.add_field( name = 'Commands',value = ' info- Информация\n\n Для админов \n \n text- писать от бота\nclear\n ban\n unban\n kick\nrainbow\n youtube- видео с nitagas\n\nchanging_name- изменить ник\nevent_roles- розогрыш ролей\ntempban s m h d\ntmute- voice mute\ntemp_add_role +time @ role\nadd_role +@ +role\ntempmute +time @ arg\nchannel_create +name\nvoice_create +name\nemojie +id message + emoji\nsuggest +arg')
+    emb.add_field( name = 'Commands',value = ' info- Информация\n\n Для админов \n \n text- писать от бота\nclear\n ban\n unban\n kick\nrainbow\n youtube- видео с nitagas\n\nchanging_name- изменить ник\nevent_roles- розогрыш ролей\ntempban s m h d\ntmute- voice mute\ntemp_add_role +time @ role\nadd_role +@ +role\ntempmute +time @ arg\nchannel_create +name\nvoice_create +name\nemoji +id message + emoji\nsuggest +arg')
     await ctx.author.send( embed = emb )
 #time
 @client.command( pass_context = True )
@@ -226,6 +226,7 @@ async def on_member_join( member ):
     await member.add_roles( role )
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}, присоеденился к нам!') )
     await member.send( f'{ member.name}, Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\n\nБудьте дружелюбны к другим участникам\n\nМат запрещен\n\nЭтот сервер создан для общения\n\nПропиши команду -help что-бы узнать мои комманды')
+    await member.send( f'{ member.name}, Полезные команды:\n-help\n$help')
 
 #send_m
 @client.command()
@@ -995,7 +996,7 @@ start_ev = 0 #перемычка
 async def event_roles(сtx, role: discord.Role = None, member: discord.Member = None):
     global ev_player
     global start_ev
-    general = client.get_channel(705461507953262793)
+    general = client.get_channel(720917863912701953)
     if role is None:
         await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`-event_roles [role]`')
         return
