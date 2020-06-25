@@ -1019,15 +1019,15 @@ async def участвую( ctx ):
     global start_ev
     author = ctx.message.author
     if start_ev == 0:
-        await ctx.send('**Сейчас нету розыгрыша ролей!**')
+        await ctx.author.send('**Сейчас нету розыгрыша ролей!**')
         return
     if author in ev_player:
-        await ctx.send('Вы уже приняли участие в этом розыгрыше!')
+        await ctx.author.send('Вы уже приняли участие в этом розыгрыше!')
         return
     else:
         ev_player.append(author)
         print(f'Игрок {author} принял участие в розыгрыши роли.')
-        await сtx.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
+        await сtx.author.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
         print('Розыгрыш роли завершен.')
 
 
