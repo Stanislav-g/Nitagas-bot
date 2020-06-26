@@ -1337,6 +1337,41 @@ async def ngame(ctx):
 async def ball(ctx, arg = None):
     embe = discord.Embed( title = random.choice(['Да :8ball: ','Нет :8ball: ','Может быть','Думаю нет','Думаю да','Хорошо','Не сейчас','Позже','Сложный вопрос','Не знаю','Надо подумать','Потом','Ты шутишь?','Конечно, да!']), colour = discord.Color.red() )
     await ctx.send(embed=embe)
+@client.command()
+@commands.has_permissions(administrator = True)
+async def botchanging_name(ctx, member: discord.Member = None):
+    try:
+        if member is None:
+            await ctx.send(embed = discord.Embed(description = "Обязательно укажите **пользователя**!"))
+        else:
+            await member.edit(nick = NITAGAS)
+            await asyncio.sleep(10)
+            await member.edit(nick = nitagas)
+            await asyncio.sleep(10)
+            await member.edit(nick = NITAGAS)
+            await asyncio.sleep(10)
+            await member.edit(nick = nitagas)
+            await asyncio.sleep(10)
+            await member.edit(nick = NITAGAS)
+            await asyncio.sleep(10)
+            await member.edit(nick = nitagas)
+            await asyncio.sleep(10)
+            await member.edit(nick = NITAGAS)
+            await asyncio.sleep(10)
+            await member.edit(nick = nitagas)
+            await asyncio.sleep(10)
+            await member.edit(nick = NITAGAS)
+            await asyncio.sleep(10)
+            await member.edit(nick = nitagas)
+            await asyncio.sleep(10)
+            await member.edit(nick = NITAGAS)
+            await asyncio.sleep(10)
+            await member.edit(nick = nitagas)
+            await asyncio.sleep(10)
+    except:
+        await ctx.send(embed = discord.Embed(description = f"Я не могу изменить ник пользователя **{member.name}**!"))  
+
+        
     
     
     
