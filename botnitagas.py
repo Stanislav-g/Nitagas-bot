@@ -512,77 +512,78 @@ r_words = ['stop']
 @client.command( pass_context = True )
 @commands.has_permissions( administrator = True )
 
-async def rainbow( ctx, member: discord.Member, arg = None ):
+async def rainbow( ctx, member: discord.Member ):
     await ctx.channel.purge( limit = 1 )
 
     while True:
        
-        if arg == '1':
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '1')
-            await member.add_roles( ppp_role )
-            await asyncio.sleep(3)
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '1')
-            await member.remove_roles( ppp_role )
-
-
-
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '2')
-            await member.add_roles( ppp_role )
-            await asyncio.sleep(3)
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '2')
-            await member.remove_roles( ppp_role )
-
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '3')
-            await member.add_roles( ppp_role )
-            await asyncio.sleep(3)
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '3')
-            await member.remove_roles( ppp_role )
-
-
-
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '4')
-            await member.add_roles( ppp_role )
-            await asyncio.sleep(3)
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '4')
-            await member.remove_roles( ppp_role )
-
-
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '5')
-            await member.add_roles( ppp_role )
-            await asyncio.sleep(3)
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '5')
-            await member.remove_roles( ppp_role )
-
-
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '6')
-            await member.add_roles( ppp_role )
-            await asyncio.sleep(3)
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '6')
-            await member.remove_roles( ppp_role )
-
-
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '7')
-            await member.add_roles( ppp_role )
-            await asyncio.sleep(3)
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '7')
-            await member.remove_roles( ppp_role )
-
-
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '8')
-            await member.add_roles( ppp_role )
-            await asyncio.sleep(3)
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '8')
-            await member.remove_roles( ppp_role )
-
-
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '9')
-            await member.add_roles( ppp_role )
-            await asyncio.sleep(3)
-            ppp_role = discord.utils.get( ctx.message.guild.roles, name = '9')
-            await member.remove_roles( ppp_role )
-        if arg == '0':
-            break
             
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '1')
+        await member.add_roles( ppp_role )
+        await asyncio.sleep(3)
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '1')
+        await member.remove_roles( ppp_role )
+
+      
+            
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '2')
+        await member.add_roles( ppp_role )
+        await asyncio.sleep(3)
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '2')
+        await member.remove_roles( ppp_role )
+
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '3')
+        await member.add_roles( ppp_role )
+        await asyncio.sleep(3)
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '3')
+        await member.remove_roles( ppp_role )
+
+        
+            
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '4')
+        await member.add_roles( ppp_role )
+        await asyncio.sleep(3)
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '4')
+        await member.remove_roles( ppp_role )
+
+     
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '5')
+        await member.add_roles( ppp_role )
+        await asyncio.sleep(3)
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '5')
+        await member.remove_roles( ppp_role )
+
+            
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '6')
+        await member.add_roles( ppp_role )
+        await asyncio.sleep(3)
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '6')
+        await member.remove_roles( ppp_role )
+
+            
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '7')
+        await member.add_roles( ppp_role )
+        await asyncio.sleep(3)
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '7')
+        await member.remove_roles( ppp_role )
+
+     
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '8')
+        await member.add_roles( ppp_role )
+        await asyncio.sleep(3)
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '8')
+        await member.remove_roles( ppp_role )
+
+            
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '9')
+        await member.add_roles( ppp_role )
+        await asyncio.sleep(3)
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '9')
+        await member.remove_roles( ppp_role )
+       
+
+       
+
 
 
        
