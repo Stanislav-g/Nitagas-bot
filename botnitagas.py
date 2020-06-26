@@ -678,7 +678,7 @@ async def second(ctx ):
     if a == 'win':
         await ctx.send( "if you want continue, write -nextlvls")
     if a == 'lose':
-        await ctx.send( "Game over" )
+        await ctx.send( "Game over " )
         fin = random.choice(['lucky next time','try again','loser','hahaha'])
         await ctx.send( fin )
 
