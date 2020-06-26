@@ -1340,34 +1340,25 @@ async def ball(ctx, arg = None):
 @client.command()
 @commands.has_permissions(administrator = True)
 async def botchanging_name(ctx, member: discord.Member = None):
-    try:
-        if member is None:
-            await ctx.send(embed = discord.Embed(description = "Обязательно укажите **пользователя**!"))
-        else:
-            await member.edit(nick = NITAGAS)
-            await asyncio.sleep(10)
-            await member.edit(nick = nitagas)
-            await asyncio.sleep(10)
-            await member.edit(nick = NITAGAS)
-            await asyncio.sleep(10)
-            await member.edit(nick = nitagas)
-            await asyncio.sleep(10)
-            await member.edit(nick = NITAGAS)
-            await asyncio.sleep(10)
-            await member.edit(nick = nitagas)
-            await asyncio.sleep(10)
-            await member.edit(nick = NITAGAS)
-            await asyncio.sleep(10)
-            await member.edit(nick = nitagas)
-            await asyncio.sleep(10)
-            await member.edit(nick = NITAGAS)
-            await asyncio.sleep(10)
-            await member.edit(nick = nitagas)
-            await asyncio.sleep(10)
-            await member.edit(nick = NITAGAS)
-            await asyncio.sleep(10)
-            await member.edit(nick = nitagas)
-            await asyncio.sleep(10)
+    await ctx.send(embed = discord.Embed(description = f"Я могу изменить ник пользователя **{member.name}**!"))  
+
+    await member.edit(nick = nitagas)
+    await asyncio.sleep(10)
+    await member.edit(nick = NITAGAS)
+    await asyncio.sleep(10)
+    await member.edit(nick = nitagas)
+    await asyncio.sleep(10)
+    await member.edit(nick = NITAGAS)
+    await asyncio.sleep(10)
+    await member.edit(nick = nitagas)
+    await asyncio.sleep(10)
+    await member.edit(nick = NITAGAS)
+    await asyncio.sleep(10)
+    await member.edit(nick = nitagas)
+    await asyncio.sleep(10)
+    await member.edit(nick = NITAGAS)
+    
+            
     except:
         await ctx.send(embed = discord.Embed(description = f"Я не могу изменить ник пользователя **{member.name}**!"))  
 
