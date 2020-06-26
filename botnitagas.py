@@ -1359,11 +1359,6 @@ async def botchanging_name(ctx, member: discord.Member = None):
         await asyncio.sleep(10)
         await member.edit(nick = NITAGAS)
 
-            
-    except:
-        await ctx.send(embed = discord.Embed(description = f"Я не могу изменить ник пользователя **{member.name}**!"))  
-
-        
     
     
     
