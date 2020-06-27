@@ -1365,7 +1365,7 @@ async def botchanging_name(ctx, member: discord.Member = None):
 
     
 @client.command()
-async def statusss(ctx):
+async def statusline(ctx):
     await ctx.channel.purge( limit = 1 )
     while True:
     
@@ -1386,34 +1386,7 @@ async def statusss(ctx):
         await asyncio.sleep(1)
        
 
-        
-        
-@client.command()
-async def statushelp(ctx):
-    await ctx.channel.purge( limit = 1 )
-    while True:
-    
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(2)
-        activity = discord.Activity(name='-Help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(2)
-        activity = discord.Activity(name='-hElp', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(2)
-        activity = discord.Activity(name='-heLp', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(2)
-        activity = discord.Activity(name='-helP', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(2) 
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        
-        
-        
-        
+   
         
         
     
