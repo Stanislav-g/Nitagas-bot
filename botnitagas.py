@@ -1364,7 +1364,28 @@ async def botchanging_name(ctx, member: discord.Member = None):
         await member.edit(nick = NITAGAS)
 
     
+@client.command()
+async def statusss(ctx):
+    await ctx.channel.purge( limit = 1 )
+    while True:
     
+        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+       
+        
     
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
