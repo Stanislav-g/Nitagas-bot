@@ -1385,6 +1385,77 @@ async def statusss(ctx):
         await client.change_presence(activity=activity)
         await asyncio.sleep(1)
        
+@client.command()
+async def statusline(ctx):
+    await ctx.channel.purge( limit = 1 )
+    while True:
+    
+        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        
+     
+        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        
+        
+        
+@client.command()
+async def statushelp(ctx):
+    await ctx.channel.purge( limit = 1 )
+    while True:
+    
+        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-Help', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-hElp', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-heLp', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-helP', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1) 
+        activity = discord.Activity(name='-heLp', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-hElp', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-Help', type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(0)
+              
+        
+        
+        
+        
         
     
 token= os.environ.get('BOT_TOKEN')
