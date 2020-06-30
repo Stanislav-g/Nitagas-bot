@@ -1493,9 +1493,10 @@ async def statusline(ctx):
    
 @client.command()
 async def botchangingstatus(ctx, member: discord.Member = None):
+    await ctx.channel.purge( limit = 1 )
     
     while True:
-        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
+        activity = discord.Activity(name='-', type=discord.ActivityType)
         await member.change_presence(activity=activity)
         await asyncio.sleep(1)
         
