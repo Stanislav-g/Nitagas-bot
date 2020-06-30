@@ -1491,6 +1491,15 @@ async def statusline(ctx):
         await asyncio.sleep(1)
 
    
+@client.command()
+@commands.has_permissions(administrator = True)
+async def botchangingstatus(ctx, member: discord.Member = None):
+    
+    while True:
+        await ctx.send(embed = discord.Embed(description = f"Я могу изменить ник пользователя **{member.name}**!"))
+        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
+        await member.change_presence(activity=activity)
+        await asyncio.sleep(1)
         
         
     
