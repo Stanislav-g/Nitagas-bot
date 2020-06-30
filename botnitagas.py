@@ -1443,8 +1443,8 @@ async def statusline(ctx):
         await asyncio.sleep(1)
         activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
-        await asyncio.sleep(1)ac
-        tivity = discord.Activity(name='-', type=discord.ActivityType.watching)
+        await asyncio.sleep(1)
+        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(1)
         activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
