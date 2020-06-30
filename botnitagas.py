@@ -666,7 +666,7 @@ async def first(ctx ):
     a = random.choice(['win','lose','win','lose'])
     await ctx.send( a )
     if a == 'win':
-        await ctx.send( "if you want continue, write -nextlvls")
+        await ctx.author.send( "if you want continue, write -nextlvls")
     if a == 'lose':
         await ctx.send( "Game over" )
         fin = random.choice(['lucky next time','try again','loser','hahaha'])
@@ -677,7 +677,7 @@ async def second(ctx ):
     a = random.choice(['win','lose','win','lose'])
     await ctx.send( a )
     if a == 'win':
-        await ctx.send( "if you want continue, write -nextlvls")
+        await ctx.author.send( "if you want continue, write -nextlvls")
     if a == 'lose':
         await ctx.send( "Game over " )
         fin = random.choice(['lucky next time','try again','loser','hahaha'])
@@ -688,7 +688,7 @@ async def third(ctx ):
     a = random.choice(['win','lose','win','lose'])
     await ctx.send( a )
     if a == 'win':
-        await ctx.send( "if you want continue, write -nextlvls")
+        await ctx.author.send( "if you want continue, write -nextlvls")
     if a == 'lose':
         await ctx.send( "Game over" )
         fin = random.choice(['lucky next time','try again','loser','hahaha'])
@@ -700,7 +700,7 @@ async def fouth(ctx ):
     a = random.choice(['win','lose','win','lose'])
     await ctx.send( a )
     if a == 'win':
-        await ctx.send( "if you want continue, write -nextlvls")
+        await ctx.author.send( "if you want continue, write -nextlvls")
     if a == 'lose':
         await ctx.send( "Game over" )
         fin = random.choice(['lucky next time','try again','loser','hahaha'])
@@ -711,7 +711,7 @@ async def fifth(ctx ):
     a = random.choice(['win','lose','win','lose'])
     await ctx.send( a )
     if a == 'win':
-        await ctx.send( "if you want continue, write -nextlvls")
+        await ctx.author.send( "if you want continue, write -nextlvls")
     if a == 'lose':
         await ctx.send( "Game over" )
         fin = random.choice(['lucky next time','try again','loser','hahaha'])
@@ -722,7 +722,7 @@ async def sixth(ctx ):
     a = random.choice(['win','lose','win','lose'])
     await ctx.send( a )
     if a == 'win':
-        await ctx.send( "if you want continue, write -nextlvls")
+        await ctx.author.send( "if you want continue, write -nextlvls")
     if a == 'lose':
         await ctx.send( "Game over" )
 
@@ -731,7 +731,7 @@ async def seventh(ctx ):
     a = random.choice(['win','lose','win','lose'])
     await ctx.send( a )
     if a == 'win':
-        await ctx.send( "if you want continue, write -nextlvls")
+        await ctx.author.send( "if you want continue, write -nextlvls")
     if a == 'lose':
         await ctx.send( "Game over" )
         fin = random.choice(['lucky next time','try again','loser','hahaha'])
@@ -742,7 +742,7 @@ async def eighth(ctx ):
     a = random.choice(['win','lose','win','lose'])
     await ctx.send( a )
     if a == 'win':
-        await ctx.send( "if you want continue, write -nextlvls")
+        await ctx.author.send( "if you want continue, write -nextlvls")
     if a == 'lose':
         await ctx.send( "Game over" )
         fin = random.choice(['lucky next time','try again','loser','hahaha'])
@@ -753,7 +753,7 @@ async def ninth(ctx ):
     a = random.choice(['win','lose','win','lose'])
     await ctx.send( a )
     if a == 'win':
-        await ctx.send( "if you want continue, write -nextlvls")
+        await ctx.author.send( "if you want continue, write -nextlvls")
     if a == 'lose':
         await ctx.send( "Game over" )
         fin = random.choice(['lucky next time','try again','loser','hahaha'])
@@ -1491,14 +1491,7 @@ async def statusline(ctx):
         await asyncio.sleep(1)
 
    
-@client.command()
-async def botchangingstatus(ctx, member: discord.Member = None):
-    await ctx.channel.purge( limit = 1 )
-    
-    while True:
-        activity = discord.Activity(name='-', type=discord.ActivityType)
-        await member.change_presence(activity=activity)
-        await asyncio.sleep(1)
+
         
         
     
