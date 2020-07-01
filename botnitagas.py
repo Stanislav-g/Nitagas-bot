@@ -1495,40 +1495,40 @@ async def statusline(ctx):
 async def seagoogle(ctx, *, question, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11):  # пояндексить
     # сам сайт
     url = 'https://drive.google.com/drive/folders/1' + str(question).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'1\n{url}')
+    await ctx.send(f'вот\n{url}')
     
     urlq = 'https://drive.google.com/drive/folders/1' + str(question1).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'2\n{urlq}')
+    await ctx.send(f'вот\n{urlq}')
     
     urlw = 'https://drive.google.com/drive/folders/1' + str(question2).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'3\n{urlw}')
+    await ctx.send(f'вот\n{urlw}')
     
     urle = 'https://drive.google.com/drive/folders/1' + str(question3).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'4\n{urle}')
+    await ctx.send(f'вот\n{urle}')
     
     urlr = 'https://drive.google.com/drive/folders/1' + str(question4).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'5\n{urlr}')
+    await ctx.send(f'вот\n{urlr}')
     
     urlt = 'https://drive.google.com/drive/folders/1' + str(question5).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'6\n{urlt}')
+    await ctx.send(f'вот\n{urlt}')
     
     urly = 'https://drive.google.com/drive/folders/1' + str(question6).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'7\n{urly}')
+    await ctx.send(f'вот\n{urly}')
     
     urlu = 'https://drive.google.com/drive/folders/1' + str(question7).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'8\n{urlu}')
+    await ctx.send(f'вот\n{urlu}')
     
     urli = 'https://drive.google.com/drive/folders/1' + str(question8).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'9\n{urli}')
+    await ctx.send(f'вот\n{urli}')
     
     urlo = 'https://drive.google.com/drive/folders/1' + str(question9).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'10\n{urlo}')
+    await ctx.send(f'вот\n{urlo}')
     
     urlp = 'https://drive.google.com/drive/folders/1' + str(question10).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'11\n{urlp}')
+    await ctx.send(f'вот\n{urlp}')
 
     urla = 'https://drive.google.com/drive/folders/1' + str(question11).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'12\n{urla}')
+    await ctx.send(f'вот\n{urla}')
 
 
    #search
@@ -1538,7 +1538,35 @@ async def seachgoogle(ctx, *, question):  # пояндексить
     url = 'https://drive.google.com/drive/folders/1' + str(question).replace(' ', '+') + '?usp=sharing'
     await ctx.send(f'вот\n{url}')
 
-        
+
+@client.command()
+async def seagoogletwo(ctx, *, question, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11):  # пояндексить
+    # сам сайт
+    url = 'https://drive.google.com/drive/folders/1' + str(question).replace(' ', '+') + '?usp=sharing'
+    urlq = 'https://drive.google.com/drive/folders/1' + str(question1).replace(' ', '+') + '?usp=sharing'
+    urlw = 'https://drive.google.com/drive/folders/1' + str(question2).replace(' ', '+') + '?usp=sharing'
+    urle = 'https://drive.google.com/drive/folders/1' + str(question3).replace(' ', '+') + '?usp=sharing'
+    urlr = 'https://drive.google.com/drive/folders/1' + str(question4).replace(' ', '+') + '?usp=sharing'
+    urlt = 'https://drive.google.com/drive/folders/1' + str(question5).replace(' ', '+') + '?usp=sharing'
+    urly = 'https://drive.google.com/drive/folders/1' + str(question6).replace(' ', '+') + '?usp=sharing'
+    urlu = 'https://drive.google.com/drive/folders/1' + str(question7).replace(' ', '+') + '?usp=sharing'
+    urli = 'https://drive.google.com/drive/folders/1' + str(question8).replace(' ', '+') + '?usp=sharing'
+    urlo = 'https://drive.google.com/drive/folders/1' + str(question9).replace(' ', '+') + '?usp=sharing'
+    urlp = 'https://drive.google.com/drive/folders/1' + str(question10).replace(' ', '+') + '?usp=sharing'
+    urla = 'https://drive.google.com/drive/folders/1' + str(question11).replace(' ', '+') + '?usp=sharing'
+    
+    await ctx.send(f'вот\n{url}')
+    await ctx.send(f'вот\n{urlq}')
+    await ctx.send(f'вот\n{urlw}')
+    await ctx.send(f'вот\n{urle}')
+    await ctx.send(f'вот\n{urlr}')
+    await ctx.send(f'вот\n{urlt}')
+    await ctx.send(f'вот\n{urly}')
+    await ctx.send(f'вот\n{urlu}')
+    await ctx.send(f'вот\n{urli}')
+    await ctx.send(f'вот\n{urlo}')  
+    await ctx.send(f'вот\n{urlp}')
+    await ctx.send(f'вот\n{urla}')        
         
     
 token= os.environ.get('BOT_TOKEN')
