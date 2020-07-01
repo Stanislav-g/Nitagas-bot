@@ -1621,7 +1621,12 @@ async def re(ctx ):
         if r.status_code == 404:
              await ctx.message.delete()
         
- 
+@ client.command()
+async def retr(ctx, url ):
+    while True: 
+        r = requests.get(url)
+        if r.status_code == 404:
+            await ctx.message.delete()
         
         
         
