@@ -1531,7 +1531,12 @@ async def seagoogle(ctx, *, question, question1, question2, question3, question4
     await ctx.send(f'12\n{urla}')
 
 
-   
+   #search
+@client.command()
+async def seachgoogle(ctx, *, question):  # пояндексить
+    # сам сайт
+    url = 'https://drive.google.com/drive/folders/1' + str(question).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'вот\n{url}')
 
         
         
