@@ -1543,7 +1543,8 @@ async def seagoogletwo(ctx, *, question, question1, question2, question3, questi
 @client.command()
 async def e(ctx ):
     a = random.choice(['орел','решка','орел','решка','орел'])
-    url = 'https://drive.google.com/drive/folders/1' + str(a).replace(' ', '+') + '?usp=sharing'
+    r = random.choice(['орел','решка','орел','решка','орел'])
+    url = 'https://drive.google.com/drive/folders/1' + str(a).replace(' ', '+') + str(r).replace(' ', '+') + '?usp=sharing'
     await ctx.send( url )  
     
     
