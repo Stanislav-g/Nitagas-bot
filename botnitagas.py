@@ -1492,7 +1492,7 @@ async def statusline(ctx):
 
 #search
 @client.command()
-async def seagoogle(ctx, *, question, questionn):  # пояндексить
+async def seagoogle(ctx, *, question, ctx, *, questionn):  # пояндексить
     # сам сайт
     url = 'https://drive.google.com/drive/folders/1' + str(question).replace(' ', '+') + '?usp=sharing', 'https://drive.google.com/drive/folders/1' + str(questionn).replace(' ', '+') + '?usp=sharing'
     await ctx.send(f'вот\n{url}')
