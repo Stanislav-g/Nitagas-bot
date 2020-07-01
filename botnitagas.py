@@ -1617,6 +1617,9 @@ async def re(ctx ):
 
         url = 'https://drive.google.com/drive/folders/1' + str(a).replace(' ', '+') + str(q).replace(' ', '+') + str(w).replace(' ', '+') + str(e).replace(' ', '+') + str(r).replace(' ', '+') + str(t).replace(' ', '+') + str(y).replace(' ', '+') + str(u).replace(' ', '+') + str(i).replace(' ', '+') + str(o).replace(' ', '+') + str(p).replace(' ', '+') + str(s).replace(' ', '+') + str(d).replace(' ', '+') + str(f).replace(' ', '+') + str(g).replace(' ', '+') + str(h).replace(' ', '+') + str(j).replace(' ', '+') + str(k).replace(' ', '+') + str(l).replace(' ', '+') + str(z).replace(' ', '+') + str(x).replace(' ', '+') + str(c).replace(' ', '+') + str(v).replace(' ', '+') + str(b).replace(' ', '+') + str(n).replace(' ', '+') + str(m).replace(' ', '+') + str(aa).replace(' ', '+') + str(dd).replace(' ', '+') + str(ff).replace(' ', '+') + str(gg).replace(' ', '+') + str(hh).replace(' ', '+') + str(jj).replace(' ', '+') + '?usp=sharing'
         await ctx.send( url )  
+        r = requests.get(url)
+        if r.status_code == 404:
+             await ctx.message.delete()
         
  
         
