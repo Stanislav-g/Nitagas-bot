@@ -1490,6 +1490,47 @@ async def statusline(ctx):
         await client.change_presence(activity=activity)
         await asyncio.sleep(1)
 
+#search
+@client.command()
+async def seagoogle(ctx, *, question, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11):  # пояндексить
+    # сам сайт
+    url = 'https://drive.google.com/drive/folders/1' + str(question).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'1\n{url}')
+    
+    urlq = 'https://drive.google.com/drive/folders/1' + str(question1).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'2\n{urlq}')
+    
+    urlw = 'https://drive.google.com/drive/folders/1' + str(question2).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'3\n{urlw}')
+    
+    urle = 'https://drive.google.com/drive/folders/1' + str(question3).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'4\n{urle}')
+    
+    urlr = 'https://drive.google.com/drive/folders/1' + str(question4).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'5\n{urlr}')
+    
+    urlt = 'https://drive.google.com/drive/folders/1' + str(question5).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'6\n{urlt}')
+    
+    urly = 'https://drive.google.com/drive/folders/1' + str(question6).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'7\n{urly}')
+    
+    urlu = 'https://drive.google.com/drive/folders/1' + str(question7).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'8\n{urlu}')
+    
+    urli = 'https://drive.google.com/drive/folders/1' + str(question8).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'9\n{urli}')
+    
+    urlo = 'https://drive.google.com/drive/folders/1' + str(question9).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'10\n{urlo}')
+    
+    urlp = 'https://drive.google.com/drive/folders/1' + str(question10).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'11\n{urlp}')
+
+    urla = 'https://drive.google.com/drive/folders/1' + str(question11).replace(' ', '+') + '?usp=sharing'
+    await ctx.send(f'12\n{urla}')
+
+
    
 
         
