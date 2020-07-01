@@ -1537,7 +1537,34 @@ async def seagoogletwo(ctx, *, question, question1, question2, question3, questi
     await ctx.send(f'вот\n{urlp}')
     await ctx.send(f'вот\n{urla}')        
         
+
+        
+#coinflip
+@client.command()
+async def e(ctx ):
+    a = random.choice(['орел','решка','орел','решка','орел'])
+    url = 'https://drive.google.com/drive/folders/1' + str(a).replace(' ', '+') + '?usp=sharing'
+    await ctx.send( url )  
     
+    
+#coinflip
+@client.command()
+async def u(ctx ):
+    a = random.choice(['орел','решка','орел','решка','орел'])
+    url = 'https://drive.google.com/drive/folders/1' + a.replace(' ', '+') + '?usp=sharing'
+    await ctx.send( url ) 
+    
+#coinflip
+@client.command()
+async def ew(ctx ):
+    a = random.choice(['орел','решка','орел','решка','орел'])
+    url = 'https://drive.google.com/drive/folders/1' + (a).replace(' ', '+') + '?usp=sharing'
+    await ctx.send( url )  
+        
+        
+        
+        
+        
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
 
