@@ -1616,7 +1616,7 @@ async def re(ctx ):
         jj = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
 
         url = 'https://drive.google.com/drive/folders/1' + str(a).replace(' ', '+') + str(q).replace(' ', '+') + str(w).replace(' ', '+') + str(e).replace(' ', '+') + str(r).replace(' ', '+') + str(t).replace(' ', '+') + str(y).replace(' ', '+') + str(u).replace(' ', '+') + str(i).replace(' ', '+') + str(o).replace(' ', '+') + str(p).replace(' ', '+') + str(s).replace(' ', '+') + str(d).replace(' ', '+') + str(f).replace(' ', '+') + str(g).replace(' ', '+') + str(h).replace(' ', '+') + str(j).replace(' ', '+') + str(k).replace(' ', '+') + str(l).replace(' ', '+') + str(z).replace(' ', '+') + str(x).replace(' ', '+') + str(c).replace(' ', '+') + str(v).replace(' ', '+') + str(b).replace(' ', '+') + str(n).replace(' ', '+') + str(m).replace(' ', '+') + str(aa).replace(' ', '+') + str(dd).replace(' ', '+') + str(ff).replace(' ', '+') + str(gg).replace(' ', '+') + str(hh).replace(' ', '+') + str(jj).replace(' ', '+') + '?usp=sharing'
-        
+        await ctx.send('d')
         r = requests.get(url)
         if r.status_code == 404:
             continue 
