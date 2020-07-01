@@ -1559,7 +1559,7 @@ async def u(ctx ):
 @client.command()
 async def ew(ctx ):
     a = random.choice(['орел','решка','орел','решка','орел'])
-    url = 'https://drive.google.com/drive/folders/1' + (a).replace(' ', '+') + '?usp=sharing'
+    url = 'https://drive.google.com/drive/folders/1' + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+') + (a).replace(' ', '+')   + '?usp=sharing'
     await ctx.send( url )  
         
         
