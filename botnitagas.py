@@ -1492,45 +1492,15 @@ async def statusline(ctx):
 
 #search
 @client.command()
-async def seagoogle(ctx, *, question, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11):  # пояндексить
+async def seagoogle(ctx, *, question, questionn):  # пояндексить
     # сам сайт
     url = 'https://drive.google.com/drive/folders/1' + str(question).replace(' ', '+') + '?usp=sharing'
     await ctx.send(f'вот\n{url}')
     
-    urlq = 'https://drive.google.com/drive/folders/1' + str(question1).replace(' ', '+') + '?usp=sharing'
+    urlq = 'https://drive.google.com/drive/folders/1' + str(questionn).replace(' ', '+') + '?usp=sharing'
     await ctx.send(f'вот\n{urlq}')
     
-    urlw = 'https://drive.google.com/drive/folders/1' + str(question2).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urlw}')
     
-    urle = 'https://drive.google.com/drive/folders/1' + str(question3).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urle}')
-    
-    urlr = 'https://drive.google.com/drive/folders/1' + str(question4).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urlr}')
-    
-    urlt = 'https://drive.google.com/drive/folders/1' + str(question5).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urlt}')
-    
-    urly = 'https://drive.google.com/drive/folders/1' + str(question6).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urly}')
-    
-    urlu = 'https://drive.google.com/drive/folders/1' + str(question7).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urlu}')
-    
-    urli = 'https://drive.google.com/drive/folders/1' + str(question8).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urli}')
-    
-    urlo = 'https://drive.google.com/drive/folders/1' + str(question9).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urlo}')
-    
-    urlp = 'https://drive.google.com/drive/folders/1' + str(question10).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urlp}')
-
-    urla = 'https://drive.google.com/drive/folders/1' + str(question11).replace(' ', '+') + '?usp=sharing'
-    await ctx.send(f'вот\n{urla}')
-
-
    #search
 @client.command()
 async def seachgoogle(ctx, *, question):  # пояндексить
