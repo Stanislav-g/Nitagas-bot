@@ -1619,10 +1619,9 @@ async def re(ctx ):
         
         r = requests.get(url)
         if r.status_code == 404:
-             await ctx.message.delete()
              await ctx.send(f'd')
         else:
-             await ctx.send(f's')
+            await ctx.send( url )
        
            
        
