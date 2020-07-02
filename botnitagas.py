@@ -1628,8 +1628,8 @@ async def re(ctx ):
            
 @client.command()
 async def gfoto(ctx, arg ):
-    if arg == start:
-        while True:
+    while True:
+        if arg == start:
             a = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
             q = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
             w = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
@@ -1671,9 +1671,9 @@ async def gfoto(ctx, arg ):
                  await ctx.send(f'd')
             else:
                  await ctx.send( url )
-    else:
-        break
-       
+        else:
+            break
+    
 
 
         
