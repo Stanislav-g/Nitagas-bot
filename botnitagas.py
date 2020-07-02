@@ -1760,6 +1760,68 @@ async def reps(ctx, member: discord.Member = None):
                 description = f'У **{member}** {cursor.execute("SELECT rep FROM users WHERE id = {}".format(member.id)).fetchone()[0]} благодарностей'
             ))
   
+#help
+@client.command(pass_context = True)
+async def helptwov(ctx):
+    await ctx.channel.purge(limit = 1)
+    emb = discord.Embed( 
+        title = 'Навигация по командам :clipboard:',
+        color = 0x7aa13d
+     )
+    
+    emb.add_field( name = '__**Информация**__', value = '''
+        ***/info*** - информация
+        ***/serverinfo*** - информация о сервере
+        ***/botinfo*** - информация о боte
+        ***/userinfo*** - информация о пользователе
+        ***/time*** - 
+        ***/covid*** - 
+        ***/avatar*** - 
+        ***/*** - 
+        ***/*** - 
+        ***/*** - 
+        ***/*** - 
+        ***/*** - 
+        ''' )
+    emb.add_field( name = '__**Игры**__', value = '''
+        ***/num*** - рандомное число от 1-101
+        ***/угадайка*** - угадай число от 1 до 20
+        ***/sapper*** - сапер
+        ***/knb*** - камень, ножницы, бумага\
+        ***/rps*** - камень, ножницы, бумага с ботом
+        ***/coinflip*** - орел или решка?
+        ***/ball*** - шар предсказаний
+        ''' )
+    emb.add_field( name = '__**Остальное**__', value = '''
+        ***/send_m*** - отправить сообщение другому участнику через бота
+        ***/ping*** - пинг
+        ***/math*** - калькулятор
+        ***/hello*** - Приветствие
+        ***/slap*** - ударить рандомного участника
+        ***/slapperson*** - ударить определенного игрока
+        ***/union*** - узнать ник
+        ***/roles*** - узнать роли игрока
+        ***/add*** - суммировать числа
+        ***/wordnum*** - количество слов в тексте
+        ***/text2*** - ???
+        ***/ytn*** - рандомное видео с канала Nitagas
+        ***/*** - рандомное эмоджи
+        ***/emoji_random*** - 
+        ***/kill*** - 
+        
+        
+        ''' )
+    emb.add_field( name = '__**Поиск**__', value = '''
+        ***/search*** - поиск
+        ***/youtube_search*** - поиск в youtube
+        ***/wiki*** - поиск в википедия
+        ***/yandex*** - поиск в яндекс
+        ***/google*** - поиск в гугл
+        ***/*** - 
+        ***/*** - 
+        ***/*** - 
+        ''' )
+    await ctx.send(embed = emb)
         
         
 token= os.environ.get('BOT_TOKEN')
