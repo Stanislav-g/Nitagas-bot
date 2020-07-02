@@ -997,10 +997,11 @@ start_ev = 0 #перемычка
 #event roles
 @client.command()
 @commands.has_permissions( administrator = True )
-async def event_roles(сtx, role: discord.Role = None, member: discord.Member = None):
+async def event_roles(сtx, role: discord.Role = None, member: discord.Member = None, id = None):
     global ev_player
     global start_ev
-    general = client.get_channel(720917863912701953)
+    idk = (id)
+    general = client.get_channel(idk)
     if role is None:
         await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`-event_roles [role]`')
         return
