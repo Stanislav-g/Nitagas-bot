@@ -1729,7 +1729,41 @@ async def retr(ctx, url ):
         if r.status_code == 404:
             await ctx.message.delete()
         
-        
+#event_roles
+@client.command()
+async def event_role(ctx, role: discord.Role = None, member: discord.Member = None):
+    global ev_player
+    global start_ev
+    if role is None:
+        await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`/event_roles [role]`')
+        return
+    start_ev = 1
+    await ctx.send(f'Администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `/mp`.' '\n' f'**Розыгрыш состоится через 2 минуты.**')
+    await asyncio.sleep(120)
+    ev_win = r.choice(ev_player)
+    member = ev_win
+    await ctx.send(f'**Поздравляем {ev_win.mention}! Он выигрывает в розыгрыше и получает роль {role.mention}.**')
+    await ev_win.add_roles(role)
+    ev_player = ['']
+    start_ev = 0
+
+#mp
+@client.command()
+async def mp(ctx):
+    global ev_player
+    global start_ev
+    author = ctx.message.author
+    if start_ev == 0:
+        await ctx.send('**Сейчас нету розыгрыша ролей!**')
+        return
+    if author in ev_player:
+        await ctx.send('Вы уже приняли участие в этом розыгрыше!')
+        return
+    else:
+        ev_player.append(author)
+        print(f'Игрок {author} принял участие в розыгрыши роли.')
+        await ctx.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
+        print('Розыгрыш роли завершен.')        
         
         
         
