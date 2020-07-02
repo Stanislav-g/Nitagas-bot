@@ -1714,8 +1714,8 @@ async def __rep(ctx, member: discord.Member = None):
             await ctx.message.add_reaction('✔️')
 
 #+rep
-@client.command(aliases = ['+rep'])
-async def __rep_(ctx, member: discord.Member = None):
+@client.command()
+async def reph(ctx, member: discord.Member = None):
     if member is None:
         await ctx.send(embed = discord.Embed(
             description = f'У **{ctx.author}**, укажите пользователя, которому хотите отправить благодарность'
@@ -1729,11 +1729,11 @@ async def __rep_(ctx, member: discord.Member = None):
             await ctx.message.add_reaction('✔️')
 
 #-rep
-@client.command(aliases = ['-rep'])
-async def __rep(ctx, member: discord.Member = None):
+@client.command()
+async def repl(ctx, member: discord.Member = None):
     if member is None:
         await ctx.send(embed = discord.Embed(
-            description = f'У **{ctx.author}**, укажите пользователя, которому хотите отправить благодарность'
+            description = f'У **{ctx.author}**, укажите пользователя, которому хотите снять благодарность'
         ))
     else:
         if member.id == ctx.author.id:
