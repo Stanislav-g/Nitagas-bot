@@ -997,7 +997,7 @@ start_ev = 0 #перемычка
 #event roles
 @client.command()
 @commands.has_permissions( administrator = True )
-async def event_roles(сtx, role: discord.Role = None, time = None, member: discord.Member = None):
+async def event_roles(сtx, role: discord.Role = None, member: discord.Member = None):
     global ev_player
     global start_ev
     if role is None:
@@ -1030,9 +1030,9 @@ async def участвую( ctx ):
         return
     else:
         ev_player.append(author)
-        await general.send(f'Игрок {author} принял участие в розыгрыши роли.')
+        await ctx.send(f'Игрок {author} принял участие в розыгрыши роли.')
         await сtx.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
-        await general.send('Розыгрыш роли завершен.')
+        await ctx.send('Розыгрыш роли завершен.')
 
 
 
