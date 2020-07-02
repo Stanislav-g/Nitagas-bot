@@ -994,92 +994,7 @@ start_ev = 0 #перемычка
 
 
 
-#event roles
-@client.command()
-@commands.has_permissions( administrator = True )
-async def event_roles(сtx, role: discord.Role = None, member: discord.Member = None):
-    global ev_player
-    global start_ev
-    general = client.get_channel(705461507953262793)
-    if role is None:
-        await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`-event_roles [role]`')
-        return
-    ev_role = role
-    start_ev = 1
-    await general.send(f'Технический администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-участвую`.' '\n' f'**Розыгрыш состоится через 2 минуты.**')
-    await asyncio.sleep(120)
-    ev_win = r.choice(ev_player)
-    member = ev_win
-    await general.send(f'**Поздравляем {ev_win.mention}! Он выигрывает в розыгрыше и получает роль {role.mention}.**')
-    await ev_win.add_roles(role)
-    ev_player = ['']
-    start_ev = 0
 
-
-@client.command( pass_context = True )
-
-
-async def участвую( ctx ):
-    global ev_player
-    global start_ev
-    author = ctx.message.author
-    if start_ev == 0:
-        await ctx.send('**Сейчас нету розыгрыша ролей!**')
-        return
-    if author in ev_player:
-        await ctx.author.send('Вы уже приняли участие в этом розыгрыше!')
-        return
-    else:
-        ev_player.append(author)
-        await general.send(f'Игрок {author} принял участие в розыгрыши роли.')
-        await сtx.author.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
-        await general.send('Розыгрыш роли завершен.')
-
-        
-        
-        
-#event roles
-@client.command()
-
-async def event_roles_dg(сtx, role: discord.Role = None, member: discord.Member = None):
-    global ev_player
-    global start_ev
-    generall = client.get_channel(578190149452562444)
-    if role is None:
-        await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`-event_roles [role]`')
-        return
-    ev_role = role
-    start_ev = 1
-    await generall.send(f'Технический администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-уч`.' '\n' f'**Розыгрыш состоится через 10 минуты.**')
-    await asyncio.sleep(600)
-    ev_win = r.choice(ev_player)
-    member = ev_win
-    await generall.send(f'**Поздравляем {ev_win.mention}! Он выигрывает в розыгрыше и получает роль {role.mention}.**')
-    await ev_win.add_roles(role)
-    ev_player = ['']
-    start_ev = 0
-
-
-@client.command( pass_context = True )
-
-
-async def уч( ctx ):
-    global ev_player
-    global start_ev
-    author = ctx.message.author
-    if start_ev == 0:
-        await ctx.send('**Сейчас нету розыгрыша ролей!**')
-        return
-    if author in ev_player:
-        await ctx.author.send('Вы уже приняли участие в этом розыгрыше!')
-        return
-    else:
-        ev_player.append(author)
-        await generall.send(f'Игрок {author} принял участие в розыгрыши роли.')
-        await сtx.author.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
-        await generall.send('Розыгрыш роли завершен.')
-        
-        
         
    
 
@@ -1728,17 +1643,20 @@ async def retr(ctx, url ):
         r = requests.get(url)
         if r.status_code == 404:
             await ctx.message.delete()
-        
+
+ev_player = [''] #игроки в розыгрыше
+start_ev = 0 #перемычка
+
 #event_roles
 @client.command()
-async def event_role(ctx, role: discord.Role = None, member: discord.Member = None):
+async def event_roles(ctx, role: discord.Role = None, member: discord.Member = None):
     global ev_player
     global start_ev
     if role is None:
         await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`/event_roles [role]`')
         return
     start_ev = 1
-    await ctx.send(f'Администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `/mp`.' '\n' f'**Розыгрыш состоится через 2 минуты.**')
+    await ctx.send(f'Администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-уч`.' '\n' f'**Розыгрыш состоится через 2 минуты.**')
     await asyncio.sleep(120)
     ev_win = r.choice(ev_player)
     member = ev_win
@@ -1749,7 +1667,7 @@ async def event_role(ctx, role: discord.Role = None, member: discord.Member = No
 
 #mp
 @client.command()
-async def mp(ctx):
+async def уч(ctx):
     global ev_player
     global start_ev
     author = ctx.message.author
@@ -1764,7 +1682,84 @@ async def mp(ctx):
         print(f'Игрок {author} принял участие в розыгрыши роли.')
         await ctx.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
         print('Розыгрыш роли завершен.')        
-        
+
+#+rep
+@client.command(aliases = ['+rep'])
+async def __rep_(ctx, member: discord.Member = None):
+    if member is None:
+        await ctx.send(embed = discord.Embed(
+            description = f'У **{ctx.author}**, укажите пользователя, которому хотите отправить благодарность'
+        ))
+    else:
+        if member.id == ctx.author.id:
+            await ctx.send(f'**{ctx.author}**, нельзя выдавать благодарности самому себе!')
+        else:
+            cursor.execute("UPDATE users SET rep = rep + {} WHERE id = {}".format(1, member.id))
+            connection.commit()
+            await ctx.message.add_reaction('✔️')
+
+#-rep
+@client.command(aliases = ['-rep'])
+async def __rep(ctx, member: discord.Member = None):
+    if member is None:
+        await ctx.send(embed = discord.Embed(
+            description = f'У **{ctx.author}**, укажите пользователя, которому хотите отправить благодарность'
+        ))
+    else:
+        if member.id == ctx.author.id:
+            await ctx.send(f'**{ctx.author}**, нельзя снимать благодарности самому себе!')
+        else:
+            cursor.execute("UPDATE users SET rep = rep - {} WHERE id = {}".format(1, member.id))
+            connection.commit()
+            await ctx.message.add_reaction('✔️')
+
+#+rep
+@client.command(aliases = ['+rep'])
+async def __rep_(ctx, member: discord.Member = None):
+    if member is None:
+        await ctx.send(embed = discord.Embed(
+            description = f'У **{ctx.author}**, укажите пользователя, которому хотите отправить благодарность'
+        ))
+    else:
+        if member.id == ctx.author.id:
+            await ctx.send(f'**{ctx.author}**, нельзя выдавать благодарности самому себе!')
+        else:
+            cursor.execute("UPDATE users SET rep = rep + {} WHERE id = {}".format(1, member.id))
+            connection.commit()
+            await ctx.message.add_reaction('✔️')
+
+#-rep
+@client.command(aliases = ['-rep'])
+async def __rep(ctx, member: discord.Member = None):
+    if member is None:
+        await ctx.send(embed = discord.Embed(
+            description = f'У **{ctx.author}**, укажите пользователя, которому хотите отправить благодарность'
+        ))
+    else:
+        if member.id == ctx.author.id:
+            await ctx.send(f'**{ctx.author}**, нельзя снимать благодарности самому себе!')
+        else:
+            cursor.execute("UPDATE users SET rep = rep - {} WHERE id = {}".format(1, member.id))
+            connection.commit()
+            await ctx.message.add_reaction('✔️')
+
+#reps
+@client.command()
+async def reps(ctx, member: discord.Member = None):
+    if member is None:
+        await ctx.send(embed = discord.Embed(
+            description = f'У **{ctx.author}** {cursor.execute("SELECT rep FROM users WHERE id = {}".format(ctx.author.id)).fetchone()[0]} благодарностей'
+        ))
+    else:
+        if cursor.execute("SELECT rep FROM users WHERE id = {}".format(member.id)).fetchone()[0] == 1:
+            await ctx.send(embed = discord.Embed(
+            description = f'У **{member}** {cursor.execute("SELECT rep FROM users WHERE id = {}".format(member.id)).fetchone()[0]} благодарностей'
+        ))
+        else:
+            await ctx.send(embed = discord.Embed(
+                description = f'У **{member}** {cursor.execute("SELECT rep FROM users WHERE id = {}".format(member.id)).fetchone()[0]} благодарностей'
+            ))
+  
         
         
 token= os.environ.get('BOT_TOKEN')
