@@ -1040,7 +1040,7 @@ async def участвую( ctx ):
         
 #event roles
 @client.command()
-@commands.has_permissions( administrator = True )
+
 async def event_roles_dg(сtx, role: discord.Role = None, member: discord.Member = None):
     global ev_player
     global start_ev
