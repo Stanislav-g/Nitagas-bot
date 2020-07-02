@@ -1000,16 +1000,17 @@ start_ev = 0 #перемычка
 async def event_roles(сtx, role: discord.Role = None, member: discord.Member = None):
     global ev_player
     global start_ev
+    general = client.get_channel(705461507953262793)
     if role is None:
         await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`-event_roles [role]`')
         return
     ev_role = role
     start_ev = 1
-    await ctx.send(f'Технический администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-участвую`.' '\n' f'**Розыгрыш состоится через 2 минуты.**')
-    await asyncio.sleep(time)
+    await general.send(f'Технический администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-участвую`.' '\n' f'**Розыгрыш состоится через 2 минуты.**')
+    await asyncio.sleep(120)
     ev_win = r.choice(ev_player)
     member = ev_win
-    await ctx.send(f'**Поздравляем {ev_win.mention}! Он выигрывает в розыгрыше и получает роль {role.mention}.**')
+    await general.send(f'**Поздравляем {ev_win.mention}! Он выигрывает в розыгрыше и получает роль {role.mention}.**')
     await ev_win.add_roles(role)
     ev_player = ['']
     start_ev = 0
@@ -1023,17 +1024,64 @@ async def участвую( ctx ):
     global start_ev
     author = ctx.message.author
     if start_ev == 0:
-        await ctx.author.send('**Сейчас нету розыгрыша ролей!**')
+        await ctx.send('**Сейчас нету розыгрыша ролей!**')
         return
     if author in ev_player:
         await ctx.author.send('Вы уже приняли участие в этом розыгрыше!')
         return
     else:
         ev_player.append(author)
-        await ctx.send(f'Игрок {author} принял участие в розыгрыши роли.')
-        await сtx.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
-        await ctx.send('Розыгрыш роли завершен.')
+        await general.send(f'Игрок {author} принял участие в розыгрыши роли.')
+        await сtx.author.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
+        await general.send('Розыгрыш роли завершен.')
 
+        
+        
+        
+#event roles
+@client.command()
+@commands.has_permissions( administrator = True )
+async def event_roles_dg(сtx, role: discord.Role = None, member: discord.Member = None):
+    global ev_player
+    global start_ev
+    generall = client.get_channel(578190149452562444)
+    if role is None:
+        await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`-event_roles [role]`')
+        return
+    ev_role = role
+    start_ev = 1
+    await generall.send(f'Технический администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-уч`.' '\n' f'**Розыгрыш состоится через 10 минуты.**')
+    await asyncio.sleep(600)
+    ev_win = r.choice(ev_player)
+    member = ev_win
+    await generall.send(f'**Поздравляем {ev_win.mention}! Он выигрывает в розыгрыше и получает роль {role.mention}.**')
+    await ev_win.add_roles(role)
+    ev_player = ['']
+    start_ev = 0
+
+
+@client.command( pass_context = True )
+
+
+async def уч( ctx ):
+    global ev_player
+    global start_ev
+    author = ctx.message.author
+    if start_ev == 0:
+        await ctx.send('**Сейчас нету розыгрыша ролей!**')
+        return
+    if author in ev_player:
+        await ctx.author.send('Вы уже приняли участие в этом розыгрыше!')
+        return
+    else:
+        ev_player.append(author)
+        await generall.send(f'Игрок {author} принял участие в розыгрыши роли.')
+        await сtx.author.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
+        await generall.send('Розыгрыш роли завершен.')
+        
+        
+        
+   
 
 
        
