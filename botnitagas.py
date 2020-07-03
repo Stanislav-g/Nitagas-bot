@@ -300,8 +300,18 @@ async def on_message ( message ):
     msg = message.content.lower()
 
     if msg in bad_words:
+        role = '705745998550401054'
         await message.delete()
         await message.author.send( f'{ message.author.name}, Не надо писать плохие слова! ')
+        await discord.ctx.author.add_roles(role)       
+        await asyncio.sleep(60)
+        await discord.ctx.author.remove_roles(role)
+        
+        
+
+        
+        
+        
 #join to channel
 @client.command()
 async def j(ctx):
