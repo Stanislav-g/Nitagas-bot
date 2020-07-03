@@ -1749,19 +1749,19 @@ async def on_raw_reaction_add(payload):
 
         if str(payload.emoji) == ' :1200pxPythonlogonotext:': # Emoji для реакций
             role = guild.get_role(728595441016373269) # ID Ролей для выдачи
-        if str(payload.emoji) == ':kisspnglogojavadevelopmentkitpor:':
+        elif str(payload.emoji) == ':kisspnglogojavadevelopmentkitpor:':
             role = guild.get_role(728595853605994558)
-        if str(payload.emoji) == ' :cprogramminglanguageiconlettercp:':
+        elif str(payload.emoji) == ' :cprogramminglanguageiconlettercp:':
             role = guild.get_role(728595568183738420)
-        if str(payload.emoji) == ':1200pxISO_C_Logo:':
+        elif str(payload.emoji) == ':1200pxISO_C_Logo:':
             role = guild.get_role(728595513489883298)
-        if str(payload.emoji) == ':1200pxC_Sharp_wordmark:':
+        elif str(payload.emoji) == ':1200pxC_Sharp_wordmark:':
             role = guild.get_role(728595599917580350)
-        if str(payload.emoji) == ':1200pxUnofficial_JavaScript_logo:':
+        elif str(payload.emoji) == ':1200pxUnofficial_JavaScript_logo:':
             role = guild.get_role(728595815718715423)
-        if str(payload.emoji) == ':1200pxPHPlogo: ':
+        elif str(payload.emoji) == ':1200pxPHPlogo: ':
             role = guild.get_role(728595715600941126)
-        if str(payload.emoji) == ':pngocean:':
+        elif str(payload.emoji) == ':pngocean:':
             role = guild.get_role(728595650639429632)
     
         if role:
