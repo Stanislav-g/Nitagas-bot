@@ -227,11 +227,10 @@ async def on_member_join( member ):
 
     await member.add_roles( role )
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}, присоеденился к нам!') )
-    await member.send( f'{ member.name}, Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\n\nЭтот сервер создан для общения\n\nПрочитай правила в канале правил и поставь реакцию 📖')
-    await member.send( f'{ member.name}, Полезные команды:\n-help\n$help')
+   
     
     emb = discord.Embed( title = 'ВАЖНО', colour = discord.Color.red() )
-    emb.add_field( name = 'Commands',value = 'Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\n\nЭтот сервер создан для общения\n\nПрочитай правила в канале правил и поставь реакцию 📖/nПолезные команды:\n-help\n$help')
+    emb.add_field( name = 'Commands',value = 'Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\n\nЭтот сервер создан для общения\n\nПрочитай правила в канале правил и поставь реакцию 📖   Полезные команды:\n-help\n$help')
     await member.send( embed = emb )
 
 
@@ -1748,26 +1747,24 @@ async def help(ctx):
         ''' )
     await ctx.author.send(embed = emb)
 
-#reactions
+
+    
+    
+ 
 @client.event
 async def on_raw_reaction_add(payload):
-    if payload.message_id == 728594240669745172: # ID Сообщения
+    if payload.message_id == 728658937905414234: # ID Сообщения
         guild = client.get_guild(payload.guild_id)
         role = None
 
-        if str(payload.emoji) == ' :1200pxPythonlogonotext:': # Emoji для реакций
-            role = guild.get_role(728595441016373269) # ID Ролей для выдачи
-        elif str(payload.emoji) == ':kisspnglogojavadevelopmentkitpor:':
-            role = guild.get_role(728595853605994558)
-        
-    
+        if str(payload.emoji) == '📖': # Emoji для реакций
+            role = guild.get_role(728659726870511677) # ID Ролей для выдачи 
+ 
         if role:
             member = guild.get_member(payload.user_id)
             if member:
                 await member.add_roles(role)
-    
-    
-
+ 
     
         
 token= os.environ.get('BOT_TOKEN')
