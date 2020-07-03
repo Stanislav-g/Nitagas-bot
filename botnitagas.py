@@ -772,8 +772,7 @@ async def nextlvls(ctx ):
 
 
                 
-                
-#reactions
+                #reactions
 @client.event
 async def on_raw_reaction_add(payload):
     if payload.message_id == 707908027524841522: # ID Сообщения
