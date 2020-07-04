@@ -38,7 +38,6 @@ async def on_redy():
 
 
 
-
 #hello
 @client.command( pass_context = True )
 
