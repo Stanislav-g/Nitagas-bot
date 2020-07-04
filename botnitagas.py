@@ -1803,8 +1803,8 @@ async def clock(ctx, now, time ):
     getup = float(time)
     day = float(2400)
     await ctx.author.send(f'ок')
-    if now < time:
-        sleeptime = str(day - nowtime + time - day)
+    if nowtime < getup:
+        sleeptime = str(day - nowtime + getup - day)
         await ctx.author.send(f'ок <')
         
         if sleeptime >= 100:      #часы
@@ -1826,7 +1826,7 @@ async def clock(ctx, now, time ):
             await asyncio.sleep(sleeptimesec)
             await ctx.author.send(f'Вставай')
     else:
-        sleeptime = str(day - nowtime + time)
+        sleeptime = str(day - nowtime + getup)
        
         
         if sleeptime >= 100:
