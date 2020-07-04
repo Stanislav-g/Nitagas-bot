@@ -20,7 +20,6 @@ import io
 
 
 
-
 client = commands.Bot( command_prefix = '-')
 client.remove_command('help')
 bad_words = ['suka','brandon','дурак','дебил','дибил','tonto','brandon','mario jose','Brandon','Mario Jose','дурачок','таракан','сука','негр','ниггер','Таракан',]
