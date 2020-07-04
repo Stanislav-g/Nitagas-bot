@@ -201,7 +201,7 @@ async def helpadmin( ctx ):
 
 
 async def time( ctx ):
-    emb = discord.Embed( title = 'Time', colour = discord.Colour.red(), url = 'https://time100.ru/')
+    emb = discord.Embed( title = 'Time', colour = discord.Colour.red(), url = 'http://www.unn.ru/time/')
 
     emb.set_author( name = client.user.name, icon_url = client.user.avatar_url )
     emb.set_footer( text = 'Спасибо за использование нашего бота!')
