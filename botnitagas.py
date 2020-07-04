@@ -300,11 +300,11 @@ async def on_message ( message ):
     msg = message.content.lower()
 
     if msg in bad_words:
-        
+       
+        ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'mute')
         await message.delete()
         await message.author.send( f'{ message.author.name}, Не надо писать плохие слова! ')
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'mute')
-        await member.add_roles( ppp_role )
+        await discord.member.add_roles( ctx.author, ppp_role )
         await asyncio.sleep(3)
         
         
