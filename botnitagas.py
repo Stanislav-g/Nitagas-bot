@@ -1803,8 +1803,10 @@ async def clock(ctx, now, time ):
     vremiya = (['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'])
     getup = float(time)
     day = float(2400)
+    await ctx.author.send(f'ок')
     if now < time:
         sleeptime = str(day - nowtime + time - day)
+        await ctx.author.send(f'ок <')
         
         if sleeptime >= 100:      #часы
             end = sleeptime /100
@@ -1820,6 +1822,7 @@ async def clock(ctx, now, time ):
                 await asyncio.sleep(endtwo)
                 await ctx.author.send(f'Вставай')
         else:
+            await ctx.author.send(f'ок <,else')
             sleeptimesec = sleeptime *60#минуты
             await asyncio.sleep(sleeptimesec)
             await ctx.author.send(f'Вставай')
