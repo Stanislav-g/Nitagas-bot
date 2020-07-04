@@ -1808,7 +1808,7 @@ async def clock(ctx, now, time ):
         
         if sleeptime >= 100:
             end = sleeptime /100
-            if end ≠ vremiya:
+            if end != vremiya:
                 endt = end *60
                 endth = endt *60
                 endthe = int(endth +720)
@@ -1829,7 +1829,7 @@ async def clock(ctx, now, time ):
         
         if sleeptime >= 100:
             end = sleeptime /100
-            if end ≠ vremiya:
+            if end != vremiya:
                 endt = end *60
                 endth = endt *60
                 endthe = int(endth +720)
