@@ -1798,13 +1798,13 @@ async def dis(ctx ):
 
 @client.command()
 async def clock(ctx, now, time ):
-    nowtime = now
+    nowtime = int(now)
     vremiya = (['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'])
-    getup = time
-    day = 2400
+    getup = int(time)
+    day = int(2400)
     await ctx.author.send(f'ок')
     if nowtime < getup:
-        sleeptime = int(day - nowtime + getup - day)
+        sleeptime = float(day - nowtime + getup - day)
         await ctx.author.send(f'ок <')
         
         if sleeptime >= 100:      #часы
@@ -1826,7 +1826,7 @@ async def clock(ctx, now, time ):
             await asyncio.sleep(sleeptimesec)
             await ctx.author.send(f'Вставай')
     else:
-        sleeptime = int(day - nowtime + getup)
+        sleeptime = float(day - nowtime + getup)
        
         
         if sleeptime >= 100:
