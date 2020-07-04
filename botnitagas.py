@@ -1799,17 +1799,7 @@ async def dis(ctx ):
 
 
 
-@client.command( pass_context = True )
 
-
-async def timet( ctx ):
-    emb = discord.Embed( title = 'Time', colour = discord.Colour.red(), url = 'http://www.unn.ru/time/')
-
-    now_date = time.time.now()
-
-    emb.add_field( name = 'Time', value = 'Time : {}'.format( now_date ) )
-
-    await ctx.send( embed = emb )
 
 
 
