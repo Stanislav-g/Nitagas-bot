@@ -1800,20 +1800,47 @@ async def dis(ctx ):
 @client.command()
 async def clock(ctx, now, time ):
     nowtime = float(now)
+    vremiya = (['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'])
     getup = float(time)
     day = float(2400)
-    if now > time:
+    if now < time:
         sleeptime = str(day - nowtime + time - day)
-        sleeptimesec = sleeptime *60
-        timetowait = sleeptimesec *60
-        await asyncio.sleep(timetowait)
-        await ctx.author.send(f'Вставай')
+        
+        if sleeptime >= 100:
+            end = sleeptime /100
+            if end ≠ vremiya:
+                endt = end *60
+                endth = endt *60
+                endthe = int(endth +720)
+                await asyncio.sleep(endthe)
+                await ctx.author.send(f'Вставай')
+            else:
+                endt = end *60
+                endth = endt *60
+                await asyncio.sleep(endth)
+                await ctx.author.send(f'Вставай')
+        else:
+            sleeptimesec = sleeptime *60
+            await asyncio.sleep(sleeptimesec)
+            await ctx.author.send(f'Вставай')
     else:
         sleeptime = str(day - nowtime + time)
-        sleeptimesec = sleeptime *60
-        timetowait = sleeptimesec *60
-        await asyncio.sleep(timetowait)
-        await ctx.author.send(f'Вставай')
+       
+        
+        if sleeptime >= 100:
+            end = sleeptime /100
+            if end ≠ vremiya:
+                endt = end *60
+                endth = endt *60
+                endthe = int(endth +720)
+                await asyncio.sleep(endthe)
+                await ctx.author.send(f'Вставай')
+            else:
+                endt = end *60
+                endth = endt *60
+                await asyncio.sleep(endth)
+                await ctx.author.send(f'Вставай')
+        
 
 
 
