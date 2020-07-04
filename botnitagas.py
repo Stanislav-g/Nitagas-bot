@@ -1799,6 +1799,16 @@ async def dis(ctx ):
 
 
 
+@client.command( pass_context = True )
+
+
+async def timet( ctx ):
+    emb = discord.Embed( title = 'Time', colour = discord.Colour.red(), url = 'http://www.unn.ru/time/')
+
+    
+
+    await ctx.send( embed = emb )
+
 
 
 
