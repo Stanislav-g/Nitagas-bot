@@ -303,7 +303,7 @@ async def on_message ( message ):
        
         ppp_role = discord.utils.get( message.guild.roles, name = 'mute')
         await message.delete()
-        await message.author.send( f'{ message.author.name}, Не надо писать плохие слова! Я дал тебе мут на две минутыю ')
+        await message.author.send( f'{ message.author.name}, Не надо писать плохие слова! Я дал тебе мут на две минуты. ')
         await message.author.add_roles( ppp_role )
         await asyncio.sleep(120)
         await message.author.remove_roles( ppp_role )
