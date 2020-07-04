@@ -1806,7 +1806,7 @@ async def clock(ctx, now, time ):
     if now < time:
         sleeptime = str(day - nowtime + time - day)
         
-        if sleeptime >= 100:
+        if sleeptime >= 100:      #часы
             end = sleeptime /100
             if end != vremiya:
                 endt = end *60
@@ -1815,12 +1815,12 @@ async def clock(ctx, now, time ):
                 await asyncio.sleep(endthe)
                 await ctx.author.send(f'Вставай')
             else:
-                endt = end *60
-                endth = endt *60
-                await asyncio.sleep(endth)
+                sleeptimetwo = end *60
+                endtwo = end *60
+                await asyncio.sleep(endtwo)
                 await ctx.author.send(f'Вставай')
         else:
-            sleeptimesec = sleeptime *60
+            sleeptimesec = sleeptime *60#минуты
             await asyncio.sleep(sleeptimesec)
             await ctx.author.send(f'Вставай')
     else:
@@ -1840,6 +1840,10 @@ async def clock(ctx, now, time ):
                 endth = endt *60
                 await asyncio.sleep(endth)
                 await ctx.author.send(f'Вставай')
+        else:
+            sleeptimetwo = sleeptime *60
+            await asyncio.sleep(sleeptimetwo)
+            await ctx.author.send(f'Вставай')
         
 
 
