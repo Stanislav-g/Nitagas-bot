@@ -1801,7 +1801,7 @@ async def dis(ctx ):
 async def clock(ctx, now, time ):
     nowtime = float(now)
     getup = float(time)
-    day = float(24)
+    day = float(2400)
     if now > time:
         sleeptime = str(day - nowtime + time - day)
         sleeptimesec = sleeptime *60
