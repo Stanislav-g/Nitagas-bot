@@ -1797,10 +1797,17 @@ async def dis(ctx ):
             await ctx.send( url )
             
 
-
-
-
-
+@client.command()
+async def clock(ctx, now, time ):
+    nowtime = float(now)
+    getup = float(time)
+    day = float(24)
+    sleeptime = str(day - nowtime + time)
+    sleeptimesec = sleeptime *60
+    timetowait = sleeptimesec *60
+    await asyncio.sleep(timetowait)
+    await ctx.author.send(f'Вставай')
+    
 
 
 
