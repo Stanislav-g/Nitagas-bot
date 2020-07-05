@@ -246,7 +246,7 @@ async def on_member_join( member ):
     await general.send( embed = emg )
     await general.send( embed = emb )
     membermes = member.mention.message()
-    if membermes == num:
+    if membermes is num:
         await member.send(f'ok')
         
             
