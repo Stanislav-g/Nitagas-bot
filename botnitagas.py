@@ -241,7 +241,7 @@ async def on_member_join( member ):
     await member.send( num )
     
     async def on_message ( message ):
-        if message = num:
+        if message == num:
             await member.send(f'num ok')
             
     
