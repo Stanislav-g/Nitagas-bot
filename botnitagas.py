@@ -247,7 +247,7 @@ async def hTkiF( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
-    
+@client.command()    
 async def eeiWN( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
@@ -255,7 +255,7 @@ async def eeiWN( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
-        
+@client.command()        
 async def seByd( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
@@ -263,7 +263,7 @@ async def seByd( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
-    
+@client.command()    
 async def EnuRc( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
@@ -271,7 +271,7 @@ async def EnuRc( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
-    
+@client.command()    
 async def WNDsa( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
@@ -279,7 +279,7 @@ async def WNDsa( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 ) 
-    
+@client.command()    
 async def kkxBa( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
@@ -287,7 +287,7 @@ async def kkxBa( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
-    
+@client.command()    
 async def nGHaZ( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
@@ -295,7 +295,7 @@ async def nGHaZ( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )    
-    
+@client.command()    
 async def LxUem( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
@@ -303,7 +303,7 @@ async def LxUem( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )    
-    
+@client.command()    
 async def rjYzh( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
@@ -311,7 +311,7 @@ async def rjYzh( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )    
-    
+@client.command()    
 async def skYwa( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
@@ -319,7 +319,7 @@ async def skYwa( ctx ):
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )    
-    
+@client.command()    
 async def amyvg( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
