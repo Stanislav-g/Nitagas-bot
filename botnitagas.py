@@ -218,7 +218,7 @@ async def time( ctx ):
 @client.event
 
 async def on_member_join( member ):
-    channel = client.get.channel(705461507953262793)
+    channel = client.get_channel(705461507953262793)
     
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}, присоеденился к нам!') )
    
