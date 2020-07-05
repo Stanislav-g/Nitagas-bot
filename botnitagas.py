@@ -230,14 +230,9 @@ async def on_member_join( member ):
     emb.add_field( name = 'Commands',value = 'Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\n\nЭтот сервер создан для общения\n\nПрочитай правила в канале правил и поставь реакцию 📖   Полезные команды:\n-help\n$help')
     await member.send( embed = emb )
     
-    a = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-    q = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-    w = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-    e = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-    r = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-    t = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-             
-    num = str(a).replace(' ', '+') + str(q).replace(' ', '+') + str(w).replace(' ', '+') + str(e).replace(' ', '+') + str(r).replace(' ', '+') + str(t).replace(' ', '+') 
+    a = random.choice(['-hTk6F','-eeiWN','-O4Byd','-Enu6c','-WND8a','-kkxBa','-nGH7Z','-LxUe7','-rjY73','-skY7a','-amy39'])
+               
+    num = str(a).replace(' ', '+')
     await member.send( num )
     
     general = client.get_channel(729297294687469679)
@@ -245,9 +240,8 @@ async def on_member_join( member ):
     emb = discord.Embed( title = num, colour = discord.Color.red() )
     await general.send( embed = emg )
     await general.send( embed = emb )
-    membermes = member.message
-    if membermes is num:
-        await member.send(f'ok')
+    
+   
         
             
     
