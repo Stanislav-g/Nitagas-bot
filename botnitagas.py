@@ -240,9 +240,15 @@ async def on_member_join( member ):
     num = str(a).replace(' ', '+') + str(q).replace(' ', '+') + str(w).replace(' ', '+') + str(e).replace(' ', '+') + str(r).replace(' ', '+') + str(t).replace(' ', '+') 
     await member.send( num )
     
-    async def on_message ( message ):
-        if message == num:
-            await member.send(f'num ok')
+    general = client.get_channel(729297294687469679)
+    emg = discord.Embed( title = f'верефикация по коду, напишите код в чат {member.mention}' )
+    emb = discord.Embed( title = num, colour = discord.Color.red() )
+    await general.send( embed = emg )
+    await general.send( embed = emb )
+    membermes = message.member(member.mention)
+    if membermes == num:
+        await member.send(f'ok')
+        
             
     
     
