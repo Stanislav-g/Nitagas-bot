@@ -218,11 +218,7 @@ async def time( ctx ):
 @client.event
 
 async def on_member_join( member ):
-    channel = client.get_channel( 705461507953262793 )
-
-    role = discord.utils.get( member.guild.roles, id = 705364781753958450 )
-
-    await member.add_roles( role )
+    
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}, присоеденился к нам!') )
    
     
@@ -233,7 +229,7 @@ async def on_member_join( member ):
     a = random.choice(['-hTk6F','-eeiWN','-O4Byd','-Enu6c','-WND8a','-kkxBa','-nGH7Z','-LxUe7','-rjY73','-skY7a','-amy39'])
                
     num = str(a).replace(' ', '+')
-    await member.send( num )
+   
     
     general = client.get_channel(729297294687469679)
     emg = discord.Embed( title = f'верефикация по коду, напишите код в чат {member.mention}' )
