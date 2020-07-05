@@ -243,7 +243,7 @@ async def on_member_join( member ):
 async def hTkiF( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
@@ -251,7 +251,7 @@ async def hTkiF( ctx ):
 async def eeiWN( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
@@ -259,7 +259,7 @@ async def eeiWN( ctx ):
 async def seByd( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
@@ -267,7 +267,7 @@ async def seByd( ctx ):
 async def EnuRc( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
@@ -275,7 +275,7 @@ async def EnuRc( ctx ):
 async def WNDsa( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 ) 
@@ -283,7 +283,7 @@ async def WNDsa( ctx ):
 async def kkxBa( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )
@@ -291,7 +291,7 @@ async def kkxBa( ctx ):
 async def nGHaZ( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )    
@@ -299,7 +299,7 @@ async def nGHaZ( ctx ):
 async def LxUem( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )    
@@ -307,7 +307,7 @@ async def LxUem( ctx ):
 async def rjYzh( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )    
@@ -315,7 +315,7 @@ async def rjYzh( ctx ):
 async def skYwa( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )    
@@ -323,7 +323,7 @@ async def skYwa( ctx ):
 async def amyvg( ctx ):
     ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'NEW')
     await ctx.author.add_roles( ppp_role )
-    await ctx.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
+    await ctx.author.send(f'Ты правильно ввел текст, я открыл тебе канал с правилами!')
     await asyncio.sleep(30)
     await ctx.channel.purge( limit = 100)
     await ctx.channel.purge( limit = 2 )        
