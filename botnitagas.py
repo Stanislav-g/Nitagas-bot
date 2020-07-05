@@ -245,7 +245,7 @@ async def on_member_join( member ):
     emb = discord.Embed( title = num, colour = discord.Color.red() )
     await general.send( embed = emg )
     await general.send( embed = emb )
-    membermes = member.mention.message
+    membermes = member.message
     if membermes is num:
         await member.send(f'ok')
         
