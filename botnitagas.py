@@ -1112,7 +1112,6 @@ start_ev = 0 #перемычка
         
    
 
-
        
 @client.command()
 @commands.has_permissions( administrator = True )
