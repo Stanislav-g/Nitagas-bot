@@ -2035,8 +2035,7 @@ async def userinfop(ctx, Member: discord.Member = None ):
     
     
     
-    
-            
+               
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
 
