@@ -1815,8 +1815,8 @@ async def help(ctx):
         ***-userinfo*** - информация о пользователе
         ***-time***  
         ***-covid*** 
-        ***-avatar***/n 
-         
+        ***-avatar***/n
+        ***-ip_info ***  
         ''' )
     emb.add_field( name = '__**Игры**__', value = '''
         ***-num*** - рандомное число от 1-101
@@ -1994,7 +1994,22 @@ async def clock(ctx, now, time ):
             await ctx.author.send(f'Вставай')
         
 
-
+#ip_info
+@client.command()
+async def ip_info( ctx, arg ):
+    await ctx.channel.purge(limit = 1)
+    response = requests.get( f'http://ipinfo.io/{ arg }/json' )
+    user_ip = response.json()[ 'ip' ]
+    user_city = response.json()[ 'city' ]
+    user_region = response.json()[ 'region' ]
+    user_country = response.json()[ 'country' ]
+    user_location = response.json()[ 'loc' ]
+    user_org = response.json()[ 'org' ]
+    user_timezone = response.json()[ 'timezone' ]
+    global all_info
+    all_info = f'```\n<INFO>\nIP : { user_ip }\nCity : { user_city }\nRegion : { user_region }\nCountry : { user_country }\nLocation : { user_location }\nOrganization : { user_org }\nTime zone : { user_timezone }```'
+    await ctx.author.send( all_info )
+    await ctx.send( '```NoBot » Информация отослана в Личные Сообщения!```' )
 
 
             
