@@ -1328,11 +1328,6 @@ async def userinfo(ctx, Member: discord.Member = None ):
                                                                                       f"Статус: {Member.status}\n\n"
                                                                                       f"ID: {Member.id}\n\n"
                                                                                       f"Высшая роль: {Member.top_role}\n\n"
-                                                                                      f"Фото: {Member.avatar}\n\n"
-                                                                                      f"Высшая роль: {Member.top_role}\n\n"
-                                                                                      f"Все роли: {Member.roleы}\n\n"
-                                                                                      f"Действия: {Member.activities}\n\n"
-                                                                                      f"щту: {Member.is_on_mobile( )}\n\n"
                                                                                       f"Аккаунт создан: {Member.created_at.strftime('%b %#d, %Y')}", 
                                                                                       color=0xff0000, timestamp=ctx.message.created_at)
 
