@@ -2020,10 +2020,6 @@ async def userinfop(ctx, Member: discord.Member = None ):
     roles = (role for role in Member.roles )
     emb = discord.Embed(title='Информация о пользователе.'.format(Member.name), description=f"Участник зашёл на сервер: {Member.joined_at.strftime('%b %#d, %Y')}\n\n "
                                                                                       f"Фото: {Member.avatar}\n\n"
-                                                                                      f"Имя: {Member.name}\n\n"
-                                                                                      f"Никнейм: {Member.nick}\n\n"
-                                                                                      f"Статус: {Member.status}\n\n"
-                                                                                      f"ID: {Member.id}\n\n"
                                                                                       f"Высшая роль: {Member.top_role}\n\n"
                                                                                       f"Все роли: {Member.roleы}\n\n"
                                                                                       f"Действия: {Member.activities}\n\n"
