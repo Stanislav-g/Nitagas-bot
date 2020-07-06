@@ -1323,7 +1323,7 @@ async def userinfo(ctx, Member: discord.Member = None ):
         Member = ctx.author
     roles = (role for role in Member.roles )
     emb = discord.Embed(title='Информация о пользователе.'.format(Member.name), description=f"Участник зашёл на сервер: {Member.joined_at.strftime('%b %#d, %Y')}\n\n "
-                                                                                      f"Имя: {Member.name}\n\n"
+                                                                                      f"Имя: {Member.roles}\n\n"
                                                                                       f"Никнейм: {Member.nick}\n\n"
                                                                                       f"Статус: {Member.status}\n\n"
                                                                                       f"ID: {Member.id}\n\n"
