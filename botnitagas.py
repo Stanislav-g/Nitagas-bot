@@ -2009,54 +2009,11 @@ async def ip_info( ctx, arg ):
     await ctx.author.send( all_info )
     await ctx.send( '```NoBot » Информация отослана в Личные Сообщения!```' )
 
-# userinfo
-@client.command()
-async def userinfop(ctx, Member: discord.Member = None ):
-    await ctx.channel.purge( limit = 1 )
-    if not Member:
-        Member = ctx.author
-    roles = (role for role in Member.roles )
-    emb = discord.Embed(title='Информация о пользователе.'.format(Member.name), description=f"Участник зашёл на сервер: {Member.joined_at.strftime('%b %#d, %Y')}\n\n "
-                                                                                      f"Фото: {Member.avatar}\n\n"
-                                                                                      f"Высшая роль: {Member.top_role}\n\n"
-                                                                                      f"Все роли: {Member.roleы}\n\n"
-                                                                                      f"Действия: {Member.activities}\n\n"
-                                                                                      f"щту: {Member.is_on_mobile( )}\n\n"
-                                                                                      
-                                                                                      f"ID: {Member.id}\n\n"
-                                                                                      f"Аккаунт создан: {Member.created_at.strftime('%b %#d, %Y')}",
-                                                                                      color=0xff0000, timestamp=ctx.message.created_at)
-    
+
     
     
               
-@client.event
-async def on_raw_reaction_remove(payload):
-    if payload.message_id == 728594240669745172: # ID Сообщения
-        guild = client.get_guild(payload.guild_id)
-        role = None
-
-        if str(payload.emoji) == '1️⃣': # Emoji для реакций
-            role = guild.get_role(728595441016373269) # ID Ролей для выдачи
-        elif str(payload.emoji) == '2️⃣':
-            role = guild.get_role(728595853605994558)
-        elif str(payload.emoji) == '3️⃣':
-            role = guild.get_role(728595568183738420)
-        elif str(payload.emoji) == '4️⃣':
-            role = guild.get_role(728595513489883298)
-        elif str(payload.emoji) == '5️⃣':
-            role = guild.get_role(728595599917580350)
-        elif str(payload.emoji) == '6️⃣':
-            role = guild.get_role(728595815718715423)
-        elif str(payload.emoji) == '7️⃣':
-            role = guild.get_role(728595715600941126)
-        elif str(payload.emoji) == '8️⃣':
-            role = guild.get_role(728595650639429632)
-    
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.remove_roles(role)                    
+                   
                     
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
