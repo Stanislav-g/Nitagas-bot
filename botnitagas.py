@@ -2030,7 +2030,37 @@ async def userinfop(ctx, Member: discord.Member = None ):
     
     
     
-               
+@client.event
+async def on_raw_reaction_add(payload):
+    if payload.message_id == 729950501210161172: # ID Сообщения
+        guild = client.get_guild(payload.guild_id)
+        role = None
+
+        if str(payload.emoji) == '1️⃣': # Emoji для реакций
+            role = guild.get_role(728595813663506467) # ID Ролей для выдачи
+        
+        if role:
+            member = guild.get_member(payload.user_id)
+            if member:
+                
+                if role in ctx.author.roles:
+                    await ctx.send(f"**{ctx.author}**, у вас уже имеется данная вещь")
+                elif 1000 > cursor.execute("SELECT cash FROM users WHERE id = {}".format(ctx.author.id)).fetchone()[0]:
+                    await ctx.send(f"**{ctx.author}**, на вашем счету недостаточно средств")
+                else:
+                    
+                    cursor.execute("UPDATE users SET cash = cash - {0} WHERE id = {1}".format(cursor.execute("SELECT cost FROM shopproduct WHERE role_id = {}".format(role.id)).fetchone()[0], ctx.author.id))
+
+                    await ctx.author.send( f'{ctx.author.name}, поздравляю вас! Вы купили вещь **{role}**')
+                    random.choise(['100','500','1000','1100','2000','200','1300','1400','100','3000','100','700','800','900','999','2000','1111'])
+                    cursor.execute("UPDATE users SET cash = cash + {s} WHERE id = {}".format(ctx.author.id))
+                    connection.commit()
+                    await ctx.author.send( f'{ctx.author.name}, поздравляю вас! Вам выпало {s} ')
+                    await asyncio.sleep(3)
+                    ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'Кейс с деньгами от 100 до 3000!')
+                    await member.remove_roles( ppp_role )
+                    
+                    
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
 
