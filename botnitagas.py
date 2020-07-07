@@ -2041,14 +2041,9 @@ async def on_raw_reaction_add(payload):
         if role:
             member = guild.get_member(payload.user_id)
             if member:
-                await member.send( f'{member.name}, поздравляю вас! Вы купили вещь **{role}**')
-                
                 cursor.execute("UPDATE users SET cash = cash + 10 WHERE id = {}".format(member.id))
                 connection.commit()
-                await member.send( f'{member.name}, поздравляю вас! Вам выпало {s} ')
-                await asyncio.sleep(3)
-                ppp_role = discord.utils.get( ctx.message.guild.roles, name = 'Кейс с деньгами от 100 до 3000!')
-                await member.remove_roles( ppp_role )
+               
                     
                     
 token= os.environ.get('BOT_TOKEN')
