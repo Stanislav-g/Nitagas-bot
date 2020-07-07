@@ -2029,8 +2029,7 @@ async def userinfop(ctx, Member: discord.Member = None ):
     
     
     
-
-               
+              
 @client.event
 async def on_raw_reaction_remove(payload):
     if payload.message_id == 728594240669745172: # ID Сообщения
