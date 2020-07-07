@@ -2042,7 +2042,7 @@ async def on_raw_reaction_add(payload):
             member = guild.get_member(payload.user_id)
             if member:
                 await member.send( f'{member.name}, поздравляю вас! Вы купили вещь **{role}**')
-                random.choise(['100','500','1000','1100','2000','200','1300','1400','100','3000','100','700','800','900','999','2000','1111'])
+                random.choice(['100','500','1000','1100','2000','200','1300','1400','100','3000','100','700','800','900','999','2000','1111'])
                 cursor.execute("UPDATE users SET cash = cash + {s} WHERE id = {}".format(member.id))
                 connection.commit()
                 await member.send( f'{member.name}, поздравляю вас! Вам выпало {s} ')
