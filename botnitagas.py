@@ -224,7 +224,6 @@ async def on_member_join( member ):
     role = discord.utils.get( member.guild.roles, id = 705364781753958450 )
 
     await member.add_roles( role )
-    await member.send( f'{ member.name}, Полезные команды:\n-help\n$help')
     emb = discord.Embed( title = 'INFO', colour = discord.Color.red() )
     emb.add_field( name = 'Commands',value = 'Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\nПропиши команду -help что-бы узнать мои комманды\nПолезные команды:-help\n$help')
     await member.send( embed = emb )
