@@ -224,10 +224,10 @@ async def on_member_join( member ):
     role = discord.utils.get( member.guild.roles, id = 705364781753958450 )
 
     await member.add_roles( role )
-    await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}, присоеденился к нам!') )
-    await member.send( f'{ member.name}, Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\n\nБудьте дружелюбны к другим участникам\n\nМат запрещен\n\nЭтот сервер создан для общения\n\nПропиши команду -help что-бы узнать мои комманды')
     await member.send( f'{ member.name}, Полезные команды:\n-help\n$help')
-    
+    emb = discord.Embed( title = 'INFO', colour = discord.Color.red() )
+    emb.add_field( name = 'Commands',value = 'Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\nПропиши команду -help что-бы узнать мои комманды\nПолезные команды:-help\n$help')
+    await ctx.author.send( embed = emb )
 @client.command()
 
 async def hTkiF( ctx ):
@@ -1847,19 +1847,7 @@ async def help(ctx):
     
     
  
-@client.event
-async def on_raw_reaction_add(payload):
-    if payload.message_id == 728658937905414234: # ID Сообщения
-        guild = client.get_guild(payload.guild_id)
-        role = None
 
-        if str(payload.emoji) == '📖': # Emoji для реакций
-            role = guild.get_role(728659726870511677) # ID Ролей для выдачи 
- 
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.add_roles(role)
  
 
 
