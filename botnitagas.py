@@ -213,29 +213,20 @@ async def time( ctx ):
 
 
 
+    
+    
 #autorole
 @client.event
 
 async def on_member_join( member ):
-    channel = client.get_channel(705461507953262793)
-    
+    channel = client.get_channel( 705461507953262793 )
+
+    role = discord.utils.get( member.guild.roles, id = 705364781753958450 )
+
+    await member.add_roles( role )
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}, присоеденился к нам!') )
-   
-    
-    emb = discord.Embed( title = 'ВАЖНО', colour = discord.Color.red() )
-    emb.add_field( name = 'Commands',value = 'Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\n\nЭтот сервер создан для общения\n\nПрочитай правила в канале правил и поставь реакцию 📖   Полезные команды:\n-help\n$help')
-    await member.send( embed = emb )
-    
-    a = random.choice(['-hTkiF','-eeiWN','-seByd','-EnuRc','-WNDsa','-kkxBa','-nGHaZ','-LxUem','-rjYzh','-skYwa','-amyvg'])
-               
-    num = str(a).replace(' ', '+')
-   
-    
-    general = client.get_channel(729297294687469679)
-    emg = discord.Embed( title = f'верефикация по коду, напишите код в чат {member.mention}' )
-    emb = discord.Embed( title = num, colour = discord.Color.red() )
-    await general.send( embed = emg )
-    await general.send( embed = emb )
+    await member.send( f'{ member.name}, Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\n\nБудьте дружелюбны к другим участникам\n\nМат запрещен\n\nЭтот сервер создан для общения\n\nПропиши команду -help что-бы узнать мои комманды')
+    await member.send( f'{ member.name}, Полезные команды:\n-help\n$help')
     
 @client.command()
 
