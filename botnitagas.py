@@ -1918,7 +1918,7 @@ async def leng( ctx ):
     await ctx.author.send( embed = emb )                
                 
 @client.command()
-async def infofor(ctx , member:discord.Member):
+async def forkin(ctx , member:discord.Member):
     if not Member:
         Member = ctx.author
     roles = (role for role in Member.roles )
