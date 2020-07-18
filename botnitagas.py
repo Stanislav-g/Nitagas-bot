@@ -1918,44 +1918,17 @@ async def leng( ctx ):
     await ctx.author.send( embed = emb )                
                 
 @client.command()
-async def forkin(ctx, Member: discord.Member = None ):
-    if not Member:
-        Member = ctx.author
-    roles = (role for role in Member.roles )
-    emb = discord.Embed(title='Информация о пользователе.'.format(Member.name), description=f"Участник зашёл на сервер: {Member.joined_at.strftime('%b %#d, %Y')}\n\n "
-                                                                                      f"Имя: {Member.name}\n\n"
-                                                                                      f"Никнейм: {Member.nick}\n\n"
-                                                                                      f"Статус: {Member.status}\n\n"
-                                                                                      f"ID: {Member.id}\n\n"
-                                                                                      f"Высшая роль: {Member.top_role}\n\n"
-                                                                                      f"Аккаунт создан: {Member.created_at.strftime('%b %#d, %Y')}", 
-                                                                                      color=0xff0000, timestamp=ctx.message.created_at)
-
-   
-
-    emb.set_thumbnail(url= Member.avatar_url)
-    emb.set_footer(icon_url= Member.avatar_url)
-    emb.set_footer(text='Команда вызвана: {}'.format(ctx.author.name), icon_url=ctx.author.avatar_url)
-    await ctx.send(embed=emb)
-    
-    
-   
-@client.command()
-async def infofor(ctx , Member: discord.Member):
-    emb = discord.Embed( title = 'user info', color = 0x7aa13d)
-    emb.description=(
-        f"date {Member.joined_at.strftime('%b %#d, %Y')}\n\n"
-        f"Имя Пользователя {Member.display.name}\n\n"
-        f"Айди Пользователя {Member.id}\n\n"
-        f"Аккаунт Пользователя был создан{Member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' )}"
-    )
-
-
-
+async def info(ctx , Member:discord.Member):
+    emb = discord.Embed(title = 'Тупа инфа о юзере' , color = 0xff0000)
+    emb.add_field(name = 'Когда Присоединился юзер' , value = Member.joined.at , inline = False)
+    emb.add_field(name = 'Имя Пользователя' , value = Member.display.name , inline = False)
+    emb.add_field(name = 'Айди Пользователя' , value = Member.id , inline = False)
+    emb.add_field(name = 'Аккаунт Пользователя был создан' , value = Member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' ) 
     emb.set_thumbnail(url = Member.avatar.url)
     emb.set_footer( text = f'𝔽𝕠𝕣𝕜𝕚𝕟#6897|Все права защищены' , icon_url = ctx.message.author.avatar_url )
     emb.set_author( name = ctx.message.author , icon_url = ctx.message.author.avatar_url)
-    await ctx.send( embed = emb )                  
+    await ctx.send( embed = emb )
+                
  
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
