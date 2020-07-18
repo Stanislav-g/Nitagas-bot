@@ -56,12 +56,15 @@ async def info( ctx ):
 async def status(ctx):
     await ctx.channel.purge( limit = 1 )
     while True:
+        
+        activity = discord.Activity(name= len(client.guilds), type=discord.ActivityType.watching)
+        await client.change_presence(activity=activity)
+        await asyncio.sleep(60)
+        
         activity = discord.Activity(name='канал Nitagas', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
-        activity = discord.Activity( name= len(client.guilds) , type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(60)
+     
         activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
@@ -70,9 +73,7 @@ async def status(ctx):
         await asyncio.sleep(60)
         activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
-        await asyncio.sleep(60)
-        activity = discord.Activity( name= len(client.guilds) , type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
+     
        
 
 
