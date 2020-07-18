@@ -85,10 +85,7 @@ async def status(ctx):
     while True:
         activity = discord.Activity( name= len(client.guilds),type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
-        await asyncio.sleep(5)
-        activity = discord.Activity(name='сервера', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(5)
+        await asyncio.sleep(60)
         activity = discord.Activity(name='канал Nitagas', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
