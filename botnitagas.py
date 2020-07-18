@@ -83,9 +83,7 @@ async def clear( ctx, amount : int ):
 async def status(ctx):
     await ctx.channel.purge( limit = 1 )
     while True:
-        await client.change_presence(activity=discord.Game(name= len(client.guilds)))
-        await asyncio.sleep(60)
-        activity = discord.Activity(name= len(client.guilds), type=discord.ActivityType.watching)
+        activity = discord.Activity(name= len(client.guilds) 'сервера', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
         activity = discord.Activity(name='канал Nitagas', type=discord.ActivityType.watching)
@@ -94,9 +92,7 @@ async def status(ctx):
         activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
-        await client.change_presence(activity=discord.Game(name='youtube Nitagas'))
-        await asyncio.sleep(60)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
+        activity = discord.Activity(name= len(client.guilds) 'сервера', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
         activity = discord.Activity(name='канал Nitagas', type=discord.ActivityType.watching)
@@ -105,18 +101,8 @@ async def status(ctx):
         activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
-        await client.change_presence(activity=discord.Game(name='youtube Nitagas'))
-        await asyncio.sleep(60)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(60)
-        activity = discord.Activity(name='канал Nitagas', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(60)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(60) 
-    
+        
+       
     
     
 #kick
