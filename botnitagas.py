@@ -1924,7 +1924,7 @@ async def info(ctx , member:discord.Member):
     emb.add_field(name = 'Имя Пользователя' , value = member.display.name , inline = False)
     emb.add_field(name = 'Айди Пользователя' , value = member.id , inline = False)
     emb.add_field(name = 'Аккаунт Пользователя был создан' , value = member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' ) 
-    emb.set_thumbnail(url = member.avatar.url)
+   
     emb.set_footer( text = f'𝔽𝕠𝕣𝕜𝕚𝕟#6897|Все права защищены' , icon_url = ctx.message.author.avatar_url )
     emb.set_author( name = ctx.message.author , icon_url = ctx.message.author.avatar_url)
     await ctx.send( embed = emb )
