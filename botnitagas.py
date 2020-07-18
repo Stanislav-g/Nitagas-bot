@@ -1924,7 +1924,7 @@ async def infofor(ctx , member:discord.Member):
         f"date {Member.joined_at.strftime('%b %#d, %Y')}\n\n"
         f"Имя Пользователя {member.display.name}\n\n"
         f"Айди Пользователя {member.id}\n\n"
-        f"Аккаунт Пользователя был создан{member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' )}"
+        f"Аккаунт Пользователя был создан {member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' )}"
     )
  
     await ctx.send( embed = emb )
