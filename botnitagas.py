@@ -1919,22 +1919,14 @@ async def leng( ctx ):
                 
 @client.command()
 async def infofor(ctx , member:discord.Member):
-    emb = discord.Embed( 
-        title = 'user info',
-        color = 0x7aa13d
-     )
+    emb = discord.Embed( title = 'user info', color = 0x7aa13d)
     emb.description=(
         f"date {Member.joined_at.strftime('%b %#d, %Y')}\n\n"
         f"Имя Пользователя {member.display.name}\n\n"
         f"Айди Пользователя {member.id}\n\n"
         f"Аккаунт Пользователя был создан{member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' )}"
     )
-
-    
-    
-    emb.set_thumbnail(url = member.avatar.url)
-    emb.set_footer( text = f'𝔽𝕠𝕣𝕜𝕚𝕟#6897|Все права защищены' , icon_url = ctx.message.author.avatar_url )
-    emb.set_author( name = ctx.message.author , icon_url = ctx.message.author.avatar_url)
+ 
     await ctx.send( embed = emb )
    
                   
