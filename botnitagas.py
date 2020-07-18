@@ -56,16 +56,10 @@ async def info( ctx ):
 async def status(ctx):
     await ctx.channel.purge( limit = 1 )
     while True:
-        activity = discord.Activity( name= len(client.guilds),type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(60)
         activity = discord.Activity(name='канал Nitagas', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
         activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(60)
-        activity = discord.Activity( name= len(client.guilds) , type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
         activity = discord.Activity(name='канал Nitagas', type=discord.ActivityType.watching)
@@ -920,9 +914,9 @@ async def rps(ctx, *, mess):
         robot_choice = random.choice(robot)
         emb = discord.Embed(title = robot_choice, colour = discord.Colour.lighter_grey())
         if robot_choice == 'Ножницы':
-            emb.add_field(name = ':scroll:', value = 'Вы выиграли!')
+            emb.add_field(name = ':scissors:', value = 'Вы выиграли!')
         elif robot_choice == 'Бумага':
-            emb.add_field(name = ':scissors:', value = 'Вы проиграли :с')
+            emb.add_field(name = ':scroll:', value = 'Вы проиграли :с')
         else:
             emb.add_field(name = ':moyai:', value = 'Ничья!')
         await ctx.send(embed = emb)
@@ -931,11 +925,11 @@ async def rps(ctx, *, mess):
         robot_choice = random.choice(robot)
         emb = discord.Embed(title = robot_choice, colour = discord.Colour.lighter_grey())
         if robot_choice == 'Ножницы':
-            emb.add_field(name = ':scroll:', value = 'Вы проиграли :с')
+            emb.add_field(name = 'scissors:', value = 'Вы проиграли :с')
         elif robot_choice == 'Камень':
             emb.add_field(name = ':moyai:', value = 'Вы выиграли!')
         else:
-            emb.add_field(name = ':scissors:', value = 'Ничья!')
+            emb.add_field(name = '::scroll:', value = 'Ничья!')
         await ctx.send(embed = emb)
             
     elif mess == "Ножницы" or mess == "Н" or mess == "ножницы" or mess == "н":
