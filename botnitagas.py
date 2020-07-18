@@ -1924,14 +1924,10 @@ async def info(ctx , member:discord.Member):
     emb.add_field(name = 'Имя Пользователя' , value = member.display.name , inline = False)
     emb.add_field(name = 'Айди Пользователя' , value = member.id , inline = False)
     emb.add_field(name = 'Аккаунт Пользователя был создан' , value = member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' ) 
-    embe.set_thumbnail(url= Member.avatar_url)
-    embe.set_footer(icon_url= Member.avatar_url)
-    embr.set_footer( text = f'𝔽𝕠𝕣𝕜𝕚𝕟#6897|Все права защищены' , icon_url = ctx.message.author.avatar_url )
-    embr.set_author( name = ctx.message.author , icon_url = ctx.message.author.avatar_url)
+    
     
     await ctx.send( embed = emb )
-    await ctx.send( embed = embe )
-    await ctx.send( embed = embr )
+    
                     
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
