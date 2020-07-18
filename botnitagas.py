@@ -1932,9 +1932,9 @@ async def infofor(ctx , member:discord.Member):
 
     
     
-    emb.set_thumbnail = (url = member.avatar.url)
-    emb.set_footer = ( text = f'𝔽𝕠𝕣𝕜𝕚𝕟#6897|Все права защищены' , icon_url = ctx.message.author.avatar_url )
-    emb.set_author = ( name = ctx.message.author , icon_url = ctx.message.author.avatar_url)
+    emb.set_thumbnail(url = member.avatar.url)
+    emb.set_footer( text = f'𝔽𝕠𝕣𝕜𝕚𝕟#6897|Все права защищены' , icon_url = ctx.message.author.avatar_url )
+    emb.set_author( name = ctx.message.author , icon_url = ctx.message.author.avatar_url)
     await ctx.send( embed = emb )
    
                   
