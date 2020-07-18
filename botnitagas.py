@@ -1938,9 +1938,24 @@ async def forkin(ctx, Member: discord.Member = None ):
     emb.set_footer(text='Команда вызвана: {}'.format(ctx.author.name), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=emb)
     
-    await ctx.send( embed = emb )
+    
    
-                  
+@Client.command()
+async def infofor(ctx , Member: discord.Member):
+    emb = discord.Embed( title = 'user info', color = 0x7aa13d)
+    emb.description=(
+        f"date {Member.joined_at.strftime('%b %#d, %Y')}\n\n"
+        f"Имя Пользователя {Member.display.name}\n\n"
+        f"Айди Пользователя {Member.id}\n\n"
+        f"Аккаунт Пользователя был создан{Member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' )}"
+    )
+
+
+
+    emb.set_thumbnail(url = Member.avatar.url)
+    emb.set_footer( text = f'𝔽𝕠𝕣𝕜𝕚𝕟#6897|Все права защищены' , icon_url = ctx.message.author.avatar_url )
+    emb.set_author( name = ctx.message.author , icon_url = ctx.message.author.avatar_url)
+    await ctx.send( embed = emb )                  
  
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
