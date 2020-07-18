@@ -1940,7 +1940,7 @@ async def forkin(ctx, Member: discord.Member = None ):
     
     
    
-@Client.command()
+@client.command()
 async def infofor(ctx , Member: discord.Member):
     emb = discord.Embed( title = 'user info', color = 0x7aa13d)
     emb.description=(
