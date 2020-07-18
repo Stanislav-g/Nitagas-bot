@@ -31,55 +31,6 @@ async def on_redy():
     await client.change_presence( status = discord.Status.online, activity = discord.Game( '-help' ) )
     await ctx.send( f'Hello' )
 
-# SERVER
-from socket import *
-
-
-class Server:
-
-    def __init__(self, host, port: int):
-        self.host = host
-        self.port = port
-
-        s = socket(AF_INET, SOCK_STREAM) # Создаем TCP соеденение
-        s.bind((host, port)) # Привязываем хост и порт
-        s.listen(5) # Максимально 5 подключений
-
-        self.client, self.addr = s.accept() # Принимаем запрос на подключение
-        print(f"{self.addr} подключился к серверу")
-
-    def action(self):
-        while True:
-            data = self.client.recv(1000000) # Получаем 1000.000 байт данных от клиента
-            print(f"{self.addr}: {data.decode('utf-8')}") # Выводим сообщение от клиента на экран
-
-            message = input("Enter text: ") # Вводим наше сообщение
-            self.client.send(message.encode("utf-8")) # Преобразовывем наше сообщение в байты
-
-# CLIENT
-from socket import *
-
-
-class Client:
-
-    def __init__(self, host, port: int):
-        self.host = host
-        self.port = port
-
-        self.s = socket(AF_INET, SOCK_STREAM)
-        self.s.connect((host, port)) # Подключаемся к серверу
-
-    def action(self):
-        while True:
-            message = input("Enter text: ")
-            self.s.send(message.encode("utf-8"))
-
-            data = self.s.recv(1000000)
-            print(f"Message from server: {data.decode('utf-8')}")
-
-
-Client("localhost", 11111).action()
-
 
 
 #hello
@@ -132,9 +83,9 @@ async def clear( ctx, amount : int ):
 async def status(ctx):
     await ctx.channel.purge( limit = 1 )
     while True:
-        await client.change_presence(activity=discord.Game(name='youtube Nitagas'))
+        await client.change_presence(activity=discord.Game(name= len(client.guilds)))
         await asyncio.sleep(60)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
+        activity = discord.Activity(name= len(client.guilds), type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
         activity = discord.Activity(name='канал Nitagas', type=discord.ActivityType.watching)
