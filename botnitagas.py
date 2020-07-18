@@ -1918,16 +1918,22 @@ async def leng( ctx ):
     await ctx.author.send( embed = emb )                
                 
 @client.command()
-async def info(ctx , member:discord.Member):
-    emb = discord.Embed(title = 'Тупа инфа о юзере' , color = 0xff0000)
-    emb.add_field(name = 'Когда Присоединился юзер' , value = {Member.joined_at.strftime('%b %#d, %Y')}, inline = False)
-    emb.add_field(name = 'Имя Пользователя' , value = member.display.name , inline = False)
-    emb.add_field(name = 'Айди Пользователя' , value = member.id , inline = False)
-    emb.add_field(name = 'Аккаунт Пользователя был создан' , value = member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' ) 
-    
-    
+async def infofor(ctx , member:discord.Member):
+    emb = discord.Embed( 
+        title = 'user info',
+        color = 0x7aa13d
+     )
+    emb.add_field(name = 'info' , value = '''
+    f'date', {Member.joined_at.strftime('%b %#d, %Y')}, inline = False)
+    f'Имя Пользователя' , member.display.name , inline = False)
+    f'Айди Пользователя' , member.id , inline = False)
+    f'Аккаунт Пользователя был создан' , member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' ) 
+    ''')
+
     await ctx.send( embed = emb )
-    
+   
+                  
+  
                     
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
