@@ -1922,16 +1922,15 @@ async def infofor(ctx , member:discord.Member):
     emb = discord.Embed( title = 'user info', color = 0x7aa13d)
     emb.description=(
         f"date {Member.joined_at.strftime('%b %#d, %Y')}\n\n"
-        f"Имя Пользователя {member.display.name}\n\n"
-        f"Айди Пользователя {member.id}\n\n"
-        f"Аккаунт Пользователя был создан {member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' )}"
+        f"Имя Пользователя {Member.name}\n\n"
+        f"Айди Пользователя {Member.id}\n\n"
+        f"Аккаунт Пользователя был создан {Member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' )}"
     )
  
     await ctx.send( embed = emb )
    
                   
-  
-                    
+ 
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
 
