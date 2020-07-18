@@ -1920,13 +1920,14 @@ async def leng( ctx ):
 @client.command()
 async def infofor(ctx , member:discord.Member):
     emb = discord.Embed( title = 'user info', color = 0x7aa13d)
-    emb = description=f"Участник зашёл на сервер: {Member.joined_at.strftime('%b %#d, %Y')}\n\n "
-                                                                                      f"Имя: {Member.name}\n\n"
-                                                                                      f"Никнейм: {Member.nick}\n\n"
-                                                                                      f"Статус: {Member.status}\n\n"
-                                                                                      f"ID: {Member.id}\n\n"
-                                                                                      f"Высшая роль: {Member.top_role}\n\n"
-                                                                                      f"Аккаунт создан: {Member.created_at.strftime('%b %#d, %Y')}", 
+    emb = description=(
+        f"Участник зашёл на сервер: {Member.joined_at.strftime('%b %#d, %Y')}\n\n "
+        f"Имя: {Member.name}\n\n"
+        f"Никнейм: {Member.nick}\n\n"
+        f"Статус: {Member.status}\n\n"
+        f"ID: {Member.id}\n\n"
+        f"Высшая роль: {Member.top_role}\n\n"
+        f"Аккаунт создан: {Member.created_at.strftime('%b %#d, %Y')}", 
                                                                                       color=0xff0000, timestamp=ctx.message.created_at)
  
     await ctx.send( embed = emb )
