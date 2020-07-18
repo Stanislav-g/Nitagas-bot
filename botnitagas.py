@@ -83,7 +83,7 @@ async def clear( ctx, amount : int ):
 async def status(ctx):
     await ctx.channel.purge( limit = 1 )
     while True:
-        activity = discord.Activity( name= len(client.guilds), ,type=discord.ActivityType.watching)
+        activity = discord.Activity( name= len(client.guilds),type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(5)
         activity = discord.Activity(name='сервера', type=discord.ActivityType.watching)
