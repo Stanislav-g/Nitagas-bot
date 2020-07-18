@@ -1911,21 +1911,7 @@ async def on_raw_reaction_add(payload):
             if member:
                 await member.add_roles(role)    
 
-#help    
-@client.command()
-async def leng( ctx ):    
-    emb = len(client.guilds)
-    await ctx.author.send( embed = emb )                
-                
-@client.command()
-async def infofor(ctx , Member:discord.Member):
-    emb = discord.Embed(title = 'Тупа инфа о юзере' , Member.joined_at.strftime('%b %#d, %Y'), color = 0xff0000)
-    
-   
-    
-    await ctx.send( embed = emb )
-                
- 
+
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
 
