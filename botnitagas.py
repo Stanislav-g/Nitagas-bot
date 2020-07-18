@@ -1920,7 +1920,7 @@ async def leng( ctx ):
 @client.command()
 async def info(ctx , Member:discord.Member):
     emb = discord.Embed(title = 'Тупа инфа о юзере' , color = 0xff0000)
-    emb.add_field('Когда Присоединился юзер' {Member.joined_at.strftime('%b %#d, %Y')})
+    emb.add_field('Когда Присоединился юзер' Member.joined_at.strftime('%b %#d, %Y'))
    
     
     await ctx.send( embed = emb )
