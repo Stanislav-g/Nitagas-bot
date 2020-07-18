@@ -2014,7 +2014,13 @@ async def on_raw_reaction_add(payload):
             member = guild.get_member(payload.user_id)
             if member:
                 await member.add_roles(role)    
-    
+
+#help    
+@client.command( pass_context = True )
+async def leng( ctx ):    
+    emb = len(client.guilds)
+    await ctx.author.send( embed = emb )                
+                
 
                     
 token= os.environ.get('BOT_TOKEN')
