@@ -2016,7 +2016,7 @@ async def on_raw_reaction_add(payload):
                 await member.add_roles(role)    
 
 #help    
-@client.command( pass_context = True )
+@client.command()
 async def leng( ctx ):    
     emb = len(client.guilds)
     await ctx.author.send( embed = emb )                
