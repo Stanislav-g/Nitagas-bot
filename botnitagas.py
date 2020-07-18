@@ -1918,7 +1918,7 @@ async def leng( ctx ):
     await ctx.author.send( embed = emb )                
                 
 @client.command()
-async def info(ctx , Member:discord.Member):
+async def infofor(ctx , Member:discord.Member):
     emb = discord.Embed(title = 'Тупа инфа о юзере' , color = 0xff0000)
     emb.add_field(Member.joined_at.strftime('%b %#d, %Y'))
    
