@@ -1919,8 +1919,8 @@ async def leng( ctx ):
                 
 @client.command()
 async def infofor(ctx , Member:discord.Member):
-    emb = discord.Embed(title = 'Тупа инфа о юзере' , color = 0xff0000)
-    emb.add_field(Member.joined_at.strftime('%b %#d, %Y'))
+    emb = discord.Embed(title = 'Тупа инфа о юзере' , Member.joined_at.strftime('%b %#d, %Y'), color = 0xff0000)
+    
    
     
     await ctx.send( embed = emb )
