@@ -1924,11 +1924,12 @@ async def infofor(ctx , member:discord.Member):
     emb.add_field(f'Имя Пользователя' , member.display.name)
     emb.add_field(f'Айди Пользователя' , member.id )
     emb.add_field(f'Аккаунт Пользователя был создан' ,  member.creation_at.strftime( '%a,%#d %B %Y, %I:%M %p UTC' ) 
-    emb.set_thumbnail(url= Member.avatar_url)
-    emb.set_footer(icon_url= Member.avatar_url)                 
+    embe.set_thumbnail(url= Member.avatar_url)
+    embe.set_footer(icon_url= Member.avatar_url)               
     emb.set_footer( text = f'𝔽𝕠𝕣𝕜𝕚𝕟#6897|Все права защищены' , icon_url = ctx.message.author.avatar_url )
     emb.set_author( name = ctx.message.author , icon_url = ctx.message.author.avatar_url)
-    await ctx.send( 'embed = emb' )
+                 
+    await ctx.send( embed = emb )
                     
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
