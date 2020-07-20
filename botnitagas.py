@@ -792,7 +792,6 @@ async def on_raw_reaction_add(payload):
             if member:
                 await member.add_roles(role)
 
-
 @client.command() # Попытки 5
 async def угадайка(ctx):
     await ctx.message.delete()
