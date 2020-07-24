@@ -1644,7 +1644,7 @@ start_ev = 0 #перемычка
 
 #event_roles
 @client.command()
-async def event_roles(ctx, role: discord.Role = None, member: discord.Member = None, time = None):
+async def event_roles(ctx, role: discord.Role = None, member: discord.Member = None, time: int = None):
     global ev_player
     global start_ev
     if role is None:
