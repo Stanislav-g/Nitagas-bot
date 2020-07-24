@@ -1644,18 +1644,15 @@ start_ev = 0 #перемычка
 
 #event_roles
 @client.command()
-async def event_roles(ctx, role: discord.Role = None, member: discord.Member = None, time: int = None):
+async def event_roles(ctx, role: discord.Role = None, member: discord.Member = None):
     global ev_player
     global start_ev
     if role is None:
         await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`/event_roles [role]`')
-        return
-    if time is None:
-        await ctx.send('**Упомяните time для розыгрыша.**' '\n' '`/event_roles [role]`')
-        return
+        return  
     start_ev = 1
-    await ctx.send(f'Администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-уч`.' '\n' f'**Розыгрыш состоится через минуты.**')
-    await asyncio.sleep({time})
+    await ctx.send(f'Администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-уч`.' '\n' f'**Розыгрыш состоится через 30 минут.**')
+    await asyncio.sleep(1800)
     ev_win = r.choice(ev_player)
     member = ev_win
     await ctx.send(f'**Поздравляем {ev_win.mention}! Он выигрывает в розыгрыше и получает роль {role.mention}.**')
