@@ -1650,6 +1650,9 @@ async def event_roles(ctx, role: discord.Role = None, member: discord.Member = N
     if role is None:
         await ctx.send('**Упомяните роль для розыгрыша.**' '\n' '`/event_roles [role]`')
         return
+    if time is None:
+        await ctx.send('**Упомяните time для розыгрыша.**' '\n' '`/event_roles [role]`')
+        return
     start_ev = 1
     await ctx.send(f'Администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-уч`.' '\n' f'**Розыгрыш состоится через {time} минуты.**')
     await asyncio.sleep({time})
