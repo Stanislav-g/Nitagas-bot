@@ -1654,7 +1654,7 @@ async def event_roles(ctx, role: discord.Role = None, member: discord.Member = N
         await ctx.send('**Упомяните time для розыгрыша.**' '\n' '`/event_roles [role]`')
         return
     start_ev = 1
-    await ctx.send(f'Администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-уч`.' '\n' f'**Розыгрыш состоится через {time} минуты.**')
+    await ctx.send(f'Администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-уч`.' '\n' f'**Розыгрыш состоится через минуты.**')
     await asyncio.sleep({time})
     ev_win = r.choice(ev_player)
     member = ev_win
