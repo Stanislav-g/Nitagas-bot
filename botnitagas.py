@@ -1830,7 +1830,18 @@ async def on_raw_reaction_add(payload):
                 await member.add_roles(role) 
                 
                 
-                
+@client.command()
+@commands.has_permissions(administrator = True)
+async def role_create(ctx): 
+    guild.createRole({
+      data: {
+        name: 'test',
+        hoist: true,
+        mentionable: false,
+      },
+    });
+    
+
 
 
 token= os.environ.get('BOT_TOKEN')
