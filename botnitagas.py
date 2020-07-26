@@ -1183,6 +1183,13 @@ async def channel_create(ctx, *, arg):
     channel = await guild.create_text_channel(f'{arg}')
     await ctx.send(embed = discord.Embed(description = f'**:keyboard: Текстовый канал "{arg}" успешно создан!**', color=0x0c0c0c))
 
+@client.command()
+@commands.has_permissions(administrator = True)
+async def role_create(ctx, *, arg): 
+    await ctx.channel.purge( limit = 1 )
+    guild = ctx.guild
+    channel = await guild.create_role(f'{arg}')
+    await ctx.send(embed = discord.Embed(description = f'**:keyboard: роль "{arg}" успешно создана!**', color=0x0c0c0c))
 
 
 @client.command()
