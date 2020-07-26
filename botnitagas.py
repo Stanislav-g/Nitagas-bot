@@ -1831,17 +1831,12 @@ async def on_raw_reaction_add(payload):
                 
                 
 @client.command()
-@commands.has_permissions(administrator = True)
-async def role_creater(ctx): 
-    guild.createRole({
-      data: {
-        name: 'test',
-        hoist: true,
-        mentionable: false,
-      },
-    });
-    
-
+@commands.has_permissions(Administrator= True)
+async def rolecr(ctx):
+    guild = ctx.guild
+    perms = discord.Permissions(send_message=False)
+    await guild.create_role(name="muted", Permissions=perms)
+    await ctx.send("Успешно")
 
 
 token= os.environ.get('BOT_TOKEN')
