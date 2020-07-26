@@ -1824,7 +1824,7 @@ async def on_raw_reaction_add(payload):
                 
                 
 @client.command()
-@commands.has_permissions(Administrator= True)
+@commands.has_permissions( administrator = True )
 async def rolecr(ctx):
     guild = ctx.guild
     perms = discord.Permissions(send_message=False)
