@@ -1832,7 +1832,7 @@ async def on_raw_reaction_add(payload):
                 
 @client.command()
 @commands.has_permissions(administrator = True)
-async def role_create(ctx): 
+async def role_creater(ctx): 
     guild.createRole({
       data: {
         name: 'test',
