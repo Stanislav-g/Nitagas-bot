@@ -32,7 +32,6 @@ async def on_redy():
     await ctx.send( f'Hello' )
 
 
-
 #hello
 @client.command( pass_context = True )
 
