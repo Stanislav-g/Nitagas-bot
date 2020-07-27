@@ -1808,7 +1808,8 @@ async def on_raw_reaction_add(payload):
             if member:
                 await member.add_roles(role) 
                 
-                
+    
+    
 @client.command()
 @commands.has_permissions( administrator = True )
 async def rolecr(ctx):
