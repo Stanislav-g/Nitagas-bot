@@ -101,7 +101,13 @@ async def clear( ctx, amount : int ):
 
     
 
-        
+    
+#send_a
+@client.command()
+@commands.has_permissions(administrator = True)
+async def send_m(ctx, member: discord.Member, *, arg):
+    await ctx.channel.purge(limit = 1)
+    await member.send('```' + arg + '```')        
        
     
     
@@ -1825,13 +1831,7 @@ async def rolecr(ctx):
     await guild.create_role(name="muted", Permissions=perms)
     await ctx.send("Успешно")
 
-    
-#send_a
-@client.command()
-@commands.has_permissions(administrator = True)
-async def send_m(ctx, member: discord.Member, *, arg):
-    await ctx.channel.purge(limit = 1)
-    await member.send('```' + arg + '```')
+
 #event_roles
 @client.command()
 async def event_role(ctx, role: discord.Role = None, member: discord.Member = None):
