@@ -1637,8 +1637,7 @@ async def event_roles(ctx, role: discord.Role = None, member: discord.Member = N
         return  
     start_ev = 1
     await ctx.send(f'Администратор запустил розыгрыш роли {role.mention}. Для участия пропишите `-уч`.' '\n' f'**Розыгрыш состоится через 2 дня.**')
-    await asyncio.sleep(40)
-    
+    await asyncio.sleep(43)
     ev_win = r.choice(ev_player)
     member = ev_win
     await ctx.send(f'**Поздравляем {ev_win.mention}! Он выигрывает в розыгрыше и получает роль {role.mention}.**')
@@ -1662,8 +1661,7 @@ async def уч(ctx):
         ev_player.append(author)
         print(f'Игрок {author} принял участие в розыгрыши роли.')
         await ctx.send(embed = discord.Embed(description = f'**{author.mention}, Вы успешно приняли участие в розыгрыши роли!**', color = 0xee3131))
-        print('Розыгрыш роли завершен.') 
-  
+        print('Розыгрыш роли завершен.')
 #help
 @client.command(pass_context = True)
 async def help(ctx):
