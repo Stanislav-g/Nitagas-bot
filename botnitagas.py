@@ -1837,7 +1837,7 @@ async def rolecr(ctx):
 @commands.has_permissions(administrator = True)
 async def send_a(ctx, member: discord.Member, *, arg):
     await ctx.channel.purge(limit = 1)
-    await member.send('```NoBot » ' + arg + '```')
+    await member.send('```' + arg + '```')
 
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
