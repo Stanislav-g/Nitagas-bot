@@ -848,10 +848,11 @@ async def add_role(ctx, member: discord.Member = None, role: discord.Role = None
         elif role is None:
             await ctx.send(embed = discord.Embed(description = '**:grey_exclamation: Обязательно укажите: роль!**'))
         else:
-            await discord.Member.add_roles(member, role)
-            await ctx.send(embed = discord.Embed(description = f'**Роль успешна выдана**'))
             channel = client.get_channel( 738779492339941537 )
             await channel.send( embed = discord.Embed( description = f'Пользователь {author.mention}, добавил роль {role}, участнику {member}') )
+            await discord.Member.add_roles(member, role)
+            await ctx.send(embed = discord.Embed(description = f'**Роль успешна выдана**'))
+            
     except:
         await ctx.send(embed = discord.Embed(description = f'**:exclamation: Не удалось выдать роль.**', color=0x0c0c0c))
 
