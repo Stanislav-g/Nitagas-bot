@@ -392,14 +392,7 @@ async def text2_error( ctx, error ):
     if isinstance( error, commands.MissingRequiredArgument ):
         await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
 
-            
-@rainbow.error    
-async def rainbow_error( ctx, error ):
-    if isinstance( error, commands.MissingRequiredArgument ):
-        await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
-
-    if isinstance( error, commands.MissingPermissions ):
-        await ctx.send( f'{ ctx.author.name }, у вас недостаточно прав ')
+  
 
 #ytn
 @client.command()
