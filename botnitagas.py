@@ -16,10 +16,10 @@ import random as r
 import requests
 import io
 import typing
+import bad_words
 
 client = commands.Bot( command_prefix = '-')
 client.remove_command('help')
-bad_words = ['suka','brandon','дурак','дебил','дибил','tonto','brandon','mario jose','Brandon','Mario Jose','дурачок','таракан','сука','негр','ниггер','Таракан',]
 num = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30']
 link = ['https://youtu.be/XVMHRAUI-h0','https://youtu.be/S5WkBjiUQCs']
 
@@ -391,12 +391,6 @@ async def text2_error( ctx, error ):
     if isinstance( error, commands.MissingRequiredArgument ):
         await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
 
-
-@youtube.error    
-async def youtube_error( ctx, error ):
-    if isinstance( error, commands.MissingPermissions ):
-        await ctx.send( f'{ ctx.author.name }, у вас недостаточно прав ')
- 
             
 @rainbow.error    
 async def rainbow_error( ctx, error ):
