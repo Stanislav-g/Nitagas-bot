@@ -208,7 +208,7 @@ async def on_member_join( member ):
 #autorole
 @client.event
 async def on_member_remove( member ):
-    channel = client.get_channel( 740152659289309215 )
+    channel = client.get_channel( 740154462177591346 )
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}, пользователь покинул нас') )
 
     
