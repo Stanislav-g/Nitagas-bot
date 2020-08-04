@@ -851,10 +851,10 @@ async def add_role(ctx, member: discord.Member = None, role: discord.Role = None
         else:
             await discord.Member.add_roles(member, role)
             await ctx.send(embed = discord.Embed(description = f'**Роль успешна выдана**'))
-            await channel.send( embed = discord.Embed( description = f'Пользователь {author.mention}, добавил роль {role}, участнику {member}') )
+           
     except:
+        await ctx.send(embed = discord.Embed(description = f' Не удалось выдать роль.', color=0x0c0c0c))
         
-        await channel.send( embed = discord.Embed( description = f'Пользователь {author.mention}, добавил роль {role}, участнику {member}') )
 #tempmute
 @client.command()
 @commands.has_permissions( administrator = True )
