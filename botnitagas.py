@@ -210,7 +210,11 @@ async def on_member_join( member ):
 async def on_member_remove( member ):
     channel = client.get_channel( 740154462177591346 )
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention},  покинул сервер') )
-
+#autorole
+@client.event
+async def on_member_update(before, after):
+    channel = client.get_channel( 738779492339941537 )
+    await channel.send( embed = discord.Embed( description = f'{before.nickname}, {after.nickname}') )
     
 @clear.error
 async def clear_error( ctx, error ):
@@ -851,6 +855,8 @@ async def add_role(ctx, member: discord.Member = None, role: discord.Role = None
         else:
             await discord.Member.add_roles(member, role)
             await ctx.send(embed = discord.Embed(description = f'**Роль успешна выдана**'))
+            channel = client.get_channel( 738779492339941537 )
+            await channel.send( embed = discord.Embed( description = f'Пользователь {author.mention}, добавил роль {role}, участнику {member}') )
     except:
         await ctx.send(embed = discord.Embed(description = f'**:exclamation: Не удалось выдать роль.**', color=0x0c0c0c))
 
