@@ -15,7 +15,7 @@ import sqlite3
 import random as r
 import requests
 import io
-
+import typing
 
 client = commands.Bot( command_prefix = '-')
 client.remove_command('help')
@@ -34,15 +34,12 @@ async def on_redy():
 
 #hello
 @client.command( pass_context = True )
-
 async def hello( ctx ):
     author = ctx.message.author
-    
     await ctx.send( f' { author.mention } Hello' )
 
 #info
 @client.command( pass_context = True )
-
 async def info( ctx ):
     await ctx.channel.purge( limit = 1 )
     emb = discord.Embed( title = 'INFO', colour = discord.Color.red() )
@@ -54,16 +51,13 @@ async def info( ctx ):
 @client.command()
 async def status(ctx):
     await ctx.channel.purge( limit = 1 )
-    while True:
-        
+    while True:      
         activity = discord.Activity(name= len(client.guilds), type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
-        
         activity = discord.Activity(name='канал Nitagas', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
-        await asyncio.sleep(60)
-     
+        await asyncio.sleep(60)     
         activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
         await asyncio.sleep(60)
@@ -73,8 +67,6 @@ async def status(ctx):
         activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
         await client.change_presence(activity=activity)
      
-       
-
 
 #mute
 @client.command( pass_context = True )
@@ -82,9 +74,7 @@ async def status(ctx):
 
 async def mute( ctx, member: discord.Member ):
     await ctx.channel.purge( limit = 1 )
-
     mute_role = discord.utils.get( ctx.message.guild.roles, name = 'mute')
-
     await member.add_roles( mute_role )
     await ctx.send( f'У {member.mention}, ограничение чата за нарушение прав!')
 
@@ -100,8 +90,7 @@ async def clear( ctx, amount : int ):
     await ctx.channel.purge( limit = 2 )
 
     
-
-    
+ 
 #send_a
 @client.command()
 @commands.has_permissions(administrator = True)
@@ -125,8 +114,8 @@ async def kick( ctx, member: discord.Member, *, reason = None):
     emb.add_field( name = 'Kick user',value = 'Kick user : {}'.format( member.mention ) )
     await ctx.send( embed = emb )
     await ctx.send( f'kick user { member.mention}')
-#ban
 
+#ban
 @client.command( pass_context = True )
 @commands.has_permissions( administrator = True )
 
@@ -147,11 +136,9 @@ async def unban( ctx, *, member ):
     emb.set_author( name = member.name, icon_url = member.avatar_url)
     emb = discord.Embed( title = 'unban', colour = discord.Color.red() )
     await ctx.channel.purge( limit = 1)
-
     banned_users = await ctx.guild.bans()
     emb.add_field( name = 'unban user',value = 'Unbaned user : {}'.format( member.mention ) )
     await ctx.send( embed = emb )
-   
 
     for ban_entry in banned_users:
         user = ban_entry.user
@@ -218,13 +205,6 @@ async def on_member_join( member ):
     await member.send( embed = emb )
 
 
-
-
-
-
-
-
-
     
 @clear.error
 async def clear_error( ctx, error ):
@@ -263,13 +243,6 @@ async def send_m_error( ctx, error ):
         await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
 
 
-
-
-
-
-        
-
-
 #filter
 @client.event
 async def on_message ( message ):
@@ -287,10 +260,7 @@ async def on_message ( message ):
         await message.author.remove_roles( ppp_role )
         
         
-
-        
-        
-        
+       
 #join to channel
 @client.command()
 async def j(ctx):
@@ -303,6 +273,7 @@ async def j(ctx):
     else:
         voice = await channel.connect()
         await ctx.send(f'Бот присоеденился к каналу: {channel}')
+
 #leave from channel
 @client.command()
 async def l(ctx):
@@ -315,58 +286,10 @@ async def l(ctx):
     else:
         voice = await channel.connect()
         await ctx.send(f'Бот отключился от канала: {channel}')
-#youtube
 
-@client.command( pass_context = True )
-
-async def yt( ctx ):
-    await ctx.send(f'https://www.youtube.com/channel/UCxgNsXB1YGiY3oW2pELE87Q')
-    await ctx.send( embed = emb )
-@client.command( pass_context = True )
-
-async def yt2( ctx ):
-    await ctx.send(f'https://youtu.be/T9u9nn0lscs')
-    await ctx.send( embed = emb )
-
-@client.command( pass_context = True )
-
-async def yt3( ctx ):
-    await ctx.send(f'https://youtu.be/0CFby0bAsUI')
-    await ctx.send( embed = emb )
-
-@client.command( pass_context = True )
-
-async def yt4( ctx ):
-    await ctx.send(f'https://youtu.be/S5WkBjiUQCs')
-    await ctx.send( embed = emb )
-
-@client.command( pass_context = True )
-
-async def yt5( ctx ):
-    await ctx.send(f'https://youtu.be/p3-pF2ms9ag')
-    await ctx.send( embed = emb )
-
-@client.command( pass_context = True )
-
-async def yt6( ctx ):
-    await ctx.send(f'https://youtu.be/FCMbQVa577o')
-    await ctx.send( embed = emb )
-
-@client.command( pass_context = True )
-
-async def yt7( ctx ):
-    await ctx.send(f'https://youtu.be/oVMjZx2D4ZI')
-    await ctx.send( embed = emb )
-
-@client.command( pass_context = True )
-
-async def yt8( ctx ):
-    await ctx.send(f'https://youtu.be/3MsvbceklK8')
-    await ctx.send( embed = emb )
 
 #num 
 @client.command( pass_context = True )
-
 async def num( ctx ):
     await ctx.send(random.randint(1,101))
   
@@ -414,8 +337,6 @@ async def roles(ctx, *, member: MemberRoles):
     await ctx.send('I see the following roles: ' + ', '.join(member))
 
 #union
-import typing
-
 @client.command()
 async def union(ctx, what: typing.Union[discord.TextChannel, discord.Member]):
     await ctx.send(what)
@@ -471,118 +392,11 @@ async def text2_error( ctx, error ):
         await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
 
 
-
-
-
-
-
-#youtube
-@client.command( pass_context = True )
-@commands.has_permissions( administrator = True )
-
-async def youtube( ctx,  ):
-    await ctx.channel.purge( limit = 1 )
-
-    while True:
-        await ctx.send( f'Переходите на канал Nitagas\n https://www.youtube.com/channel/UCxgNsXB1YGiY3oW2pELE87Q')
-        await asyncio.sleep(28800)
-        await ctx.send( f'Переходите на канал Nitagas\n https://www.youtube.com/channel/UCxgNsXB1YGiY3oW2pELE87Q')
-        await asyncio.sleep(28800)
-        
-
-
 @youtube.error    
 async def youtube_error( ctx, error ):
     if isinstance( error, commands.MissingPermissions ):
         await ctx.send( f'{ ctx.author.name }, у вас недостаточно прав ')
-
-
-
-
-
-r_words = ['stop']
-
-
-
-@client.command( pass_context = True )
-@commands.has_permissions( administrator = True )
-
-async def rainbow( ctx, member: discord.Member ):
-    await ctx.channel.purge( limit = 1 )
-
-    while True:
-       
-            
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '1')
-        await member.add_roles( ppp_role )
-        await asyncio.sleep(3)
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '1')
-        await member.remove_roles( ppp_role )
-
-      
-            
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '2')
-        await member.add_roles( ppp_role )
-        await asyncio.sleep(3)
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '2')
-        await member.remove_roles( ppp_role )
-
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '3')
-        await member.add_roles( ppp_role )
-        await asyncio.sleep(3)
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '3')
-        await member.remove_roles( ppp_role )
-
-        
-            
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '4')
-        await member.add_roles( ppp_role )
-        await asyncio.sleep(3)
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '4')
-        await member.remove_roles( ppp_role )
-
-     
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '5')
-        await member.add_roles( ppp_role )
-        await asyncio.sleep(3)
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '5')
-        await member.remove_roles( ppp_role )
-
-            
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '6')
-        await member.add_roles( ppp_role )
-        await asyncio.sleep(3)
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '6')
-        await member.remove_roles( ppp_role )
-
-            
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '7')
-        await member.add_roles( ppp_role )
-        await asyncio.sleep(3)
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '7')
-        await member.remove_roles( ppp_role )
-
-     
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '8')
-        await member.add_roles( ppp_role )
-        await asyncio.sleep(3)
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '8')
-        await member.remove_roles( ppp_role )
-
-            
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '9')
-        await member.add_roles( ppp_role )
-        await asyncio.sleep(3)
-        ppp_role = discord.utils.get( ctx.message.guild.roles, name = '9')
-        await member.remove_roles( ppp_role )
-       
-
-       
-
-
-
-       
-
+ 
             
 @rainbow.error    
 async def rainbow_error( ctx, error ):
@@ -613,9 +427,6 @@ async def coinflip(ctx ):
     a = random.choice(['орел','решка','орел','решка','орел'])
     await ctx.send( a )
 
-
-
-
 #knb
 @client.command()
 async def knb(ctx, member: discord.Member ):
@@ -644,8 +455,6 @@ async def knb(ctx, member: discord.Member ):
 async def knb_error( ctx, error ):
     if isinstance( error, commands.MissingRequiredArgument ):
         await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
-
-
 
 
 #sapper
@@ -756,16 +565,10 @@ async def ninth(ctx ):
 
  
         
-        
 @client.command()
 async def nextlvls(ctx ):
-  
     emg = discord.Embed( title = f'1      2     3\n4     5     6     \n7     8     9', colour = discord.Color.red() )
     await ctx.send( embed = emg )  
-
-
-                
-                #reactions
 
 
 @client.command() # Попытки 5
@@ -813,11 +616,6 @@ async def угадайка(ctx):
                 await msg.edit(content= None, embed=emb2)
                 await msg_o.delete() 
                 await asyncio.sleep(2)
-
-
-
-
-
 
 #search
 @client.command()
@@ -942,12 +740,8 @@ async def rps_error( ctx, error ):
 
 
 
-
-
 #botinfo
 @client.command( pass_context = True )
-
-
 async def botinfo( ctx ):
     await ctx.channel.purge( limit = 1 )
     emt = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **NITAGAS bot**.\n Бот был написан специально для проекта Nitagas,\n подробнее о командах  -help", color = 000000)
@@ -969,27 +763,16 @@ async def tmute(ctx, member: discord.Member):
     await member.edit(mute=True)
 
 
-
-ev_player = [''] #игроки в розыгрыше
-start_ev = 0 #перемычка
-
-
-
-
-        
-   
-
-       
+#emoji       
 @client.command()
 @commands.has_permissions( administrator = True )
-
 async def emoji(ctx,id:int,reaction:str):
         await ctx.message.delete()
         message = await ctx.message.channel.fetch_message(id)
         await message.add_reaction(reaction)
 
 
-
+#kill
 @client.command()
 async def kill(  ctx, member: discord.Member ):
     await ctx.send( f"{ctx.author.mention} Достает дробовик... \n https://tenor.com/view/eyebrow-raise-smile-prepared-ready-loaded-gif-15793001" )
@@ -1067,24 +850,15 @@ async def temp_add_role(ctx, amount : int, member: discord.Member = None, role: 
 @commands.has_permissions(administrator = True)
 async def add_role(ctx, member: discord.Member = None, role: discord.Role = None):
     await ctx.channel.purge( limit = 1 )
-
     try:
-
         if member is None:
-
             await ctx.send(embed = discord.Embed(description = '**:grey_exclamation: Обязательно укажите: пользователя!**'))
-
         elif role is None:
-
             await ctx.send(embed = discord.Embed(description = '**:grey_exclamation: Обязательно укажите: роль!**'))
-
         else:
-
             await discord.Member.add_roles(member, role)
             await ctx.send(embed = discord.Embed(description = f'**Роль успешна выдана**'))
-
     except:
-        
         await ctx.send(embed = discord.Embed(description = f'**:exclamation: Не удалось выдать роль.**', color=0x0c0c0c))
 
 #tempmute
@@ -1105,7 +879,6 @@ async def tempmute(ctx,amount : int,member: discord.Member = None, reason = None
 
 @tempmute.error 
 async def tempmute_error(ctx, error):
-
     if isinstance( error, commands.MissingPermissions ):
         await ctx.send(embed = discord.Embed(description = f'**:exclamation: {ctx.author.name},у вас нет прав для использования данной команды.**', color=0x0c0c0c))
 
@@ -1122,12 +895,10 @@ async def on_command_error(ctx, error):
 
 
 
-
+#math
 @client.command()
 async def math( ctx, a : int, arg, b : int ):
-
     try:
-
         if arg == '+':
             await ctx.send(embed = discord.Embed(description = f'**:bookmark_tabs: Результат:** { a + b }', color=0x0c0c0c))  
 
@@ -1140,8 +911,7 @@ async def math( ctx, a : int, arg, b : int ):
         elif arg == '*':
             await ctx.send(embed = discord.Embed(description = f'**:bookmark_tabs: Результат:** { a * b }', color=0x0c0c0c))      
 
-    except:
-        
+    except:       
         await ctx.send(embed = discord.Embed(description = f'**:exclamation: Произошла ошибка.**', color=0x0c0c0c))
 
 @math.error    
@@ -1151,7 +921,7 @@ async def math_error( ctx, error ):
 
 
 
-
+#voice_create
 @client.command()
 @commands.has_permissions(administrator = True)
 async def voice_create(ctx, *, arg):
@@ -1160,6 +930,7 @@ async def voice_create(ctx, *, arg):
     channel = await guild.create_voice_channel(f'{arg}')
     await ctx.send(embed = discord.Embed(description = f'**:microphone2: Голосовой канал "{arg}" успешно создан!**', color=0x0c0c0c))
 
+#channel_create   
 @client.command()
 @commands.has_permissions(administrator = True)
 async def channel_create(ctx, *, arg): 
@@ -1169,16 +940,12 @@ async def channel_create(ctx, *, arg):
     await ctx.send(embed = discord.Embed(description = f'**:keyboard: Текстовый канал "{arg}" успешно создан!**', color=0x0c0c0c))
 
 
-
+#avatar
 @client.command()
 async def avatar(ctx, member : discord.Member = None):
-
     user = ctx.message.author if (member == None) else member
-
     embed = discord.Embed(title=f'Аватар пользователя {user}', color= 0x0c0c0c)
-
     embed.set_image(url=user.avatar_url)
-
     await ctx.send(embed=embed)
 
 # userinfo
@@ -1272,165 +1039,18 @@ async def serverinfo(ctx):
 async def covid(ctx):   
     await ctx.send(f'https://www.worldometers.info/coronavirus/') 
     
- 
+#ngame 
 @client.command()
 async def ngame(ctx):   
     await ctx.send(f'Games\n\nугадайка- угадай число от 1 до 20\n sapper- сапер\nknb- камень, ножницы, бумага\nrps- камень, ножницы, бумага с ботом\ncoinflip- орел или решка?') 
        
 
-    
+#ball    
 @client.command()
 async def ball(ctx, arg = None):
     embe = discord.Embed( title = random.choice(['Да :8ball: ','Нет :8ball: ','Может быть','Думаю нет','Думаю да','Хорошо','Не сейчас','Позже','Сложный вопрос','Не знаю','Надо подумать','Потом','Ты шутишь?','Конечно, да!']), colour = discord.Color.red() )
     await ctx.send(embed=embe)
-@client.command()
-@commands.has_permissions(administrator = True)
-async def botchanging_name(ctx, member: discord.Member = None):
-    
-    while True:
-        await ctx.send(embed = discord.Embed(description = f"Я могу изменить ник пользователя **{member.name}**!")) 
-        await member.edit(nick = nitagas)
-        await asyncio.sleep(10)
-        await member.edit(nick = NITAGAS)
-        await asyncio.sleep(10)
-        await member.edit(nick = nitagas)
-        await asyncio.sleep(10)
-        await member.edit(nick = NITAGAS)
-        await asyncio.sleep(10)
-        await member.edit(nick = nitagas)
-        await asyncio.sleep(10)
-        await member.edit(nick = NITAGAS)
-        await asyncio.sleep(10)
-        await member.edit(nick = nitagas)
-        await asyncio.sleep(10)
-        await member.edit(nick = NITAGAS)
 
-    
-@client.command()
-async def statusline(ctx):
-    await ctx.channel.purge( limit = 1 )
-    while True:
-    
-        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-h', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-he', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-hel', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
-        activity = discord.Activity(name='-help', type=discord.ActivityType.watching)
-        await client.change_presence(activity=activity)
-        await asyncio.sleep(1)
 
 #search
 @client.command()
@@ -1439,10 +1059,8 @@ async def seagoogle(ctx, *, question, args):  # пояндексить
     url = 'https://drive.google.com/drive/folders/1' + str(question).replace(' ', '+') + '?usp=sharing', 'https://drive.google.com/drive/folders/1' + str(args).replace(' ', '+') + '?usp=sharing'
     await ctx.send(f'вот\n{url}')
     
-    
-    
-    
-   #search
+  
+#search
 @client.command()
 async def seachgoogle(ctx, *, question):  # пояндексить
     # сам сайт
@@ -1450,175 +1068,9 @@ async def seachgoogle(ctx, *, question):  # пояндексить
     await ctx.send(f'вот\n{url}')
 
 
+#link     
 @client.command()
-async def seagoogletwo(ctx, *, question, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11):  # пояндексить
-    # сам сайт
-    url = 'https://drive.google.com/drive/folders/1' + str(question).replace(' ', '+') + '?usp=sharing'
-    urlq = 'https://drive.google.com/drive/folders/1' + str(question1).replace(' ', '+') + '?usp=sharing'
-    urlw = 'https://drive.google.com/drive/folders/1' + str(question2).replace(' ', '+') + '?usp=sharing'
-    urle = 'https://drive.google.com/drive/folders/1' + str(question3).replace(' ', '+') + '?usp=sharing'
-    urlr = 'https://drive.google.com/drive/folders/1' + str(question4).replace(' ', '+') + '?usp=sharing'
-    urlt = 'https://drive.google.com/drive/folders/1' + str(question5).replace(' ', '+') + '?usp=sharing'
-    urly = 'https://drive.google.com/drive/folders/1' + str(question6).replace(' ', '+') + '?usp=sharing'
-    urlu = 'https://drive.google.com/drive/folders/1' + str(question7).replace(' ', '+') + '?usp=sharing'
-    urli = 'https://drive.google.com/drive/folders/1' + str(question8).replace(' ', '+') + '?usp=sharing'
-    urlo = 'https://drive.google.com/drive/folders/1' + str(question9).replace(' ', '+') + '?usp=sharing'
-    urlp = 'https://drive.google.com/drive/folders/1' + str(question10).replace(' ', '+') + '?usp=sharing'
-    urla = 'https://drive.google.com/drive/folders/1' + str(question11).replace(' ', '+') + '?usp=sharing'
-    
-    await ctx.send(f'вот\n{url}')
-    await ctx.send(f'вот\n{urlq}')
-    await ctx.send(f'вот\n{urlw}')
-    await ctx.send(f'вот\n{urle}')
-    await ctx.send(f'вот\n{urlr}')
-    await ctx.send(f'вот\n{urlt}')
-    await ctx.send(f'вот\n{urly}')
-    await ctx.send(f'вот\n{urlu}')
-    await ctx.send(f'вот\n{urli}')
-    await ctx.send(f'вот\n{urlo}')  
-    await ctx.send(f'вот\n{urlp}')
-    await ctx.send(f'вот\n{urla}')        
-        
-
-        
-#coinflip
-@client.command()
-async def e(ctx ):
-    a = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    q = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    w = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    e = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    r = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    t = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    y = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    u = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    i = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    o = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    p = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    s = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    d = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    f = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    g = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    h = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    j = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    k = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    l = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    z = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    x = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    c = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    v = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    b = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    n = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    m = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    aa = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    dd = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    ff = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    gg = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    hh = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-    jj = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-
-    url = 'https://drive.google.com/drive/folders/1' + str(a).replace(' ', '+') + str(q).replace(' ', '+') + str(w).replace(' ', '+') + str(e).replace(' ', '+') + str(r).replace(' ', '+') + str(t).replace(' ', '+') + str(y).replace(' ', '+') + str(u).replace(' ', '+') + str(i).replace(' ', '+') + str(o).replace(' ', '+') + str(p).replace(' ', '+') + str(s).replace(' ', '+') + str(d).replace(' ', '+') + str(f).replace(' ', '+') + str(g).replace(' ', '+') + str(h).replace(' ', '+') + str(j).replace(' ', '+') + str(k).replace(' ', '+') + str(l).replace(' ', '+') + str(z).replace(' ', '+') + str(x).replace(' ', '+') + str(c).replace(' ', '+') + str(v).replace(' ', '+') + str(b).replace(' ', '+') + str(n).replace(' ', '+') + str(m).replace(' ', '+') + str(aa).replace(' ', '+') + str(dd).replace(' ', '+') + str(ff).replace(' ', '+') + str(gg).replace(' ', '+') + str(hh).replace(' ', '+') + str(jj).replace(' ', '+') + '?usp=sharing'
-    await ctx.send( url )  
-    
-
-@client.command()
-async def re(ctx ):
-    while True:
-        a = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        q = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        w = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        e = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        r = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        t = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        y = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        u = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        i = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        o = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        p = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        s = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        d = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        f = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        g = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        h = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        j = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        k = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        l = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        z = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        x = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        c = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        v = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        b = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        n = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        m = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        aa = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        dd = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        ff = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        gg = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        hh = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        jj = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-
-        url = 'https://drive.google.com/drive/folders/1' + str(a).replace(' ', '+') + str(q).replace(' ', '+') + str(w).replace(' ', '+') + str(e).replace(' ', '+') + str(r).replace(' ', '+') + str(t).replace(' ', '+') + str(y).replace(' ', '+') + str(u).replace(' ', '+') + str(i).replace(' ', '+') + str(o).replace(' ', '+') + str(p).replace(' ', '+') + str(s).replace(' ', '+') + str(d).replace(' ', '+') + str(f).replace(' ', '+') + str(g).replace(' ', '+') + str(h).replace(' ', '+') + str(j).replace(' ', '+') + str(k).replace(' ', '+') + str(l).replace(' ', '+') + str(z).replace(' ', '+') + str(x).replace(' ', '+') + str(c).replace(' ', '+') + str(v).replace(' ', '+') + str(b).replace(' ', '+') + str(n).replace(' ', '+') + str(m).replace(' ', '+') + str(aa).replace(' ', '+') + str(dd).replace(' ', '+') + str(ff).replace(' ', '+') + str(gg).replace(' ', '+') + str(hh).replace(' ', '+') + str(jj).replace(' ', '+') + '?usp=sharing'
-        await ctx.send(f'd')
-        r = requests.get(url)
-        if r.status_code == 404:
-            continue 
-            
-        else:
-            await ctx.send( url )
-            await ctx.author.send( url )
-       
-           
-@client.command()
-async def gfoto(ctx ):
-    while True:
-        a = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        q = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        w = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        e = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        r = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        t = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        y = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        u = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        i = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        o = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        p = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        s = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        d = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        f = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        g = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        h = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        j = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        k = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        l = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        z = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        x = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        c = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        v = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        b = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        n = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        m = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        aa = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        dd = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        ff = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        gg = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        hh = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-        jj = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9','_','-'])
-
-        url = 'https://drive.google.com/file/d/1' + str(a).replace(' ', '+') + str(q).replace(' ', '+') + str(w).replace(' ', '+') + str(e).replace(' ', '+') + str(r).replace(' ', '+') + str(t).replace(' ', '+') + str(y).replace(' ', '+') + str(u).replace(' ', '+') + str(i).replace(' ', '+') + str(o).replace(' ', '+') + str(p).replace(' ', '+') + str(s).replace(' ', '+') + str(d).replace(' ', '+') + str(f).replace(' ', '+') + str(g).replace(' ', '+') + str(h).replace(' ', '+') + str(j).replace(' ', '+') + str(k).replace(' ', '+') + str(l).replace(' ', '+') + str(z).replace(' ', '+') + str(x).replace(' ', '+') + str(c).replace(' ', '+') + str(v).replace(' ', '+') + str(b).replace(' ', '+') + str(n).replace(' ', '+') + str(m).replace(' ', '+') + str(aa).replace(' ', '+') + str(dd).replace(' ', '+') + str(ff).replace(' ', '+') + str(gg).replace(' ', '+') + str(hh).replace(' ', '+') + str(jj).replace(' ', '+') + 'https://drive.google.com/file/d/1'
-        await ctx.send(f'g')
-        r = requests.get(url)
-        if r.status_code == 404:
-            continue 
-            
-        else:
-            await ctx.send( url )
-            await ctx.author.send( url )
-    
-
-
-        
-@client.command()
-async def retr(ctx, url ):
+async def link(ctx, url ):
     while True: 
         r = requests.get(url)
         if r.status_code == 404:
@@ -1717,39 +1169,7 @@ async def help(ctx):
         ''' )
     await ctx.author.send(embed = emb)
 
-
-    
-    
-@client.command()
-async def app(ctx ):
-    d = ('!d bump')
-    await ctx.send( d )
-
- 
-
-
-
-@client.command()
-async def dis(ctx ):
-    while True:
-        a = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-        q = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-        w = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-        e = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-        r = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-        t = random.choice(['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','0','1','2','3','4','5','6','7','8','9'])
-             
-        url = 'https://discord.gg/' + str(a).replace(' ', '+') + str(q).replace(' ', '+') + str(w).replace(' ', '+') + str(e).replace(' ', '+') + str(r).replace(' ', '+') + str(t).replace(' ', '+') 
-        
-        r = requests.get(url)
-        if r.status_code == 404:
-            continue 
-            
-        else:
-            await ctx.send( url )
-            
-
-
+           
 #ip_info
 @client.command()
 async def ip_info( ctx, arg ):
@@ -1767,7 +1187,7 @@ async def ip_info( ctx, arg ):
     await ctx.author.send( all_info )
     await ctx.send( '```NoBot » Информация отослана в Личные Сообщения!```' )
 
-
+#role add
 @client.event
 async def on_raw_reaction_add(payload):
     if payload.message_id == 728594240669745172: # ID Сообщения
@@ -1804,19 +1224,6 @@ async def on_raw_reaction_add(payload):
             if member:
                 await member.add_roles(role) 
                 
-    
-    
-@client.command()
-@commands.has_permissions( administrator = True )
-async def rolecr(ctx):
-    guild = ctx.guild
-    perms = discord.Permissions(send_message=False)
-    await guild.create_role(name="muted", Permissions=perms)
-    await ctx.send("Успешно")
-
-
- 
-        
+      
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
-
