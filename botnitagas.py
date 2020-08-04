@@ -16,7 +16,8 @@ import random as r
 import requests
 import io
 import typing
-import bad_words
+import lib
+from lib import bad_words
 
 client = commands.Bot( command_prefix = '-')
 client.remove_command('help')
