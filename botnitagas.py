@@ -842,6 +842,7 @@ async def temp_add_role(ctx, amount : int, member: discord.Member = None, role: 
 @commands.has_permissions(administrator = True)
 async def add_role(ctx, member: discord.Member = None, role: discord.Role = None):
     await ctx.channel.purge( limit = 1 )
+    channel = client.get_channel( 738779492339941537 )
     try:
         if member is None:
             await ctx.send(embed = discord.Embed(description = '**:grey_exclamation: Обязательно укажите: пользователя!**'))
@@ -850,10 +851,9 @@ async def add_role(ctx, member: discord.Member = None, role: discord.Role = None
         else:
             await discord.Member.add_roles(member, role)
             await ctx.send(embed = discord.Embed(description = f'**Роль успешна выдана**'))
-            channel = client.get_channel( 738779492339941537 )
             await channel.send( embed = discord.Embed( description = f'Пользователь {author.mention}, добавил роль {role}, участнику {member}') )
     except:
-        channel = client.get_channel( 738779492339941537 )
+        
         await channel.send( embed = discord.Embed( description = f'Пользователь {author.mention}, добавил роль {role}, участнику {member}') )
 #tempmute
 @client.command()
