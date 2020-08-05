@@ -736,9 +736,9 @@ async def rps_error( ctx, error ):
 @client.command( pass_context = True )
 async def botinfo( ctx ):
     await ctx.channel.purge( limit = 1 )
-    emt = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **NITAGAS bot**.\n Бот был написан специально для проекта Nitagas,\n подробнее о командах  -help", color = 000000)
+    emt = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **NITAGAS bot**.\n  подробнее о командах  -help\n По вопросам обращатся на сервер https://discord.gg/NfTf9JD", color = 000000)
     emt.add_field(name=f'**Меня создал:**', value="Stanislav", inline=True)  # Создает строку
-    emt.add_field(name=f'**Помощь в создании:**', value="---", inline=True)  # Создает строку
+    emt.add_field(name=f'**Помощь в создании:**', value="yazdrim#6779", inline=True)  # Создает строку
     emt.add_field(name=f'**Лицензия:**', value="Nitagas", inline=True)  # Создает строку
     emt.add_field(name=f'**Я написан на:**', value="Discord.py", inline=True)  # Создает строку
     emt.add_field(name=f'**Версия:**', value="1.0", inline=True)  # Создает строку
