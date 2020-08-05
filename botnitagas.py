@@ -289,7 +289,7 @@ async def leave(ctx):
     if voice and voice.is_connected():
         await voice.disconnect()
     else:
-        voice = await channel.leave()
+        voice = await channel.connect()
         await ctx.send(f'Бот отключился от канала: {channel}')
 
 
