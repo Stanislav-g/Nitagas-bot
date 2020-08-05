@@ -268,7 +268,7 @@ async def on_message ( message ):
        
 #join to channel
 @client.command()
-async def j(ctx):
+async def join(ctx):
     global voise
     channel = ctx.message.author.voice.channel
     voice = get(client.voice_clients, guild = ctx.guild)
@@ -281,7 +281,7 @@ async def j(ctx):
 
 #leave from channel
 @client.command()
-async def l(ctx):
+async def leave(ctx):
     global voise
     channel = ctx.message.author.voice.channel
     voice = get(client.voice_clients, guild = ctx.guild)
@@ -289,7 +289,7 @@ async def l(ctx):
     if voice and voice.is_connected():
         await voice.disconnect()
     else:
-        voice = await channel.connect()
+        voice = await channel.leave()
         await ctx.send(f'Бот отключился от канала: {channel}')
 
 
