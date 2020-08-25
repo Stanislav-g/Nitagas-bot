@@ -1244,7 +1244,13 @@ async def on_guild_name_update(before, after):
     embed.set_footer(text=f"Guild ID: {after.id}")
     await channel.send(embed=embed)
 				
-    
+@client.event
+async def on_message_delite( message ):
+    channel = client.get_channel( 705392639863685170 )
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**A message was delited**\n{message}\n{message.author.name}')
+    embed.set_author(name=role.guild.name, icon_url=str(role.guild.icon_url))
+    embed.set_footer(text=f"Message ID: {message.id}")
+    await channel.send(embed=embed)    
     
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
