@@ -1296,6 +1296,21 @@ async def on_invite_create(invite: discord.Invite):
     embed.add_field(name='Temporary', value=invite.temporary, inline=False)
     await channel.send(embed=embed)
    
-	
+@client.event
+async def on_message_edit(self, before, after):
+    embed = discord.Embed(color=discord.Color.green(), timestamp=after.created_at, description=f'**A message was published in** {after.channel.mention}')
+    embed.set_author(name=after.guild.name, icon_url=str(after.guild.icon_url))
+    embed.add_field(name='Message Author', value=after.author.mention, inline=False)
+    embed.add_field(name='Message', value=f'[Click Here]({after.jump_url})', inline=False)
+    embed.set_footer(text=f"Author ID: {after.author.id} | Message ID: {after.id} | Channel ID: {after.channel.id}")
+    embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **edited a message in** {after.channel.mention}')
+    embed.set_author(name=after.author, icon_url=str(after.author.avatar_url_as(static_format='png', size=2048)))
+    bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
+    acontent = after.system_content[:300] + (after.system_content[300:] and '...')
+    embed.add_field(name='Before', value=bcontent, inline=False)
+    embed.add_field(name='After', value=acontent, inline=False)
+    embed.set_footer(text=f"Author ID: {after.author.id} | Message ID: {after.id} | Channel ID: {after.channel.id}")
+    await channel.send(embed=embed)
+		
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
