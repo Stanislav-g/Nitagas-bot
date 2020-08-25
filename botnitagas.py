@@ -1299,11 +1299,6 @@ async def on_invite_create(invite: discord.Invite):
 @client.event
 async def on_message_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
-    embed = discord.Embed(color=discord.Color.green(), timestamp=after.created_at, description=f'**A message was published in** {after.channel.mention}')
-    embed.set_author(name=after.guild.name, icon_url=str(after.guild.icon_url))
-    embed.add_field(name='Message Author', value=after.author.mention, inline=False)
-    embed.add_field(name='Message', value=f'[Click Here]({after.jump_url})', inline=False)
-    embed.set_footer(text=f"Author ID: {after.author.id} | Message ID: {after.id} | Channel ID: {after.channel.id}")
     embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **edited a message in** {after.channel.mention}')
     embed.set_author(name=after.author, icon_url=str(after.author.avatar_url_as(static_format='png', size=2048)))
     bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
