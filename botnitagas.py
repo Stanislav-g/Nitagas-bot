@@ -1253,9 +1253,9 @@ async def on_message_delete( message ):
  
 
 @client.event
-async def on_message_edit( message, before, after):
+async def on_message_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
-    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was edited**\n*{message.content}*\nAuthor {message.author.name}')
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was edited**\n*{before}*\nAuthor {after}')
     embed.set_footer(text=f"Message ID: {message.id}")
     await channel.send(embed=embed)
 
