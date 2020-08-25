@@ -1294,18 +1294,8 @@ async def on_invite_create(self, invite: discord.Invite):
     embed.add_field(name='Invite Code', value=invite.code, inline=False)
     embed.add_field(name='Max Uses', value=invite.max_uses, inline=False)
     embed.add_field(name='Temporary', value=invite.temporary, inline=False)
-    if invite.temporary:
-	    delta = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=invite.max_age)
-	    if isinstance(delta, datetime.timedelta):
-		embed.add_field(name='Expires in', value=humanfriendly.format_timespan(delta), inline=False)
-    if isinstance(invite.channel, discord.abc.GuildChannel):
-	    embed.add_field(name='Channel', value=f'#{invite.channel.name}({invite.channel.id})', inline=False)
-    if invite.inviter:
-	    embed.set_footer(text=f'Created by: {invite.inviter} ({invite.inviter.id})')
-    try:
-	    await channel.send(embed=embed)
-    except Exception:
-	    pass	
+    await channel.send(embed=embed)
+   
 	
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
