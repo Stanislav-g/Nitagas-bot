@@ -1311,7 +1311,7 @@ async def on_message_edit(before, after):
 @client.event
 async def on_member_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
-    if nick.after != nick.before
+    if nick.after != nick.before:
 	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member} changed nick**')
         embed.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
 	bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
