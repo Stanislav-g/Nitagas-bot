@@ -1247,9 +1247,18 @@ async def on_guild_name_update(before, after):
 @client.event
 async def on_message_delete( message ):
     channel = client.get_channel( 705392639863685170 )
-    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**A message was delited**\n{message}\n{message.author.name}')
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was delited**\n{message.content}\nAuthor {message.author.name}')
     embed.set_footer(text=f"Message ID: {message.id}")
     await channel.send(embed=embed)    
-    
+ 
+
+@client.event
+async def on_message_edit( message ):
+    channel = client.get_channel( 705392639863685170 )
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was edited**\n*{0.before}* to *{0.after}*\nAuthor {message.author.name}')
+    embed.set_footer(text=f"Message ID: {message.id}"
+                emb = discord.Embed( title = 'Logs', colour = discord.Color.red() )
+                emb.add_field( name = 'logs',value = '**{0.user}** did {0.action} to **{0.target}** *{0.before}* to *{0.after}*'.format(entry))
+                await ctx.send( embed = emb )
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
