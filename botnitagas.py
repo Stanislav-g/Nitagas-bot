@@ -1257,8 +1257,7 @@ async def on_message_edit( message ):
     channel = client.get_channel( 705392639863685170 )
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was edited**\n*{0.before}* to *{0.after}*\nAuthor {message.author.name}')
     embed.set_footer(text=f"Message ID: {message.id}"
-                emb = discord.Embed( title = 'Logs', colour = discord.Color.red() )
-                emb.add_field( name = 'logs',value = '**{0.user}** did {0.action} to **{0.target}** *{0.before}* to *{0.after}*'.format(entry))
-                await ctx.send( embed = emb )
+    await channel.send(embed=embed)
+		     
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
