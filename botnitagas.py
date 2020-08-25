@@ -1238,79 +1238,79 @@ async def on_guild_role_delete( role ):
 async def on_guild_update(before, after):
     channel = client.get_channel( 705392639863685170 )
     if before.name != after.name:
-	    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**Guild name was changed**')
-	    embed.add_field(name='Before', value=before.name, inline=False)
-            embed.add_field(name='After', value=after.name, inline=False)
-	    embed.set_author(name=after.name, icon_url=str(after.icon_url))
-	    embed.set_footer(text=f"Guild ID: {after.id}")
-	    await channel.send(embed=embed)
+        embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**Guild name was changed**')
+	embed.add_field(name='Before', value=before.name, inline=False)
+        embed.add_field(name='After', value=after.name, inline=False)
+	embed.set_author(name=after.name, icon_url=str(after.icon_url))
+	embed.set_footer(text=f"Guild ID: {after.id}")
+	await channel.send(embed=embed)
 				
     if before.description != after.description and after.id != 411619823445999637:
-	    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**Guild description was changed**'
-	    embed.add_field(name='Before', value=before.description, inline=False)
-	    embed.add_field(name='After', value=after.description, inline=False)
-	    embed.set_author(name=after.name, icon_url=str(after.icon_url))
-	    embed.set_footer(text=f"Guild ID: {after.id}")
-	    await channel.send(embed=embed)
+	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**Guild description was changed**'
+	embed.add_field(name='Before', value=before.description, inline=False)
+        embed.add_field(name='After', value=after.description, inline=False)
+	embed.set_author(name=after.name, icon_url=str(after.icon_url))
+	embed.set_footer(text=f"Guild ID: {after.id}")
+	await channel.send(embed=embed)
                 
     if before.region != after.region:
-	    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name}\'s region was changed**')
-	    embed.add_field(name='Before', value=region[str(before.region)], inline=False)
-	    embed.add_field(name='After', value=region[str(after.region)], inline=False)			
-            embed.set_author(name=after.name, icon_url=str(after.icon_url))
-	    embed.set_footer(text=f"Guild ID: {after.id}")
-	    await channel.send(embed=embed)
+	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name}\'s region was changed**')
+	embed.add_field(name='Before', value=region[str(before.region)], inline=False)
+        embed.add_field(name='After', value=region[str(after.region)], inline=False)			
+        embed.set_author(name=after.name, icon_url=str(after.icon_url))
+	embed.set_footer(text=f"Guild ID: {after.id}")
+	await channel.send(embed=embed)
         
     if before.owner != after.owner:
-	    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name} was transferred to a new owner**')
-	    embed.add_field(name='Before', value=before.owner, inline=False)
-	    embed.add_field(name='After', value=after.owner, inline=False)
-	    embed.set_author(name=after.name, icon_url=str(after.icon_url))
-	    embed.set_footer(text=f"Guild ID: {after.id} | Old Owner ID: {before.owner.id} | New Owner ID: {after.owner.id}")
-	    await channel.send(embed=embed)
+	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name} was transferred to a new owner**')
+	embed.add_field(name='Before', value=before.owner, inline=False)
+	embed.add_field(name='After', value=after.owner, inline=False)
+	embed.set_author(name=after.name, icon_url=str(after.icon_url))
+	embed.set_footer(text=f"Guild ID: {after.id} | Old Owner ID: {before.owner.id} | New Owner ID: {after.owner.id}")
+	await channel.send(embed=embed)
         
      if before.verification_level != after.verification_level:
-	    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name}\'s verification level was changed**')
-	    embed.add_field(name='Before', value=str(before.verification_level).capitalize(), inline=False)
-	    embed.add_field(name='After', value=str(after.verification_level).capitalize(), inline=False)
-	    embed.set_author(name=after.name, icon_url=str(after.icon_url))
-	    embed.set_footer(text=f"Guild ID: {after.id}")
-	    await channel.send(embed=embed)
+	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name}\'s verification level was changed**')
+	embed.add_field(name='Before', value=str(before.verification_level).capitalize(), inline=False)
+	embed.add_field(name='After', value=str(after.verification_level).capitalize(), inline=False)
+        embed.set_author(name=after.name, icon_url=str(after.icon_url))
+	embed.set_footer(text=f"Guild ID: {after.id}")
+	await channel.send(embed=embed)
         
     if before.explicit_content_filter != after.explicit_content_filter:
-	    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name}\'s content filter level was changed**')
-	    embed.add_field(name='Before', value=str(before.explicit_content_filter).capitalize().replace('_', ''), inline=False)
-	    embed.add_field(name='After', value=str(after.explicit_content_filter).capitalize().replace('_', ''), inline=False)
-	    embed.set_author(name=after.name, icon_url=str(after.icon_url))
-	    embed.set_footer(text=f"Guild ID: {after.id}")
-	    await channel.send(embed=embed)
+	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name}\'s content filter level was changed**')
+	embed.add_field(name='Before', value=str(before.explicit_content_filter).capitalize().replace('_', ''), inline=False)
+	embed.add_field(name='After', value=str(after.explicit_content_filter).capitalize().replace('_', ''), inline=False)
+        embed.set_author(name=after.name, icon_url=str(after.icon_url))
+        embed.set_footer(text=f"Guild ID: {after.id}")
+        await channel.send(embed=embed)
             
     if set(before.features) != set(after.features):
-	    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name}\'s features were updated**')
-	    s = set(after.features)
-	    removed = [x for x in before.features if x not in s]
-	    ignored = ['PREMIUM']
-	    [removed.remove(f) for f in ignored if f in removed]
-	    s = set(before.features)
-	    added = [x for x in after.features if x not in s]
-	    [added.remove(f) for f in ignored if f in added]
-	    if added:
-                features = []
-		for feature in added:
-	            features.append(f'> {feature}')
-		    embed.add_field(name='Added', value='\n'.join(features), inline=False)
-	    if removed:
-	        features = []
-		for feature in removed:
-		    features.append(f'> {feature}')
-		    embed.add_field(name='Removed', value='\n'.join(features), inline=False)
-		    embed.set_author(name=after.name, icon_url=str(after.icon_url))
-		    embed.set_footer(text=f"Guild ID: {after.id}")
-	    if added or removed:
-	        try:
-		    await channel.send(embed=embed)
-	            except Exception:
-		        pass
+	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{after.name}\'s features were updated**')
+	s = set(after.features)
+	removed = [x for x in before.features if x not in s]
+	ignored = ['PREMIUM']
+	[removed.remove(f) for f in ignored if f in removed]
+        s = set(before.features)
+	added = [x for x in after.features if x not in s]
+	[added.remove(f) for f in ignored if f in added]
+	if added:
+            features = []
+	    for feature in added:
+	        features.append(f'> {feature}')
+		embed.add_field(name='Added', value='\n'.join(features), inline=False)
+	if removed:
+	   features = []
+	   for feature in removed:
+		features.append(f'> {feature}')
+		embed.add_field(name='Removed', value='\n'.join(features), inline=False)
+		embed.set_author(name=after.name, icon_url=str(after.icon_url))
+		embed.set_footer(text=f"Guild ID: {after.id}")
+	if added or removed:
+	    try:
+	        await channel.send(embed=embed)
+	        except Exception:
+		    pass
 	
     
 token= os.environ.get('BOT_TOKEN')
