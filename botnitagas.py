@@ -1312,14 +1312,14 @@ async def on_message_edit(before, after):
 async def on_member_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
     if nick.after != nick.before:
-	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member} changed nick**')
-        embed.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
-	bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
-        acontent = after.system_content[:300] + (after.system_content[300:] and '...')
-        embed.add_field(name='Before', value=bcontent, inline=False)
-        embed.add_field(name='After', value=acontent, inline=False)
-        embed.set_footer(text=f"Member ID: {member.id}")
-        await channel.send(embed=embed)
+        embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **changed his nick** {after.channel.mention}')
+    	embed.set_author(name=after.author, icon_url=str(after.author.avatar_url_as(static_format='png', size=2048)))
+    	bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
+   	acontent = after.system_content[:300] + (after.system_content[300:] and '...')
+	embed.add_field(name='Before', value=bcontent, inline=False)
+	embed.add_field(name='After', value=acontent, inline=False)
+	embed.set_footer(text=f"Author ID: {after.author.id}")
+	await channel.send(embed=embed)
 	
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
