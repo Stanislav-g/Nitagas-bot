@@ -1258,6 +1258,54 @@ async def on_message_edit( message ):
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was edited**\n*{message.content}*\nAuthor {message.author.name}')
     embed.set_footer(text=f"Message ID: {message.id}")
     await channel.send(embed=embed)
-		     
+
+@client.event
+async def on_guild_edit( audit_logs ):
+    channel = client.get_channel( 747764481559494686 )
+    guild = ctx.message.guild
+    emb = discord.Embed( title = 'Logs', colour = discord.Color.red() )
+    emb.add_field( name = 'logs',value = '**{0.user}** did {0.action} to **{0.target}** *{0.before}* to *{0.after}*'.format(entry))
+    await channel.send( embed = emb )	
+
+	
+@client.event
+async def on_member_ban(guild, member):
+    channel = client.get_channel( 747764481559494686 )
+    embed = discord.Embed(color=member.color if member.color != discord.Color.default() else discord.Color.red(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member.mention} was banned**')
+    embed.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
+    embed.set_footer(text=f"Member ID: {member.id}")
+    await channel.send(embed=embed)
+			
+
+@client.event
+async def on_member_unban(guild, member):
+    channel = client.get_channel( 747764481559494686 )
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member} was unbanned**')
+    embed.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
+    embed.set_footer(text=f"Member ID: {member.id}")
+    await logch.send(embed=embed)
+			
+
+@client.event
+async def on_invite_create(self, invite: discord.Invite):
+    channel = client.get_channel( 747764481559494686 )
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**An invite was created**')
+    embed.set_author(name=guild.name, icon_url=str(guild.icon_url_as(static_format='png', size=2048)))
+    embed.add_field(name='Invite Code', value=invite.code, inline=False)
+    embed.add_field(name='Max Uses', value=invite.max_uses, inline=False)
+    embed.add_field(name='Temporary', value=invite.temporary, inline=False)
+    if invite.temporary:
+	    delta = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=invite.max_age)
+	    if isinstance(delta, datetime.timedelta):
+		embed.add_field(name='Expires in', value=humanfriendly.format_timespan(delta), inline=False)
+    if isinstance(invite.channel, discord.abc.GuildChannel):
+	    embed.add_field(name='Channel', value=f'#{invite.channel.name}({invite.channel.id})', inline=False)
+    if invite.inviter:
+	    embed.set_footer(text=f'Created by: {invite.inviter} ({invite.inviter.id})')
+    try:
+	    await channel.send(embed=embed)
+    except Exception:
+	    pass	
+	
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
