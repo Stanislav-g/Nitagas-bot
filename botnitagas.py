@@ -1253,19 +1253,12 @@ async def on_message_delete( message ):
  
 
 @client.event
-async def on_message_edit( message ):
+async def on_message_edit( message, before, after):
     channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was edited**\n*{message.content}*\nAuthor {message.author.name}')
     embed.set_footer(text=f"Message ID: {message.id}")
     await channel.send(embed=embed)
 
-@client.event
-async def on_guild_edit( audit_logs ):
-    channel = client.get_channel( 747764481559494686 )
-    guild = ctx.message.guild
-    emb = discord.Embed( title = 'Logs', colour = discord.Color.red() )
-    emb.add_field( name = 'logs',value = '**{0.user}** did {0.action} to **{0.target}** *{0.before}* to *{0.after}*'.format(entry))
-    await channel.send( embed = emb )	
 
 	
 @client.event
@@ -1287,7 +1280,7 @@ async def on_member_unban(guild, member):
 			
 
 @client.event
-async def on_invite_create(self, invite: discord.Invite):
+async def on_invite_create(invite: discord.Invite):
     channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**An invite was created**')
     embed.set_author(name=guild.name, icon_url=str(guild.icon_url_as(static_format='png', size=2048)))
