@@ -1220,7 +1220,7 @@ async def on_raw_reaction_add(payload):
                 
 @client.event
 async def on_guild_role_create( role ):
-    channel = client.get_channel( 705392639863685170 )
+    channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**A new role was created**\n{role.mention}')
     embed.set_author(name=role.guild.name, icon_url=str(role.guild.icon_url))
     embed.set_footer(text=f"Role ID: {role.id}")
@@ -1228,7 +1228,7 @@ async def on_guild_role_create( role ):
     
 @client.event
 async def on_guild_role_delete( role ):
-    channel = client.get_channel( 705392639863685170 )
+    channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=role.color, timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The role** `{role.name}` **was deleted**')
     embed.set_author(name=role.guild.name, icon_url=str(role.guild.icon_url))
     embed.set_footer(text=f"Role ID: {role.id}")
@@ -1236,7 +1236,7 @@ async def on_guild_role_delete( role ):
 			
 @client.event
 async def on_guild_name_update(before, after):
-    channel = client.get_channel( 705392639863685170 )
+    channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**Guild name was changed**')
     embed.add_field(name='Before', value=before.name, inline=False)
     embed.add_field(name='After', value=after.name, inline=False)
@@ -1246,7 +1246,7 @@ async def on_guild_name_update(before, after):
 				
 @client.event
 async def on_message_delete( message ):
-    channel = client.get_channel( 705392639863685170 )
+    channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was delited**\n{message.content}\nAuthor {message.author.name}')
     embed.set_footer(text=f"Message ID: {message.id}")
     await channel.send(embed=embed)    
@@ -1254,8 +1254,8 @@ async def on_message_delete( message ):
 
 @client.event
 async def on_message_edit( message ):
-    channel = client.get_channel( 705392639863685170 )
-    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was edited**\n*{message.content.before}* to *{message.content.after}*\nAuthor {message.author.name}')
+    channel = client.get_channel( 747764481559494686 )
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was edited**\n*{message.content}*\nAuthor {message.author.name}')
     embed.set_footer(text=f"Message ID: {message.id}")
     await channel.send(embed=embed)
 		     
