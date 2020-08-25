@@ -1297,7 +1297,7 @@ async def on_invite_create(invite: discord.Invite):
     await channel.send(embed=embed)
    
 @client.event
-async def on_message_edit(self, before, after):
+async def on_message_edit(before, after):
     embed = discord.Embed(color=discord.Color.green(), timestamp=after.created_at, description=f'**A message was published in** {after.channel.mention}')
     embed.set_author(name=after.guild.name, icon_url=str(after.guild.icon_url))
     embed.add_field(name='Message Author', value=after.author.mention, inline=False)
