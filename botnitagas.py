@@ -857,11 +857,11 @@ async def add_role(ctx, member: discord.Member = None, role: discord.Role = None
         
 #tempmute
 @client.command()
-@commands.has_permissions( kick_members = True )
+@commands.has_permissions( administrator = True )
 async def tempmute(ctx,amount : int,member: discord.Member = None, reason = None):
     await ctx.channel.purge( limit = 1 )
     mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
-    channel_log = client.get_channel(747764481559494686) #Айди канала логов
+    channel_log = client.get_channel(705461507953262793) #Айди канала логов
 
     await member.add_roles( mutee_role )
     await ctx.send(embed = discord.Embed(description = f'**:shield: Пользователю {member.mention} был ограничен доступ к чатам.\n:book: По причине: {reason}**', color=0x0c0c0c)) 
@@ -1306,13 +1306,13 @@ async def on_message_edit(before, after):
     embed.add_field(name='Before', value=bcontent, inline=False)
     embed.add_field(name='After', value=acontent, inline=False)
     embed.set_footer(text=f"Author ID: {after.author.id} | Message ID: {after.id} | Channel ID: {after.channel.id}")
-    await channel.send(embed=embed)
+    await channel.send( embed=embed )
 
 @client.event
-async def on_member_name_edit(before, after):
+async def on_member_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **changed his nick** {after.channel.mention}')
-    bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
+    bcontent = before.system_content[:200] + (before.system_content[200:] and '...')
     acontent = after.system_content[:300] + (after.system_content[300:] and '...')
     embed.add_field(name='Before', value=bcontent, inline=False)
     embed.add_field(name='After', value=acontent, inline=False)
