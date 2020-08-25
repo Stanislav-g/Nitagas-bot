@@ -1235,15 +1235,14 @@ async def on_guild_role_delete( role ):
     await channel.send(embed=embed)
 			
 @client.event
-async def on_guild_update(before, after):
+async def on_guild_name_update(before, after):
     channel = client.get_channel( 705392639863685170 )
-    if before.name != after.name:
-        embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**Guild name was changed**')
-        embed.add_field(name='Before', value=before.name, inline=False)
-        embed.add_field(name='After', value=after.name, inline=False)
-        embed.set_author(name=after.name, icon_url=str(after.icon_url))
-	embed.set_footer(text=f"Guild ID: {after.id}")
-	await channel.send(embed=embed)
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**Guild name was changed**')
+    embed.add_field(name='Before', value=before.name, inline=False)
+    embed.add_field(name='After', value=after.name, inline=False)
+    embed.set_author(name=after.name, icon_url=str(after.icon_url))
+    embed.set_footer(text=f"Guild ID: {after.id}")
+    await channel.send(embed=embed)
 				
     
     
