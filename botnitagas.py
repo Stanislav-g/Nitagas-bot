@@ -209,7 +209,7 @@ async def on_member_join( member ):
 @client.event
 async def on_member_remove( member ):
     channel = client.get_channel( 740154462177591346 )
-    await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}\n{member.name}{member.tag},  покинул сервер') )
+    await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}\n{member.name},  покинул сервер') )
 
 @clear.error
 async def clear_error( ctx, error ):
@@ -1249,16 +1249,17 @@ async def on_message_delete( message ):
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was delited**\n{message.content}\nAuthor {message.author.name}')
     embed.set_footer(text=f"Message ID: {message.id}")
     await channel.send(embed=embed)    
- 
 
 @client.event
-async def on_message_edit(before, after):
+async def on_member_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
-    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**The message was edited**\n*{before}*\nAuthor {after}')
-    embed.set_footer(text=f"Message ID: {message.id}")
+    embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **changed his nick** {after.channel.mention}')
+    bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
+    acontent = after.system_content[:300] + (after.system_content[300:] and '...')
+    embed.add_field(name='Before', value=bcontent, inline=False)
+    embed.add_field(name='After', value=acontent, inline=False)
+    embed.set_footer(text=f"Author ID: {after.author.id}")
     await channel.send(embed=embed)
-
-
 	
 @client.event
 async def on_member_ban(guild, member):
@@ -1306,16 +1307,7 @@ async def on_message_edit(before, after):
     embed.set_footer(text=f"Author ID: {after.author.id} | Message ID: {after.id} | Channel ID: {after.channel.id}")
     await channel.send( embed=embed )
 
-@client.event
-async def on_member_edit(before, after):
-    channel = client.get_channel( 747764481559494686 )
-    embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **changed his nick** {after.channel.mention}')
-    bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
-    acontent = after.system_content[:300] + (after.system_content[300:] and '...')
-    embed.add_field(name='Before', value=bcontent, inline=False)
-    embed.add_field(name='After', value=acontent, inline=False)
-    embed.set_footer(text=f"Author ID: {after.author.id}")
-    await channel.send(embed=embed)
+
 	
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
