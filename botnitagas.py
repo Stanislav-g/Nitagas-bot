@@ -1300,7 +1300,6 @@ async def on_invite_create(invite: discord.Invite):
 async def on_message_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **edited a message in** {after.channel.mention}')
-    embed.set_author(name=after.author, icon_url=str(after.author.avatar_url_as(static_format='png', size=2048)))
     bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
     acontent = after.system_content[:300] + (after.system_content[300:] and '...')
     embed.add_field(name='Before', value=bcontent, inline=False)
@@ -1312,7 +1311,7 @@ async def on_message_edit(before, after):
 async def on_member_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **changed his nick** {after.channel.mention}')
-    bcontent = before.system_content[:200] + (before.system_content[200:] and '...')
+    bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
     acontent = after.system_content[:300] + (after.system_content[300:] and '...')
     embed.add_field(name='Before', value=bcontent, inline=False)
     embed.add_field(name='After', value=acontent, inline=False)
