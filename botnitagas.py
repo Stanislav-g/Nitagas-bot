@@ -26,7 +26,6 @@ link = ['https://youtu.be/XVMHRAUI-h0','https://youtu.be/S5WkBjiUQCs']
 
 
 @client.event
-
 async def on_redy():
     print( 'Bot connected')
     await client.change_presence( status = discord.Status.online, activity = discord.Game( '-help' ) )
