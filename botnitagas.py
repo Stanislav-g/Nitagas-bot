@@ -1299,7 +1299,7 @@ async def on_invite_create(invite: discord.Invite):
 @client.event
 async def on_message_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
-    embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **edited a message in** {after.channel.mention}')
+    embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **edited a message in** {after.channel.mention}\nBefore, {before.content}\n After {after.content}')
     embed.add_field(name='Before', value= before.content, inline=False)
     embed.add_field(name='After', value= after.content, inline=False)
     embed.set_footer(text=f"Author ID: {after.author.id} | Message ID: {after.id} | Channel ID: {after.channel.id}")
