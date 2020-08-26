@@ -1289,18 +1289,19 @@ async def on_member_unban(guild, member):
 @client.event
 async def on_invite_create(invite: discord.Invite):
     channel = client.get_channel( 747764481559494686 )
-    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**An invite was created**')
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**An invite was created**Author {invite.author.name}')
     embed.add_field(name='Invite Code', value=invite.code, inline=False)
     embed.add_field(name='Max Uses', value=invite.max_uses, inline=False)
     embed.add_field(name='Temporary', value=invite.temporary, inline=False)
+
     await channel.send(embed=embed)
    
 @client.event
 async def on_message_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} **edited a message in** {after.channel.mention}')
-    embed.add_field(name='Before', value= before.system_content[:300], inline=False)
-    embed.add_field(name='After', value= after.system_content[:300], inline=False)
+    embed.add_field(name='Before', value= before.content, inline=False)
+    embed.add_field(name='After', value= after.content, inline=False)
     embed.set_footer(text=f"Author ID: {after.author.id} | Message ID: {after.id} | Channel ID: {after.channel.id}")
     await channel.send( embed=embed )
 	
