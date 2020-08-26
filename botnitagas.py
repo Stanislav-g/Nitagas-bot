@@ -209,7 +209,7 @@ async def on_member_join( member ):
 @client.event
 async def on_member_remove( member ):
     channel = client.get_channel( 740154462177591346 )
-    await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention},  покинул сервер') )
+    await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}\n{member.name},  покинул сервер') )
 
 @clear.error
 async def clear_error( ctx, error ):
