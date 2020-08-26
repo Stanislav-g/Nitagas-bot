@@ -1308,7 +1308,7 @@ async def on_message_edit(before, after):
     await channel.send( embed=embed )
 	
 @client.event
-async def on_member_typing(member, channel: id:int):
+async def on_member_typing(member, channel: int):
     await channel.send(f"Что ты пишешь?")
 	
 token= os.environ.get('BOT_TOKEN')
