@@ -71,7 +71,14 @@ async def on_message(message):
         msg['Subject']='From CC-Team'
         msg.attach(MIMEText(body, 'plain'))
         s.send_message(message)
-
+	
+@Commands.command()
+async def repeatcommand(self, ctx, times: int, *, command):
+    msg = copy.copy(ctx.message)
+    msg.content = command
+    for i in range(times):
+        await self.bot.process_commands(msg)
+	
 #hello
 @client.command( pass_context = True )
 async def hello( ctx ):
