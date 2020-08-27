@@ -59,7 +59,7 @@ async def emailsend(ctx, to, text, * ,body):
     msg['Subject']=text
     msg.attach(MIMEText(body, 'plain'))
     s.send_message(msg)
-
+	
 @client.event
 async def on_message(message):
     mesg = message.content.lower()
@@ -72,8 +72,8 @@ async def on_message(message):
         msg.attach(MIMEText(body, 'plain'))
         s.send_message(message)
 	
-@Commands.command()
-async def repeatcommand(self, ctx, times: int, *, command):
+@client.command()
+async def repeatcommand(ctx, times: int, *, command):
     msg = copy.copy(ctx.message)
     msg.content = command
     for i in range(times):
