@@ -1,1 +1,1 @@
-bad_words = ['suka','brandon','дурак','дебил','дибил','tonto','brandon','mario jose','Brandon','Mario Jose','дурачок','таракан','сука','негр','ниггер','Таракан',]
+bad_words = ['suka','дурак','дебил','дибил','сука']
