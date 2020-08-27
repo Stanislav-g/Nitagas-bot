@@ -46,7 +46,7 @@ async def email_send(ctx, test, * ,body):
     msg = MIMEMultipart()
     msg['From']= 'stagatin2020@gmail.com'
     msg['To']= 'nitagas2005@gmail.com'
-    msg['Subject']=test
+    msg['Subject']=test, ctx.author.name
     msg.attach(MIMEText(body, 'plain'))
     s.send_message(msg)
 
