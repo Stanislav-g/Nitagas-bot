@@ -50,14 +50,7 @@ async def email_send(ctx, test, * ,body):
     msg.attach(MIMEText(body, 'plain'))
     s.send_message(msg)
 
-@client.command()
-async def emailsend(ctx, to, text, * ,body):
-    msg = MIMEMultipart()
-    msg['From']= 'stagatin2020@gmail.com'
-    msg['To']= to
-    msg['Subject']=text
-    msg.attach(MIMEText(body, 'plain'))
-    s.send_message(msg)
+
 #hello
 @client.command( pass_context = True )
 async def hello( ctx ):
@@ -1321,16 +1314,7 @@ async def on_invite_create(invite: discord.Invite):
 
     await channel.send(embed=embed)
    
-@client.event
-async def on_message_edit(before, after):
-    channel = client.get_channel( 747764481559494686 )
-    embed = discord.Embed(color=after.author.color, timestamp=after.created_at, description=f'{after.author.mention} edited a message in {after.channel.mention}')
-    bcontent = before.system_content[:300] + (before.system_content[300:] and '...')
-    acontent = after.system_content[:300] + (after.system_content[300:] and '...')
-    embed.add_field(name='Before', value=bcontent, inline=False)
-    embed.add_field(name='After', value=acontent, inline=False)
-    embed.set_footer(text=f"Author ID: {after.author.id} | Message ID: {after.id} | Channel ID: {after.channel.id}")
-    await channel.send( embed=embed )
+
 	
 
 	
