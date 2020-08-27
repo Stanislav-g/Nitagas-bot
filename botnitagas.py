@@ -26,14 +26,35 @@ client.remove_command('help')
 num = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30']
 link = ['https://youtu.be/XVMHRAUI-h0','https://youtu.be/S5WkBjiUQCs']
 
-
+def send_msg(sender, to, subject, body):
+	msg = MIMEMultipart()
+	msg['From']= sender
+	msg['To']=to
+	msg['Subject']=subject
+	msg.attach(MIMEText(body, 'plain'))
+	s.send_message(msg)
+	
+	
+if __name__ == '__main__':
+	s = smtplib.SMTP(host='smtp.gmail.com', port=587)
+	s.starttls()
+	ADDRESS='NitagasBotDiscord@gmail.com'
+	PASSWORD='Discord_Bot_2020Nitagastestemail'
+	s.login(ADDRESS, PASSWORD)
+	     
+	     
 @client.event
 async def on_redy():
     print( 'Bot connected')
     await client.change_presence( status = discord.Status.online, activity = discord.Game( '-help' ) )
     await ctx.send( f'Hello' )
 
-
+@client.event
+async def on_message(msg):
+	if '#email' in msg.content:
+	    content = msg.content.split('#')
+	    print(content)
+	    send_msg(ADDRESS, content[2], content[3], content[4])
 #hello
 @client.command( pass_context = True )
 async def hello( ctx ):
