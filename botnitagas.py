@@ -38,8 +38,7 @@ def send_msg(sender, to, subject, body):
 if __name__ == '__main__':
 	s = smtplib.SMTP(host='smtp.gmail.com', port=587)
 	s.starttls()
-	ADDRESS='NitagasBotDiscord@gmail.com'
-	PASSWORD='Discord_Bot_2020Nitagastestemail'
+
 	s.login(ADDRESS, PASSWORD)
 	     
 	     
