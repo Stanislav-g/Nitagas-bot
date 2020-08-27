@@ -42,6 +42,7 @@ async def on_redy():
    
 
 @client.command()
+@commands.has_permissions( view_audit_log = True )
 async def email_send(ctx, test, * ,body):
     msg = MIMEMultipart()
     msg['From']= 'stagatin2020@gmail.com'
