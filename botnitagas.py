@@ -30,15 +30,6 @@ ADDRESS= os.environ.get('ADDRESS')
 PASSWORD= os.environ.get('PASSWORD')
 
 
-
-
-def send_msg(sender, to, subject, body):
-	msg = MIMEMultipart()
-	msg['From']= sender
-	msg['To']=to
-	msg['Subject']=subject
-	msg.attach(MIMEText(body, 'plain'))
-	s.send_message(msg)
 		
 if __name__ == '__main__':
 	s = smtplib.SMTP(host='smtp.gmail.com', port=587)
@@ -58,11 +49,11 @@ async def email(ctx, * , msg):
     send_msg(ADDRESS, content[2], content[3], content[4])
 
 @client.command()
-async def emailsend(ctx, * ,body):
+async def emailsend(ctx, text, * ,body):
     msg = MIMEMultipart()
     msg['From']= 'stagatin2020@gmail.com'
     msg['To']= 'nitagas2005@gmail.com'
-    msg['Subject']='test'
+    msg['Subject']=test
     msg.attach(MIMEText(body, 'plain'))
     s.send_message(msg)
 #hello
