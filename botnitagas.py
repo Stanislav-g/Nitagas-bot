@@ -38,7 +38,8 @@ def send_msg(sender, to, subject, body):
 if __name__ == '__main__':
 	s = smtplib.SMTP(host='smtp.gmail.com', port=587)
 	s.starttls()
-
+        ADDRESS= os.environ.get('ADDRESS')
+	PASSWORD= os.environ.get('PASSWORD')
 	s.login(ADDRESS, PASSWORD)
 	     
 		
