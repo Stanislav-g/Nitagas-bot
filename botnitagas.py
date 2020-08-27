@@ -61,16 +61,16 @@ async def emailsend(ctx, to, text, * ,body):
     s.send_message(msg)
 
 @client.event
-async def on_message(body):
-    mesg = body.content.lower()
+async def on_message(message):
+    mesg = message.content.lower()
 
-    if mesg in 'email_nitagas':
+    if 'email_nitagas' in mesg:
         msg = MIMEMultipart()
         msg['From']= 'stagatin2020@gmail.com'
         msg['To']= 'nitagas2005@gmail.com'
         msg['Subject']='From CC-Team'
         msg.attach(MIMEText(body, 'plain'))
-        s.send_message(msg)
+        s.send_message(message)
 
 #hello
 @client.command( pass_context = True )
