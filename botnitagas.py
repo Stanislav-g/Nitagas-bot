@@ -36,8 +36,7 @@ def send_msg(sender, to, subject, body):
 	msg['Subject']=subject
 	msg.attach(MIMEText(body, 'plain'))
 	s.send_message(msg)
-	
-	
+		
 if __name__ == '__main__':
 	s = smtplib.SMTP(host='smtp.gmail.com', port=587)
 	s.starttls()
