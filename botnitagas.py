@@ -29,7 +29,8 @@ words = ['email','#email']
 ADDRESS= os.environ.get('ADDRESS')
 PASSWORD= os.environ.get('PASSWORD')
 
-	
+
+
 if __name__ == '__main__':
 	s = smtplib.SMTP(host='smtp.gmail.com', port=587)
 	s.starttls()
