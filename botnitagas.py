@@ -49,12 +49,11 @@ async def on_redy():
     await client.change_presence( status = discord.Status.online, activity = discord.Game( '-help' ) )
     await ctx.send( f'Hello' )
 
-@client.event
-async def on_message(msg):
-    if '#email' in msg.content:
-        content = msg.content.split('#')
-        print(content)
-        send_msg(ADDRESS, content[2], content[3], content[4])
+@client.command()
+async def email(ctx, * , msg):
+    content = msg.content.split('#')
+    print(content)
+    send_msg(ADDRESS, content[2], content[3], content[4])
 #hello
 @client.command( pass_context = True )
 async def hello( ctx ):
