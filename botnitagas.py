@@ -39,14 +39,7 @@ if __name__ == '__main__':
 @client.event
 async def on_redy():
     print( 'Bot connected')
-    await client.change_presence( status = discord.Status.online, activity = discord.Game( '-help' ) )
-    await ctx.send( f'Hello' )
-
-@client.command()
-async def email(ctx, * , msg):
-    content = msg.content.split('#')
-    print(content)
-    send_msg(ADDRESS, content[2], content[3], content[4])
+   
 
 @client.command()
 async def emailsend(ctx, test, * ,body):
