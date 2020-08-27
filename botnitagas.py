@@ -51,12 +51,10 @@ async def on_redy():
 
 @client.event
 async def on_message(msg):
-    await client.process_commands( msg )
-    msg = msg.content.lower()
-    if msg in words:
-	    content = msg.content.split('#')
-	    print(content)
-	    send_msg(ADDRESS, content[2], content[3], content[4])
+    if '#email' in msg.content:
+        content = msg.content.split('#')
+        print(content)
+        send_msg(ADDRESS, content[2], content[3], content[4])
 #hello
 @client.command( pass_context = True )
 async def hello( ctx ):
