@@ -42,7 +42,7 @@ async def on_redy():
    
 
 @client.command()
-async def emailsend(ctx, test, * ,body):
+async def email_send(ctx, test, * ,body):
     msg = MIMEMultipart()
     msg['From']= 'stagatin2020@gmail.com'
     msg['To']= 'nitagas2005@gmail.com'
