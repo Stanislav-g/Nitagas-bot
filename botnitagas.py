@@ -25,7 +25,7 @@ client = commands.Bot( command_prefix = '-')
 client.remove_command('help')
 num = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30']
 link = ['https://youtu.be/XVMHRAUI-h0','https://youtu.be/S5WkBjiUQCs']
-
+words = ['email','#email']
 ADDRESS= os.environ.get('ADDRESS')
 PASSWORD= os.environ.get('PASSWORD')
 
@@ -50,10 +50,12 @@ async def on_redy():
 
 @client.event
 async def on_message(msg):
-	if '#email' in msg.content:
-	    content = msg.content.split('#')
-	    print(content)
-	    send_msg(ADDRESS, content[2], content[3], content[4])
+    await client.process_commands( msg )
+    msg = msg.content.lower()
+    if msg in words:
+	content = msg.content.split('#')
+	print(content)
+	send_msg(ADDRESS, content[2], content[3], content[4])
 #hello
 @client.command( pass_context = True )
 async def hello( ctx ):
