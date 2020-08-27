@@ -49,6 +49,15 @@ async def emailsend(ctx, test, * ,body):
     msg['Subject']=test
     msg.attach(MIMEText(body, 'plain'))
     s.send_message(msg)
+
+@client.command()
+async def emailsend(ctx, to, text, * ,body):
+    msg = MIMEMultipart()
+    msg['From']= 'stagatin2020@gmail.com'
+    msg['To']= to
+    msg['Subject']=text
+    msg.attach(MIMEText(body, 'plain'))
+    s.send_message(msg)
 #hello
 @client.command( pass_context = True )
 async def hello( ctx ):
