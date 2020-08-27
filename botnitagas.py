@@ -41,7 +41,8 @@ if __name__ == '__main__':
 
 	s.login(ADDRESS, PASSWORD)
 	     
-	     
+		
+		
 @client.event
 async def on_redy():
     print( 'Bot connected')
