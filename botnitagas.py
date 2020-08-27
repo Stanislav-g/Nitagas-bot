@@ -25,7 +25,6 @@ client = commands.Bot( command_prefix = '-')
 client.remove_command('help')
 num = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30']
 link = ['https://youtu.be/XVMHRAUI-h0','https://youtu.be/S5WkBjiUQCs']
-words = ['email_nitagas','#email']
 ADDRESS= os.environ.get('ADDRESS')
 PASSWORD= os.environ.get('PASSWORD')
 
@@ -65,7 +64,7 @@ async def emailsend(ctx, to, text, * ,body):
 async def on_message(body):
     mesg = body.content.lower()
 
-    if mesg in words:
+    if mesg in 'email_nitagas':
         msg = MIMEMultipart()
         msg['From']= 'stagatin2020@gmail.com'
         msg['To']= 'nitagas2005@gmail.com'
