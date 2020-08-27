@@ -44,9 +44,10 @@ async def on_redy():
 @commands.has_permissions( view_audit_log = True )
 async def email_send(ctx, test, * ,body):
     msg = MIMEMultipart()
+    text = test, ctx.author.name
     msg['From']= 'stagatin2020@gmail.com'
     msg['To']= 'nitagas2005@gmail.com'
-    msg['Subject']=test, ctx.author.name
+    msg['Subject']=text
     msg.attach(MIMEText(body, 'plain'))
     s.send_message(msg)
 
