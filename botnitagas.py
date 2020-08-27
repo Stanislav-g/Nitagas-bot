@@ -30,6 +30,8 @@ ADDRESS= os.environ.get('ADDRESS')
 PASSWORD= os.environ.get('PASSWORD')
 
 
+
+
 def send_msg(sender, to, subject, body):
 	msg = MIMEMultipart()
 	msg['From']= sender
@@ -54,6 +56,15 @@ async def email(ctx, * , msg):
     content = msg.content.split('#')
     print(content)
     send_msg(ADDRESS, content[2], content[3], content[4])
+
+@client.command()
+async def emailsend(ctx, * ,body):
+    msg = MIMEMultipart()
+    msg['From']= 'stagatin2020@gmail.com'
+    msg['To']= 'nitagas2005@gmail.com'
+    msg['Subject']='test'
+    msg.attach(MIMEText(body, 'plain'))
+    s.send_message(msg)
 #hello
 @client.command( pass_context = True )
 async def hello( ctx ):
