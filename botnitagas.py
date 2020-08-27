@@ -62,7 +62,7 @@ async def emailsend(ctx, to, text, * ,body):
     s.send_message(msg)
 
 @client.event
-async def on_message(body)
+async def on_message(body):
     if words in body.content:
         msg = MIMEMultipart()
         msg['From']= 'stagatin2020@gmail.com'
