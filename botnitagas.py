@@ -49,7 +49,7 @@ async def email(ctx, * , msg):
     send_msg(ADDRESS, content[2], content[3], content[4])
 
 @client.command()
-async def emailsend(ctx, text, * ,body):
+async def emailsend(ctx, test, * ,body):
     msg = MIMEMultipart()
     msg['From']= 'stagatin2020@gmail.com'
     msg['To']= 'nitagas2005@gmail.com'
