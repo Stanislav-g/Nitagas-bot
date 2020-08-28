@@ -902,7 +902,7 @@ async def add_role(ctx, member: discord.Member = None, role: discord.Role = None
         
 #tempmute
 @client.command()
-@commands.has_permissions( administrator = True )
+@commands.has_permissions( kick_members = True )
 async def tempmute(ctx,amount : int,member: discord.Member = None, reason = None):
     await ctx.channel.purge( limit = 1 )
     mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
