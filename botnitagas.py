@@ -293,22 +293,7 @@ async def send_m_error( ctx, error ):
         await ctx.send( f'{ ctx.author.name }, обязательно укажите аргумент')
 
 
-#filter
-@client.event
-async def on_message ( message ):
-    await client.process_commands( message )
 
-    msg = message.content.lower()
-
-    if msg in bad_words:
-       
-        ppp_role = discord.utils.get( message.guild.roles, name = 'mute')
-        await message.delete()
-        await message.author.send( f'{ message.author.name}, Не надо писать плохие слова! Я дал тебе мут на две минуты. ')
-        await message.author.add_roles( ppp_role )
-        await asyncio.sleep(120)
-        await message.author.remove_roles( ppp_role )
-        
         
        
 #join to channel
@@ -907,13 +892,16 @@ async def tempmute(ctx,amount : int,member: discord.Member = None, reason = None
     await ctx.channel.purge( limit = 1 )
     mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
     channel_log = client.get_channel(747764481559494686) #Айди канала логов
+
     await member.add_roles( mutee_role )
-    embed = discord.Embed(description = f'**:shield: Пользователю {member.mention} был ограничен доступ к чатам.\n:book: По причине: {reason}**', color=0x0c0c0c)) 
+    embed = discord.Embed(description = f'**:shield: Пользователю {member.mention} был ограничен доступ к чатам.\n:book: По причине: {reason}**\n\n:clock: На {amount} секунд\n\nВыдал ограничение {ctx.author.name}', color=0x0c0c0c)
     embed.set_footer(text=f"Message ID: {message.id}")
     await ctx.send(embed=embed)
-    embed = discord.Embed(description = f'**:shield: Пользователю {member.mention} был ограничен доступ к чатам.\n:book: По причине: {reason}**', color=0x0c0c0c)) 
+
+    embed = discord.Embed(description = f'**:shield: Пользователю {member.mention} был ограничен доступ к чатам.\n:book: По причине: {reason}**\n\n:clock: На {amount} секунд\n\nВыдал ограничение {ctx.author.name}', color=0x0c0c0c) 
     embed.set_footer(text=f"Message ID: {message.id}")
     await channel_log.send(embed=embed)   
+	
     await asyncio.sleep(amount)
     await member.remove_roles( mutee_role )   
 
