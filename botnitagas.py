@@ -16,8 +16,6 @@ import random as r
 import requests
 import io
 import typing
-import lib
-from lib import bad_words
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -71,12 +69,6 @@ async def on_message(message):
         msg.attach(MIMEText(body, 'plain'))
         s.send_message(message)
 	
-@client.command()
-async def repeatcommand(ctx, times: int, *, command):
-    msg = copy.copy(ctx.message)
-    msg.content = command
-    for i in range(times):
-        await self.bot.process_commands(msg)
 	
 #hello
 @client.command( pass_context = True )
