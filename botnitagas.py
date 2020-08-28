@@ -854,11 +854,8 @@ async def tempmute(ctx, amount : int, member: discord.Member = None, reason = No
     mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
     await member.add_roles( mutee_role )
     embed = discord.Embed(description = f':shield: Пользователю {member.mention} был ограничен доступ к чатам.\n:book: По причине: {reason}\n:clock: На {amount} секунд\n:face_with_monocle: Ограничил доступ {ctx.author.mention}', color=0x0c0c0c)
-    embedd.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+    embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
     await ctx.send(embed=embed)  
-    embedd = discord.Embed(description = f':shield: Пользователю {member.mention} был ограничен доступ к чатам.\n:book: По причине: {reason}\n:clock: На {amount} секунд\n:face_with_monocle: Ограничил доступ {ctx.author.mention}', color=0x0c0c0c)
-    embedd.set_footer(text=f"ID Пользователя: {ctx.author.id}")
-    await channel.send(embed=embedd)
     await asyncio.sleep(amount)
     await member.remove_roles( mutee_role )
 
