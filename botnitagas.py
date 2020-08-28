@@ -16,58 +16,14 @@ import random as r
 import requests
 import io
 import typing
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 client = commands.Bot( command_prefix = '-')
 client.remove_command('help')
-num = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30']
-link = ['https://youtu.be/XVMHRAUI-h0','https://youtu.be/S5WkBjiUQCs']
-ADDRESS= os.environ.get('ADDRESS')
-PASSWORD= os.environ.get('PASSWORD')
 
-
-if __name__ == '__main__':
-	s = smtplib.SMTP(host='smtp.gmail.com', port=587)
-	s.starttls()
-	s.login(ADDRESS, PASSWORD)
 	     				
 @client.event
 async def on_redy():
     print( 'Bot connected')
    
-
-	
-@client.command()
-@commands.has_permissions( view_audit_log = True )
-async def email_send(ctx, test, * ,body):
-    msg = MIMEMultipart()
-    msg['From']= 'stagatin2020@gmail.com'
-    msg['To']= 'nitagas2005@gmail.com'
-    msg['Subject']=test
-    msg.attach(MIMEText(body, 'plain'))
-    s.send_message(msg)
-
-@client.command()
-async def emailsend(ctx, to, text, * ,body):
-    msg = MIMEMultipart()
-    msg['From']= 'stagatin2020@gmail.com'
-    msg['To']= to
-    msg['Subject']=text
-    msg.attach(MIMEText(body, 'plain'))
-    s.send_message(msg)
-	
-@client.event
-async def on_message(message):
-    mesg = message.content.lower()
-
-    if 'email_nitagas' in mesg:
-        msg = MIMEMultipart()
-        msg['From']= 'stagatin2020@gmail.com'
-        msg['To']= 'nitagas2005@gmail.com'
-        msg['Subject']='From CC-Team'
-        msg.attach(MIMEText(body, 'plain'))
-        s.send_message(message)
 	
 	
 #hello
