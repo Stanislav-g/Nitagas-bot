@@ -885,24 +885,6 @@ async def add_role(ctx, member: discord.Member = None, role: discord.Role = None
     except:
         await ctx.send(embed = discord.Embed(description = f' Не удалось выдать роль.', color=0x0c0c0c))
         
-#tempmute
-@client.command()
-@commands.has_permissions( kick_members = True )
-async def tempmute(ctx,amount : int,member: discord.Member = None, reason = None):
-    await ctx.channel.purge( limit = 1 )
-    mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
-    channel_log = client.get_channel(747764481559494686) #Айди канала логов
-    await member.add_roles( mutee_role )
-    await ctx.send(embed = discord.Embed(description = f'**:shield: Пользователю {member.mention} был ограничен доступ к чатам.\n:book: По причине: {reason}**', color=0x0c0c0c))
-    await asyncio.sleep(amount)
-    await member.remove_roles( mutee_role )   
-
-# Работа с ошибками мута на время
-
-@tempmute.error 
-async def tempmute_error(ctx, error):
-    if isinstance( error, commands.MissingPermissions ):
-        await ctx.send(embed = discord.Embed(description = f'**:exclamation: {ctx.author.name},у вас нет прав для использования данной команды.**', color=0x0c0c0c))
 
 
 #ping
