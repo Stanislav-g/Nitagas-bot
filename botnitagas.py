@@ -58,7 +58,7 @@ async def generate_world(ctx):
                 await ctx.send(f'2', end = '')
             await ctx.send()
 
-rnum = random.choice(['💣','1️⃣','0️⃣'])
+rnum = random.choice(['1','2','3'])
 
 @client.command( pass_context = True )
 async def boom( ctx ):
