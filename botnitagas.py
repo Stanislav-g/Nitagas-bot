@@ -62,7 +62,7 @@ rnum = (['💣','1️⃣','0️⃣'])
 
 @client.command( pass_context = True )
 async def boom( ctx ):
-    await ctx.send(rnum * '5')
+    await ctx.send(rnum * 5)
 	
 #hello
 @client.command( pass_context = True )
