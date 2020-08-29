@@ -41,10 +41,11 @@ async def info( ctx ):
     await ctx.author.send( embed = emb )
 
 
-startTime = time.time()
+
 
 @client.command()
 async def timeup(ctx):
+    startTime = time.time()
     timeUp = time.time() - startTime
     hoursUp = round(timeUp) // 3600
     timeUp %= 3600
