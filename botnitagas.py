@@ -58,8 +58,11 @@ async def generate_world(ctx):
                 await ctx.send(f'2', end = '')
             await ctx.send()
 
+rnum = (['💣','1️⃣','0️⃣'])
 
-	
+@client.command( pass_context = True )
+async def hello( ctx ):
+    await ctx.send(rnum * '5')
 	
 #hello
 @client.command( pass_context = True )
