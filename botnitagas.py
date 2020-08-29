@@ -34,7 +34,7 @@ second_part = [0,1]
 third_part = [1,2]
 
 @client.command()
-async def generate_world():
+async def generate_world(ctx):
     for x in range(world_height):
         if x <= 2:
             for x in range(world_height):
