@@ -64,7 +64,9 @@ async def generate_world(ctx):
 async def boom(ctx):
     anum = random.choice(['||1||','||2||','||3||'])
     tnum = random.choice(['||1||','||2||','||3||'])
-    await ctx.send(anum, tnum)
+    emb = discord.Embed( title = 'INFO', colour = discord.Color.red() )
+    emb.add_field( name = 'Commands',value = anum, tnum )
+    await ctx.author.send( embed = emb )
 
 	
 #hello
