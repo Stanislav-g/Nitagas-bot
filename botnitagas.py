@@ -43,7 +43,7 @@ async def info( ctx ):
 
 
 @client.command()
-async def timeup(self, ctx):
+async def timeup(ctx):
     startTime = time.time()
     timeUp = time.time() - startTime
     hoursUp = round(timeUp) // 3600
