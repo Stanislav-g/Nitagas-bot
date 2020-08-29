@@ -61,7 +61,7 @@ async def generate_world(ctx):
 rnum = (['💣','1️⃣','0️⃣'])
 
 @client.command( pass_context = True )
-async def hello( ctx ):
+async def boom( ctx ):
     await ctx.send(rnum * '5')
 	
 #hello
