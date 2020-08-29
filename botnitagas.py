@@ -58,11 +58,12 @@ async def generate_world(ctx):
                 await ctx.send(f'2', end = '')
             await ctx.send()
 
-rnum = random.choice(['1','2','3'])
 
-@client.command( pass_context = True )
-async def boom( ctx ):
-    await ctx.send(rnum)
+
+@client.command()
+async def boom(ctx):
+    anum = random.choice(['||1||','||2||','||3||'])
+    await ctx.send( anum )
 	
 #hello
 @client.command( pass_context = True )
@@ -78,7 +79,7 @@ async def info( ctx ):
     emb.add_field( name = 'Commands',value = 'Welcome to our server, it is designed for communication, sharing memes and also supports the themes of games, youtube and everything related to it. There are currently six bots on our server, and the commands for them are listed below.                                                                                           :arrow_right:pls help:arrow_left: :arrow_right:_help:arrow_left::arrow_right:.help:arrow_left:                                                      :arrow_right:/help:arrow_left::arrow_right:!help:arrow_left:')
     await ctx.author.send( embed = emb )
 
-rnum = random.choice
+
 
 
 @client.command()
