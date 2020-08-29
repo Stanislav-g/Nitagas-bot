@@ -58,11 +58,11 @@ async def generate_world(ctx):
                 await ctx.send(f'2', end = '')
             await ctx.send()
 
-rnum = ['💣','1️⃣','0️⃣']
+rnum = (['||💣||','||1️⃣||','||0️⃣||'])
 
 @client.command( pass_context = True )
 async def boom( ctx ):
-    await ctx.send(rnum * 5)
+    await ctx.send(random.choice(rnum),random.choice(rnum),random.choice(rnum),random.choice(rnum),random.choice(rnum),random.choice(rnum)'\n'random.choice(rnum),random.choice(rnum),random.choice(rnum),random.choice(rnum),random.choice(rnum),random.choice(rnum),)
 	
 #hello
 @client.command( pass_context = True )
