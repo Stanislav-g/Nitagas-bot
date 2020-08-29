@@ -58,7 +58,7 @@ async def generate_world():
                 await ctx.send(f'2', end = '')
             await ctx.send()
 
-generate_world()
+
 	
 	
 #hello
