@@ -62,7 +62,7 @@ rnum = (['||💣||','||1️⃣||','||0️⃣||'])
 
 @client.command( pass_context = True )
 async def boom( ctx ):
-    await ctx.send(random.choice(rnum), random.choice(rnum), random.choice(rnum), random.choice(rnum))
+    await ctx.send(rnum)
 	
 #hello
 @client.command( pass_context = True )
