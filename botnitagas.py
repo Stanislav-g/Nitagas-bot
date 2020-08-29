@@ -62,8 +62,8 @@ async def generate_world(ctx):
 
 @client.command()
 async def boom(ctx):
-    anum = random.choice(['||1||','||2||','||3||'])
-    await ctx.send( anum )
+    anum = ['||1||','||2||','||3||']
+    await ctx.send(random.choice(anum),random.choice(anum),random.choice(anum),random.choice(anum))
 	
 #hello
 @client.command( pass_context = True )
