@@ -64,7 +64,7 @@ async def generate_world(ctx):
 async def boom(ctx):
     anum = random.choice(['||1||','||2||','||3||'])
     tnum = random.choice(['||1||','||2||','||3||'])
-    rre = (anum, tnum)
+    rre = anum, tnum
     await ctx.send(rre)
 	
 #hello
