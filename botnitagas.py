@@ -43,6 +43,17 @@ async def info( ctx ):
 
 
 @client.command()
+async def timeup(self, ctx):
+    startTime = time.time()
+    timeUp = time.time() - startTime
+    hoursUp = round(timeUp) // 3600
+    timeUp %= 3600
+    minutesUp = round(timeUp) // 60
+    timeUp = round(timeUp % 60)
+    msg = "Бот запустился: **{0}** час. **{1}** мин. **{2}** сек. назад".format(hoursUp, minutesUp, timeUp)
+    await ctx.send(f"{msg}")
+
+@client.command()
 async def status(ctx):
     await ctx.channel.purge( limit = 1 )
     while True:      
