@@ -1304,16 +1304,14 @@ async def country( ctx ):
 	if num < 100:
 	    between = int(100 - num)
 	    num2 = random.randint(1,between)
-	    summa = num + num2
+	    summa = int(num + num2)
 
 	    if summa <= 100:
-	        allnums = num + num2
-		between_second = between - num2
+	        allnums = int(num + num2)
+		between_second = int(between - num2)
 		num3 = between_second
 		if num > num2:
-
 		    if num > num3:
-
 			if num2 > num3:
 			    await ctx.send('1', randomflag, num,'%')
 			    await ctx.send('2', randomflag2, num2,'%')
