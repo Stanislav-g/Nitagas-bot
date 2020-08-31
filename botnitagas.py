@@ -1310,8 +1310,8 @@ async def country( ctx ):
 		    allnums = int(num + num2)
 		    num3 = int(between - num2)
 		    if num > num2 and num > num3:
-			await ctx.send(f"test")
 			if num2 > num3:
+			    await ctx.send(f"test")
 			    await ctx.send('1', randomflag, num,'%')
 			    await ctx.send('2', randomflag2, num2,'%')
 			    await ctx.send('3', randomflag3, num3,'%')
