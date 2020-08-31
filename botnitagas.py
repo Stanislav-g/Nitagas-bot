@@ -1296,9 +1296,9 @@ num = random.randint(1,80)
 @client.command()
 async def country( ctx ):
     while randomflag == randomflag2 or randomflag == randomflag3 or randomflag3 == randomflag2 or randomflag3 == randomflag or randomflag2 == randomflag3 or randomflag2 == randomflag:
-		randomflag2 = random.choice(['flag','flag2','flag3'])
-		randomflag3 = random.choice(['flag','flag2','flag3'])
-		randomflag = random.choice(['flag','flag2','flag3'])
+        randomflag2 = random.choice(['flag','flag2','flag3'])
+	randomflag3 = random.choice(['flag','flag2','flag3'])
+	randomflag = random.choice(['flag','flag2','flag3'])
 	if num < 100:
 		between = int(100 - num)
 		num2 = random.randint(1,between)
