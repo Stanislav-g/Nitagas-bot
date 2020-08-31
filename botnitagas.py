@@ -1309,53 +1309,53 @@ async def country( ctx ):
 	    if summa <= 100:
 		    allnums = int(num + num2)
 		    num3 = int(between - num2)
-		if num > num2:
-		    if num > num3:
-			if num2 > num3:
-			    await ctx.send('1', randomflag, num,'%')
+		    if num > num2:
+			if num > num3:
+			    if num2 > num3:
+			        await ctx.send('1', randomflag, num,'%')
+			        await ctx.send('2', randomflag2, num2,'%')
+			        await ctx.send('3', randomflag3, num3,'%')
+			    else:
+			        await ctx.send('1', randomflag, num,'%')
+			        await ctx.send('2', randomflag2, num3,'%')
+			        await ctx.send('3', randomflag3, num2,'%')
+
+		        else:
+			    await ctx.send('1', randomflag, num3,'%')
+			    await ctx.send('2', randomflag2, num,'%')
+			    await ctx.send('3', randomflag3, num2,'%')
+		    elif num2 > num:
+		        if num2 > num3:
+			    if num > num3:
+			        await ctx.send('1', randomflag, num2,'%')
+			        await ctx.send('2', randomflag2, num,'%')
+			        await ctx.send('3', randomflag3, num3,'%')
+			    else:
+			        await ctx.send('1', randomflag, num2,'%')
+			        await ctx.send('2', randomflag2,num3,'%')
+			        await ctx.send('3', randomflag3, num,'%')       
+
+		        else:
+			    await ctx.send('1', randomflag, num3,'%')
 			    await ctx.send('2', randomflag2, num2,'%')
-			    await ctx.send('3', randomflag3, num3,'%')
-			else:
-			    await ctx.send('1', randomflag, num,'%')
-			    await ctx.send('2', randomflag2, num3,'%')
-			    await ctx.send('3', randomflag3, num2,'%')
-
-		    else:
-			await ctx.send('1', randomflag, num3,'%')
-			await ctx.send('2', randomflag2, num,'%')
-			await ctx.send('3', randomflag3, num2,'%')
-		elif num2 > num:
-		    if num2 > num3:
-			if num > num3:
-			    await ctx.send('1', randomflag, num2,'%')
-			    await ctx.send('2', randomflag2, num,'%')
-			    await ctx.send('3', randomflag3, num3,'%')
-			else:
-			    await ctx.send('1', randomflag, num2,'%')
-			    await ctx.send('2', randomflag2,num3,'%')
-			    await ctx.send('3', randomflag3, num,'%')       
-
-		    else:
-			await ctx.send('1', randomflag, num3,'%')
-			await ctx.send('2', randomflag2, num2,'%')
-			await ctx.send('3', randomflag3, num,'%')
-
-		elif num3 > num:
-		    if num3 > num3:
-			if num > num3:
-			    await ctx.send('1', randomflag, num3,'%')
-			    await ctx.send('2', randomflag2, num,'%')
-			    await ctx.send('3', randomflag3, num2,'%')
-			else:
-			    await ctx.send('1', randomflag, num3,'%')
-			    await ctx.send('2', randomflag2,num2,'%')
 			    await ctx.send('3', randomflag3, num,'%')
 
+		    elif num3 > num:
+		        if num3 > num3:
+			    if num > num3:
+			        await ctx.send('1', randomflag, num3,'%')
+			        await ctx.send('2', randomflag2, num,'%')
+			        await ctx.send('3', randomflag3, num2,'%')
+			    else:
+			        await ctx.send('1', randomflag, num3,'%')
+			        await ctx.send('2', randomflag2,num2,'%')
+			        await ctx.send('3', randomflag3, num,'%')
 
-		    else:
-			await ctx.send('1', randomflag, num2,'%')
-			await ctx.send('2', randomflag2, num3,'%')
-			await ctx.send('3', randomflag3, num,'%')
+
+		        else:
+			    await ctx.send('1', randomflag, num2,'%')
+			    await ctx.send('2', randomflag2, num3,'%')
+			    await ctx.send('3', randomflag3, num,'%')
 
 
 	
