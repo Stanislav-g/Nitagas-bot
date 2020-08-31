@@ -1308,7 +1308,7 @@ async def country( ctx ):
 
 	    if summa <= 100:
 	        allnums = num + num2
-		between_second = 100 - allnums
+		between_second = int(100 - allnums)
 		num3 = between_second
 		if num > num2:
 
