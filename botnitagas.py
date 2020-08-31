@@ -1303,13 +1303,11 @@ async def country( ctx ):
     if num < 100:
 	    between = int(100 - num)
 	    num2 = random.randint(1,between)
-	    summa = (num + num2)
+	    summa = int(num + num2)
 			
 	    if summa <= 100:
-			
     		    allnums = int(num + num2)
-		    between_second = (100 - allnums)
-		    num3 = between_second
+		    num3 = int(100 - allnums)
 		    if num > num2:
 					
 		            if num > num3:
