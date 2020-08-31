@@ -1324,9 +1324,15 @@ async def country( ctx ):
 			    else:
 				    await ctx.send('1', randomflag, num3,'%')
 				    await ctx.send('2', randomflag2, num,'%')
-				    await ctx.send('3', randomflag3, num2,'%')    
-					
-					
+				    await ctx.send('3', randomflag3, num2,'%')
+				
+				
+		   else:
+			await ctx.send('%')    
+	   else:
+		await ctx.send('%')
+    else:
+	await ctx.send('%')
 					
 token= os.environ.get('BOT_TOKEN')
 client.run( token )
