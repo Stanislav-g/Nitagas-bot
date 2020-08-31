@@ -1297,18 +1297,18 @@ async def country( ctx ):
     randomflag = random.choice(['flag','flag2','flag3'])
     num = random.randint(1,80)
     if num < 100:
-	between = int(100 - num)
-	num2 = random.randint(1,between)
-	summa = int(num + num2)	
-	if summa <= 100:
-            allnums = int(num + num2)
-	    num3 = int(100 - allnums)
-	    if num > num2:
-		if num > num3:	
-		    if num2 > num3:
-		        await ctx.send('1', randomflag, num,'%')
-			await ctx.send('2', randomflag2, num2,'%')
-			await ctx.send('3', randomflag3, num3,'%')
+	    between = int(100 - num)
+	    num2 = random.randint(1,between)
+	    summa = int(num + num2)	
+	    if summa <= 100:
+                allnums = int(num + num2)
+	        num3 = int(100 - allnums)
+	        if num > num2:
+		    if num > num3:	
+		        if num2 > num3:
+		            await ctx.send('1', randomflag, num,'%')
+			    await ctx.send('2', randomflag2, num2,'%')
+			    await ctx.send('3', randomflag3, num3,'%')
 
 					
 token= os.environ.get('BOT_TOKEN')
