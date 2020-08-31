@@ -1301,9 +1301,9 @@ async def country( ctx ):
 	    randomflag3 = random.choice(['flag','flag2','flag3'])
 	    randomflag = random.choice(['flag','flag2','flag3'])
     if num < 100:
-	between = int(100 - num)
-	num2 = random.randint(1,between)
-	summa = (num + num2)
+            between = int(100 - num)
+	    num2 = random.randint(1,between)
+	    summa = (num + num2)
 			
 	if summa <= 100:
 				
