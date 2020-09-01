@@ -40,18 +40,18 @@ async def country( ctx ):
     if num > num2:
         if num > num3:
             if num2 > num3:
-		    await ctx.send('1', randomflag, num,'%')
-		    await ctx.send('2', randomflag2, num2,'%')
-	            await ctx.send('3', randomflag3, num3,'%')
-	    	else:
-		    await ctx.send('1', randomflag, num,'%')
-		    await ctx.send('2', randomflag2, num3,'%')
-		    await ctx.send('3', randomflag3, num2,'%')
-
+		await ctx.send('1', randomflag, num,'%')
+		await ctx.send('2', randomflag2, num2,'%')
+	        await ctx.send('3', randomflag3, num3,'%')
 	    else:
-	    	await ctx.send('1', randomflag, num3,'%')
-	    	await ctx.send('2', randomflag2, num,'%')
-	    	await ctx.send('3', randomflag3, num2,'%')
+		await ctx.send('1', randomflag, num,'%')
+		await ctx.send('2', randomflag2, num3,'%')
+		await ctx.send('3', randomflag3, num2,'%')
+
+	else:
+	    await ctx.send('1', randomflag, num3,'%')
+	    await ctx.send('2', randomflag2, num,'%')
+	    await ctx.send('3', randomflag3, num2,'%')
 
 #hello
 @client.command( pass_context = True )
