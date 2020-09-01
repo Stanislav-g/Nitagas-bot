@@ -38,9 +38,9 @@ async def country( ctx ):
 	    between_second = (100 - allnums)
 	    num3 = between_second
     if num > num2:
-            if num > num3:
-                if num2 > num3:
-		    await ctx.send('1', randomflag, num,'%')
+        if num > num3:
+            if num2 > num3:
+		await ctx.send('1', randomflag, num,'%')
 		    await ctx.send('2', randomflag2, num2,'%')
 	            await ctx.send('3', randomflag3, num3,'%')
 	    	else:
