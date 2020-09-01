@@ -33,10 +33,10 @@ async def country( ctx ):
 	    between = int(100 - num)
 	    num2 = random.randint(1,between)
 	    summa = (num + num2)		
-        if summa <= 100:			
-	    allnums = int(num + num2)
-	    between_second = (100 - allnums)
-	    num3 = between_second
+            if summa <= 100:			
+	            allnums = int(num + num2)
+	    	    between_second = (100 - allnums)
+	    	    num3 = between_second
 	    if num > num2:
 		if num > num3:
 		    if num2 > num3:
