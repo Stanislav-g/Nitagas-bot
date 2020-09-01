@@ -889,6 +889,7 @@ async def tempmute(ctx, amount : int, member: discord.Member = None, reason = No
 
 # Работа с ошибками мута на время
 
+
 @tempmute.error 
 async def tempmute_error(ctx, error):
     if isinstance( error, commands.MissingPermissions ):
