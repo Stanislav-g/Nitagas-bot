@@ -877,10 +877,6 @@ async def on_command_error(ctx, error):
 # Работа с ошибками мута на время
 
 
-@tempmute.error 
-async def tempmute_error(ctx, error):
-    if isinstance( error, commands.MissingPermissions ):
-        await ctx.send(embed = discord.Embed(description = f':exclamation: {ctx.author.name},у вас нет прав для использования данной команды.', color=0x0c0c0c))
 
 #math
 @client.command()
