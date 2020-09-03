@@ -23,7 +23,33 @@ client.remove_command('help')
 @client.event
 async def on_redy():
     print( 'Bot connected')
-   
+
+#join to channel
+@client.command()
+async def j(ctx):
+    global voise
+    channel = ctx.message.author.voice.channel
+    voice = get(client.voice_clients, guild = ctx.guild)
+
+    if voice and voice.is_connected():
+        await voice.move_to(channel)
+    else:
+        voice = await channel.connect()
+        await ctx.send(f'Бот присоеденился к каналу: {channel}')
+#leave from channel
+@client.command()
+async def l(ctx):
+    global voise
+    channel = ctx.message.author.voice.channel
+    voice = get(client.voice_clients, guild = ctx.guild)
+
+    if voice and voice.is_connected():
+        await voice.disconnect()
+    else:
+        voice = await channel.connect()
+        await ctx.send(f'Бот отключился от канала: {channel}')
+	
+	
 @client.command()
 async def country( ctx ):
     randomflag2 = random.choice(['flag','flag2','flag3'])
