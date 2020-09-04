@@ -1312,7 +1312,7 @@ async def on_invite_create(invite: discord.Invite):
 
 @client.command()
 @commands.has_permissions( kick_members = True )
-async def tempmute(ctx, amount : int, member: discord.Member = None, reason = None):
+async def tempmute(ctx, amount : int, member: discord.Member = None, * ,reason = None):
     await ctx.channel.purge( limit = 1 )
     channel = client.get_channel(747764481559494686) #Айди канала логов
     mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
