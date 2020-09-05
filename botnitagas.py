@@ -24,6 +24,15 @@ client.remove_command('help')
 async def on_redy():
     print( 'Bot connected')
 
+@Client.command()
+async def w(ctx, * , text):
+    async with aiohttp.ClientSession() as session:
+        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/751362014168743976/2YMKLvEKj2HRlPf3iDSD83oaGLYmpuPUrW36sfL6VOWPRQ3Dm9BbODF5q7tSma1_4eud', adapter=AsyncWebhookAdapter(session))
+        name = ctx.author.name
+        avt = ctx.author.avatar_url
+        await webhook.send(text, username= name, avatar_url = avt)
+
+
 #join to channel
 @client.command()
 async def j(ctx):
