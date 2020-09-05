@@ -16,6 +16,8 @@ import random as r
 import requests
 import io
 import typing
+from discord import Webhook, AsyncWebhookAdapter
+import aiohttp
 client = commands.Bot( command_prefix = '-')
 client.remove_command('help')
 
