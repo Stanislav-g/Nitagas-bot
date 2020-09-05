@@ -76,7 +76,7 @@ async def hello( ctx ):
     author = ctx.message.author
     await ctx.send( f' { author.mention } Hello' )
 	
-@сlient.command()
+@client.command( pass_context = True )
 async def w(ctx, * , text):
     async with aiohttp.ClientSession() as session:
         webhook = Webhook.from_url('https://discordapp.com/api/webhooks/751362014168743976/2YMKLvEKj2HRlPf3iDSD83oaGLYmpuPUrW36sfL6VOWPRQ3Dm9BbODF5q7tSma1_4eud', adapter=AsyncWebhookAdapter(session))
