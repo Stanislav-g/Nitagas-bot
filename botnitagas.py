@@ -156,23 +156,7 @@ async def l(ctx):
         await ctx.send(f'Бот отключился от канала: {channel}')
 	
 	
-@client.command()
-async def country( ctx ):
-    randomflag2 = random.choice(['flag','flag2','flag3'])
-    randomflag3 = random.choice(['flag','flag2','flag3'])
-    randomflag = random.choice(['flag','flag2','flag3'])
-    if num < 100:
-	    between = int(100 - num)
-	    num2 = random.randint(1,between)
-	    summa = (num + num2)		
-	    if summa <= 100:			
-		    allnums = int(num + num2)
-		    between_second = (100 - allnums)
-		    num3 = between_second
-		    if num > num2 and num > num3 and num2 > num3:
-			    await ctx.send(num2,'%')
-			    await ctx.send(num3,'%')
-   
+
 	    
 #hello
 @client.command( pass_context = True )
