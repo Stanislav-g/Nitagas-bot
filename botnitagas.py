@@ -129,9 +129,8 @@ async def country(ctx):
                             embed.set_footer(text = f'© Copyright 2020 Topian Team | Все права защищены', icon_url = ctx.author.avatar_url)
                             await ctx.send(embed=embed)
 
-
-    else:
-        await ctx.send(f"Вы не прикрепили картинку")
+        else:
+            await ctx.send(f"Вы не прикрепили картинку")
 
 #join to channel
 @client.command()
