@@ -1403,6 +1403,12 @@ async def on_member_ban(guild, member):
     embed.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
     embed.set_footer(text=f"Member ID: {member.id}")
     await channel.send(embed=embed)
+
+    embe = discord.Embed(color=member.color if member.color != discord.Color.default() else discord.Color.red(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member.mention}, вы забанены**')
+    embe.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
+    embe.set_footer(text=f"Member ID: {member.id}")
+    await member.send(embed=embe)
+
 			
 @client.event
 async def on_member_kick(guild, member):
