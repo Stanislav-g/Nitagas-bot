@@ -1324,6 +1324,8 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(736875237303386143)
         elif str(payload.emoji) == '📗':
             role = guild.get_role(751704160939933696)
+	elif str(payload.emoji) == '⚙️':
+            role = guild.get_role(752483364665163796)
     
         if role:
             member = guild.get_member(payload.user_id)
