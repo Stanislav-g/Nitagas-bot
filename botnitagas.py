@@ -257,7 +257,9 @@ async def kick( ctx, member: discord.Member, *, reason = None):
     emb.set_author( name = member.name, icon_url = member.avatar_url)
     emb.add_field( name = 'Kick user',value = 'Kick user : {}'.format( member.mention ) )
     await ctx.send( embed = emb )
-    await ctx.send( f'kick user { member.mention}')
+    embed = discord.Embed(description = f':shield: Пользователь {member.mention} был кикнут. \n📖 По причине: {reason}\n🧐 Кикнул {ctx.author.mention}', color=0x0c0c0c)
+    embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+    await ctx.send(embed=embed)  
 
 #ban
 @client.command( pass_context = True )
@@ -271,7 +273,9 @@ async def ban( ctx, member: discord.Member, *, reason = None):
     emb.set_author( name = member.name, icon_url = member.avatar_url)
     emb.add_field( name = 'Ban user',value = 'Banned user : {}'.format( member.mention ) )
     await ctx.send( embed = emb )
-    await ctx.send( f'Ban user { member.mention}')
+    embed = discord.Embed(description = f':shield: Пользователь {member.mention} был забанен. \n📖 По причине: {reason}\n🧐 Забанил {ctx.author.mention}', color=0x0c0c0c)
+    embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+    await ctx.send(embed=embed)  
 
 #unban
 @client.command( pass_context = True )
@@ -283,6 +287,9 @@ async def unban( ctx, *, member ):
     banned_users = await ctx.guild.bans()
     emb.add_field( name = 'unban user',value = 'Unbaned user : {}'.format( member.mention ) )
     await ctx.send( embed = emb )
+    embed = discord.Embed(description = f':shield: Пользователь {member.mention} был разбанен. \n📖 По причине: {reason}\n🧐 Разбанил {ctx.author.mention}', color=0x0c0c0c)
+    embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+    await ctx.send(embed=embed)  
 
     for ban_entry in banned_users:
         user = ban_entry.user
@@ -345,7 +352,7 @@ async def on_member_join( member ):
     await member.add_roles( role )
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}, присоеденился к нам!') )
     emb = discord.Embed( title = 'INFO', colour = discord.Color.red() )
-    emb.add_field( name = 'ИНФОРМАЦИЯ',value = 'Добро пожаловать на наш сервер, ознакомьтесь с правилами нашего сервера\nПропиши команду -help что-бы узнать мои комманды\nПолезные команды:\n-help\n$help\n\n**ОБЯЗАТЕЛЬНО ПРОЧИТАЙТЕ ПРАВИЛА НА СЕРВЕРЕ И НАЖМИТЕ НА РЕАКЦИЮ 📖**')
+    emb.add_field( name = 'ИНФОРМАЦИЯ',value = 'Добро пожаловать на сервер Coders_community, наш сайт http://coders_community.smors.ru/\n**ОБЯЗАТЕЛЬНО ПРОЧИТАЙТЕ ПРАВИЛА НА СЕРВЕРЕ И НАЖМИТЕ НА РЕАКЦИЮ 📖**')
     await member.send( embed = emb )
 
 #autorole
@@ -353,6 +360,7 @@ async def on_member_join( member ):
 async def on_member_remove( member ):
     channel = client.get_channel( 740154462177591346 )
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}\n{member.name}#{member.discriminator},  покинул сервер') )
+
 
 @clear.error
 async def clear_error( ctx, error ):
@@ -1422,6 +1430,7 @@ async def on_member_kick(guild, member):
     embe.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
     embe.set_footer(text=f"Guild name: {guild.name}")
     await member.send(embed=embe)
+
 @client.event
 async def on_member_unban(guild, member):
     channel = client.get_channel( 747764481559494686 )
@@ -1443,8 +1452,6 @@ async def on_invite_create(invite: discord.Invite,member):
     embed.add_field(name='Invite Code', value=invite.code, inline=False)
     embed.add_field(name='Max Uses', value=invite.max_uses, inline=False)
     embed.add_field(name='Temporary', value=invite.temporary, inline=False)
-    embed.set_footer(text=f"Member ID: {member.id}")
-
     await channel.send(embed=embed)
    
 
