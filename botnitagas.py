@@ -1406,7 +1406,7 @@ async def on_member_ban(guild, member):
 
     embe = discord.Embed(color=member.color if member.color != discord.Color.default() else discord.Color.red(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member.mention}, вы забанены**')
     embe.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
-    embe.set_footer(text=f"Member ID: {member.id}")
+    embe.set_footer(text=f"Guild name: {guild.name}")
     await member.send(embed=embe)
 
 			
@@ -1418,6 +1418,10 @@ async def on_member_kick(guild, member):
     embed.set_footer(text=f"Member ID: {member.id}")
     await channel.send(embed=embed)
 
+    embe = discord.Embed(color=member.color if member.color != discord.Color.default() else discord.Color.red(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member.mention}, вы кикнуты**')
+    embe.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
+    embe.set_footer(text=f"Guild name: {guild.name}")
+    await member.send(embed=embe)
 @client.event
 async def on_member_unban(guild, member):
     channel = client.get_channel( 747764481559494686 )
@@ -1425,15 +1429,21 @@ async def on_member_unban(guild, member):
     embed.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
     embed.set_footer(text=f"Member ID: {member.id}")
     await channel.send(embed=embed)
+
+    embe = discord.Embed(color=member.color if member.color != discord.Color.default() else discord.Color.red(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member.mention}, вы разбанены**')
+    embe.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
+    embe.set_footer(text=f"Guild name: {guild.name}")
+    await member.send(embed=embe)
 			
 
 @client.event
-async def on_invite_create(invite: discord.Invite):
+async def on_invite_create(invite: discord.Invite,member):
     channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**An invite was created**')
     embed.add_field(name='Invite Code', value=invite.code, inline=False)
     embed.add_field(name='Max Uses', value=invite.max_uses, inline=False)
     embed.add_field(name='Temporary', value=invite.temporary, inline=False)
+    embed.set_footer(text=f"Member ID: {member.id}")
 
     await channel.send(embed=embed)
    
