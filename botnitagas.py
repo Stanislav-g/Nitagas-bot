@@ -1439,12 +1439,13 @@ async def on_member_unban(guild, member):
 			
 
 @client.event
-async def on_invite_create(invite: discord.Invite,member):
+async def on_invite_create(invite: discord.Invite):
     channel = client.get_channel( 747764481559494686 )
     embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**An invite was created**')
     embed.add_field(name='Invite Code', value=invite.code, inline=False)
     embed.add_field(name='Max Uses', value=invite.max_uses, inline=False)
     embed.add_field(name='Temporary', value=invite.temporary, inline=False)
+
     await channel.send(embed=embed)
    
 
