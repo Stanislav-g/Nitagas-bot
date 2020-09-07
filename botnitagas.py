@@ -1432,7 +1432,7 @@ async def on_member_unban(guild, member):
     embed.set_footer(text=f"Member ID: {member.id}")
     await channel.send(embed=embed)
 
-    embe = discord.Embed(color=member.color if member.color != discord.Color.default() else discord.Color.red(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member.mention}, вы разбанены**')
+    embe = discord.Embed(color=member.color if member.color != discord.Color.default() else discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member.mention}, вы разбанены**')
     embe.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
     embe.set_footer(text=f"Guild name: {guild.name}")
     await member.send(embed=embe)
