@@ -254,9 +254,7 @@ async def kick( ctx, member: discord.Member, *, reason = None):
 
     await member.kick( reason = reason )
 
-    emb.set_author( name = member.name, icon_url = member.avatar_url)
-    emb.add_field( name = 'Kick user',value = 'Kick user : {}'.format( member.mention ) )
-    await ctx.send( embed = emb )
+
     embed = discord.Embed(description = f':shield: Пользователь {member.mention} был кикнут. \n📖 По причине: {reason}\n🧐 Кикнул {ctx.author.mention}', color=0x0c0c0c)
     embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
     await ctx.send(embed=embed)  
@@ -270,9 +268,6 @@ async def ban( ctx, member: discord.Member, *, reason = None):
     await ctx.channel.purge( limit = 1 )
 
     await member.ban( reason = reason )
-    emb.set_author( name = member.name, icon_url = member.avatar_url)
-    emb.add_field( name = 'Ban user',value = 'Banned user : {}'.format( member.mention ) )
-    await ctx.send( embed = emb )
     embed = discord.Embed(description = f':shield: Пользователь {member.mention} был забанен. \n📖 По причине: {reason}\n🧐 Забанил {ctx.author.mention}', color=0x0c0c0c)
     embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
     await ctx.send(embed=embed)  
@@ -285,8 +280,6 @@ async def unban( ctx, *, member ):
     emb = discord.Embed( title = 'unban', colour = discord.Color.red() )
     await ctx.channel.purge( limit = 1)
     banned_users = await ctx.guild.bans()
-    emb.add_field( name = 'unban user',value = 'Unbaned user : {}'.format( member.mention ) )
-    await ctx.send( embed = emb )
     embed = discord.Embed(description = f':shield: Пользователь {member.mention} был разбанен. \n📖 По причине: {reason}\n🧐 Разбанил {ctx.author.mention}', color=0x0c0c0c)
     embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
     await ctx.send(embed=embed)  
