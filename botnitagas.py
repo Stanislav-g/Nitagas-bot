@@ -28,10 +28,10 @@ async def on_redy():
 
 @client.command()
 async def rolesss(ctx): 
-    role = guild.get_role(728595441016373269) 
-    arole = ctx.author.get_roles()
-    if role in arole:
-	await ctx.send("you have role")
+   	 role = guild.get_role(728595441016373269) 
+   	 arole = ctx.author.get_roles()
+   	 if role in arole:
+		await ctx.send("you have role")
 
 	
 @client.command()
