@@ -28,10 +28,12 @@ async def on_redy():
 
 @client.command()
 async def rolesss(ctx): 
-	role = guild.get_role(728595441016373269) 
-	if role in ctx.author.roles:
-		await ctx.send("you have role")
-		
+    role = guild.get_role(728595441016373269) 
+    arole = ctx.author.get_roles()
+    if role in arole:
+	await ctx.send(f"you have role")
+    else:
+	await ctx.send(f"no")
 	
 @client.command()
 async def country(ctx):      
