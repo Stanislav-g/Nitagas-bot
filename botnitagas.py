@@ -30,8 +30,8 @@ async def on_redy():
 async def rolesaut(ctx, *, member: MemberRoles):
     """Tells you a member's roles."""
     role = await ctx.send('I see the following roles: ' + ', '.join(member))
-	if 'Создатель' in role:
-		await ctx.send("Создатель1234")
+    if 'Создатель' in role:
+	await ctx.send("Создатель1234")
 
 	
 @client.command()
