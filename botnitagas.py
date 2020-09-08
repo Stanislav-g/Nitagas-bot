@@ -27,11 +27,11 @@ async def on_redy():
     print( 'Bot connected')
 
 @client.command()
-async def rolesaut(ctx): 
-	role = guild.get_role(728595441016373269) 
-	arole = ctx.author.get_roles()
-	if role in arole:
-		await ctx.send("123")
+async def rolesaut(ctx, *, member: MemberRoles):
+    """Tells you a member's roles."""
+    role = await ctx.send('I see the following roles: ' + ', '.join(member))
+	if 'Создатель' in role:
+		await ctx.send("Создатель1234")
 
 	
 @client.command()
