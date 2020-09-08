@@ -26,7 +26,13 @@ client.remove_command('help')
 async def on_redy():
     print( 'Bot connected')
 
-
+@client.command()
+async def roles(ctx): 
+	role = guild.get_role(728595441016373269) 
+	if role in ctx.author.roles:
+		await ctx.send("you have role")
+		
+	
 @client.command()
 async def country(ctx):      
 
