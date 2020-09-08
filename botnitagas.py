@@ -26,13 +26,7 @@ client.remove_command('help')
 async def on_redy():
     print( 'Bot connected')
 
-@client.command()
-async def rolesaut(ctx, *, member: MemberRoles):
-    """Tells you a member's roles."""
-    role = await ctx.send('I see the following roles: ' + ', '.join(member))
-    if 'Создатель' in role:
-        embed.set_footer(text = f'© Copyright 2020 Topian Team | Все права защищены', icon_url = ctx.author.avatar_url)
-        await ctx.send(embed=embed)
+
 
 	
 @client.command()
