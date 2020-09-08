@@ -27,7 +27,7 @@ async def on_redy():
     print( 'Bot connected')
 
 @client.command()
-async def roles(ctx): 
+async def rolesss(ctx): 
 	role = guild.get_role(728595441016373269) 
 	if role in ctx.author.roles:
 		await ctx.send("you have role")
