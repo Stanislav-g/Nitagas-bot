@@ -26,6 +26,14 @@ client.remove_command('help')
 async def on_redy():
     print( 'Bot connected')
 
+@client.command()
+@commands.has_permissions( administrator = True )
+async def web(ctx, arg, urll, * , text):
+    await ctx.channel.purge( limit = 1 )
+    async with aiohttp.ClientSession() as session:
+        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/753667884399722527/JOjqOcGEDPPLCxTwswJLpqEKf7u6onIZ0IFb0qsYoXPeBJ1eCZ2V58liVyRMfSIuqPGH', adapter=AsyncWebhookAdapter(session))
+        emb = discord.Embed( title = arg, description = f"**{text}**\n ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀", colour = discord.Colour.red(), url = urll, timestamp=ctx.message.created_at)
+        await webhook.send(embed=emb)  
 
 	
 @client.command()
