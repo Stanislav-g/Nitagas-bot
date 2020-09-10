@@ -27,12 +27,6 @@ async def on_redy():
     print( 'Bot connected')
 
 
-@client.command()
-async def web(ctx, * , text):
-    async with aiohttp.ClientSession() as session:
-        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/752220541288579183/jJ1yFfSh5em3SWgbIYx9KNton7BL1_3ufA7VfflDDOrq4GS_1R8aJozIIQDLep_her3n', adapter=AsyncWebhookAdapter(session))
-	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description= text, username= {name})
-        await webhook.send(embed=embed)
 	
 @client.command()
 async def country(ctx):      
