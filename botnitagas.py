@@ -27,7 +27,12 @@ async def on_redy():
     print( 'Bot connected')
 
 
-
+@client.command()
+async def web(ctx, * , text):
+    async with aiohttp.ClientSession() as session:
+        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/752220541288579183/jJ1yFfSh5em3SWgbIYx9KNton7BL1_3ufA7VfflDDOrq4GS_1R8aJozIIQDLep_her3n', adapter=AsyncWebhookAdapter(session))
+	embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description= text, username= {name})
+        await webhook.send(embed=embed)
 	
 @client.command()
 async def country(ctx):      
@@ -1379,11 +1384,7 @@ async def on_guild_role_delete( role ):
 @client.event
 async def on_guild_name_edit(before, after):
     channel = client.get_channel( 747764481559494686 )
-    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**Guild name was changed**')
-    embed.add_field(name='Before', value=before.name, inline=False)
-    embed.add_field(name='After', value=after.name, inline=False)
-    embed.set_author(name=after.name, icon_url=str(after.icon_url))
-    embed.set_footer(text=f"Guild ID: {after.id}")
+    embed = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**Guild name was changed**\n{before.name} to {after.name}')
     await channel.send(embed=embed)
 				
 @client.event
