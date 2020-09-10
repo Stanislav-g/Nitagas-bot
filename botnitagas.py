@@ -27,7 +27,6 @@ async def on_redy():
     print( 'Bot connected')
 
 @client.command()
-@commands.has_permissions( administrator = True )
 async def web(ctx, arg, urll, * , text):
     await ctx.channel.purge( limit = 1 )
     async with aiohttp.ClientSession() as session:
