@@ -268,7 +268,7 @@ async def kick( ctx, member: discord.Member, *, reason = None):
     embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
     await ctx.send(embed=embed)  
     channel = client.get_channel( 747764481559494686 )
-    embedd = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member} was unbanned**')
+    embedd = discord.Embed(color=discord.Color.green(), timestamp=datetime.datetime.now(datetime.timezone.utc), description=f'**{member} was kicked**')
     embedd.set_author(name=member, icon_url=str(member.avatar_url_as(static_format='png', size=2048)))
     embedd.set_footer(text=f"Member ID: {member.id}")
     await channel.send(embed=embedd)
