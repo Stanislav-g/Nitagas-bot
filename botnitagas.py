@@ -236,12 +236,12 @@ async def mute( ctx, member: discord.Member ):
 #clear
 @client.command( pass_context = True )
 @commands.has_permissions( administrator = True )
-
+@commands.has_permissions( manage_messages= True )
 async def clear( ctx, amount : int ):
     await ctx.channel.purge( limit = amount)
-    await ctx.send( f'Сообщения удалены')
-    await ctx.channel.purge( limit = 2 )
-
+    embed = discord.Embed(description = f'Было удалено {amount} сообщений.\nКоманду вызвал {ctx.author.mention}', color=0x0c0c0c)
+    embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+    await ctx.send(embed=embed) 
     
  
 #send_a
