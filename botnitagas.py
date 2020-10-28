@@ -350,7 +350,6 @@ async def time( ctx ):
     
 #autorole
 @client.event
-
 async def on_member_join( member ):
     channel = client.get_channel( 705461507953262793 )
 
