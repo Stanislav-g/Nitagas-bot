@@ -1476,7 +1476,7 @@ async def tempmute(ctx, amount : int, member: discord.Member = None, * ,reason =
 async def tm(ctx, amount : int, member: discord.Member = None, * ,reason = None):
     await ctx.channel.purge( limit = 1 )
     role = guild.get_role(737322598240616519)
-    if role in member.roles:
+    if role in ctx.author.roles:
         channel = client.get_channel(747764481559494686) #Айди канала логов
         mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
         await member.add_roles( mutee_role )
