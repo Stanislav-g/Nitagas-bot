@@ -1473,7 +1473,7 @@ async def tempmute(ctx, amount : int, member: discord.Member = None, * ,reason =
     await member.remove_roles( mutee_role )
 
 @client.command()
-async def tempmute(ctx, amount : int, member: discord.Member = None, * ,reason = None):
+async def tm(ctx, amount : int, member: discord.Member = None, * ,reason = None):
     await ctx.channel.purge( limit = 1 )
     role = guild.get_role(737322598240616519)
     if role in member.roles:
