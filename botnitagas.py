@@ -1468,7 +1468,7 @@ async def tempmute(ctx, amount : int = None, member: discord.Member = None, * ,r
     rolerr = ctx.author.guild.get_role(705392177231953950)#админ
     rolet = ctx.author.guild.get_role(705361654375776276)#создатель
     rolett = ctx.author.guild.get_role(744464816726605824) #зам создателя
-    if role or roler or rolerr or rolet or rolett in ctx.author.roles:
+    if role in ctx.author.roles:
         if amount == None:
             await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
         elif member == None:
@@ -1484,6 +1484,75 @@ async def tempmute(ctx, amount : int = None, member: discord.Member = None, * ,r
             await ctx.send(embed=embed)  
             await asyncio.sleep(amount)
             await member.remove_roles( mutee_role )
+            
+    elif roler in ctx.author.roles:
+        if amount == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        elif member == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        elif reason == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        else:
+            channel = client.get_channel(747764481559494686) #Айди канала логов
+            mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
+            await member.add_roles( mutee_role )
+            embed = discord.Embed(description = f':shield: Пользователю {member.mention} был ограничен доступ к чатам. \n📖 По причине: {reason}\n🕰️ На {amount} секунд\n🧐 Ограничил доступ {ctx.author.mention}', color=0x0c0c0c)
+            embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+            await ctx.send(embed=embed)  
+            await asyncio.sleep(amount)
+            await member.remove_roles( mutee_role )
+            
+    elif rolerr in ctx.author.roles:
+        if amount == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        elif member == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        elif reason == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        else:
+            channel = client.get_channel(747764481559494686) #Айди канала логов
+            mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
+            await member.add_roles( mutee_role )
+            embed = discord.Embed(description = f':shield: Пользователю {member.mention} был ограничен доступ к чатам. \n📖 По причине: {reason}\n🕰️ На {amount} секунд\n🧐 Ограничил доступ {ctx.author.mention}', color=0x0c0c0c)
+            embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+            await ctx.send(embed=embed)  
+            await asyncio.sleep(amount)
+            await member.remove_roles( mutee_role )
+            
+    elif rolet in ctx.author.roles:
+        if amount == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        elif member == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        elif reason == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        else:
+            channel = client.get_channel(747764481559494686) #Айди канала логов
+            mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
+            await member.add_roles( mutee_role )
+            embed = discord.Embed(description = f':shield: Пользователю {member.mention} был ограничен доступ к чатам. \n📖 По причине: {reason}\n🕰️ На {amount} секунд\n🧐 Ограничил доступ {ctx.author.mention}', color=0x0c0c0c)
+            embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+            await ctx.send(embed=embed)  
+            await asyncio.sleep(amount)
+            await member.remove_roles( mutee_role )
+            
+    if rolett in ctx.author.roles:
+        if amount == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        elif member == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        elif reason == None:
+            await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
+        else:
+            channel = client.get_channel(747764481559494686) #Айди канала логов
+            mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
+            await member.add_roles( mutee_role )
+            embed = discord.Embed(description = f':shield: Пользователю {member.mention} был ограничен доступ к чатам. \n📖 По причине: {reason}\n🕰️ На {amount} секунд\n🧐 Ограничил доступ {ctx.author.mention}', color=0x0c0c0c)
+            embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+            await ctx.send(embed=embed)  
+            await asyncio.sleep(amount)
+            await member.remove_roles( mutee_role )
+
     else:
         await ctx.send('У вас нет прав!')
 
