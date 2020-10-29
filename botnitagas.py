@@ -1536,7 +1536,7 @@ async def tempmute(ctx, amount : int = None, member: discord.Member = None, * ,r
             await asyncio.sleep(amount)
             await member.remove_roles( mutee_role )
             
-    if rolett in ctx.author.roles:
+    elif rolett in ctx.author.roles:
         if amount == None:
             await ctx.send('Правильное использование команды: -tempmute (время в секундах) (@пользователь) (причина)')
         elif member == None:
