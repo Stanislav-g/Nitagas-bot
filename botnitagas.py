@@ -1472,8 +1472,21 @@ async def tempmute(ctx, amount : int, member: discord.Member = None, * ,reason =
     await asyncio.sleep(amount)
     await member.remove_roles( mutee_role )
 
-
-
+@client.command()
+async def tempmute(ctx, amount : int, member: discord.Member = None, * ,reason = None):
+    await ctx.channel.purge( limit = 1 )
+    role = guild.get_role(737322598240616519)
+    if role in member.roles:
+        channel = client.get_channel(747764481559494686) #Айди канала логов
+        mutee_role = discord.utils.get(member.guild.roles, id = 705745998550401054) #Айди роли
+        await member.add_roles( mutee_role )
+        embed = discord.Embed(description = f':shield: Пользователю {member.mention} был ограничен доступ к чатам. \n📖 По причине: {reason}\n🕰️ На {amount} секунд\n🧐 Ограничил доступ {ctx.author.mention}', color=0x0c0c0c)
+        embed.set_footer(text=f"ID Пользователя: {ctx.author.id}")
+        await ctx.send(embed=embed)  
+        await asyncio.sleep(amount)
+        await member.remove_roles( mutee_role )
+    else:
+        pass
 
 					
 token= os.environ.get('BOT_TOKEN')
