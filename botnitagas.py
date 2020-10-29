@@ -1486,7 +1486,7 @@ async def tm(ctx, amount : int, member: discord.Member = None, * ,reason = None)
         await asyncio.sleep(amount)
         await member.remove_roles( mutee_role )
     else:
-        pass
+        await ctx.send('1234567')
 
 					
 token= os.environ.get('BOT_TOKEN')
