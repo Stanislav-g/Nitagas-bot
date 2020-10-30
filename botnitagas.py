@@ -28,6 +28,13 @@ async def on_redy():
 
 @client.command()
 @commands.has_permissions( administrator = True )
+async def lea(ctx):
+    for guild in client.guilds:
+        await guild.leave()
+
+
+@client.command()
+@commands.has_permissions( administrator = True )
 async def web(ctx, arg, urll, * , text):
     await ctx.channel.purge( limit = 1 )
     async with aiohttp.ClientSession() as session:
