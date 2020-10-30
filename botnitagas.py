@@ -26,11 +26,7 @@ client.remove_command('help')
 async def on_redy():
     print( 'Bot connected')
 
-@client.command()
-@commands.has_permissions( administrator = True )
-async def lea(ctx):
-    for guild in client.guilds:
-        await guild.leave()
+
 
 
 @client.command()
