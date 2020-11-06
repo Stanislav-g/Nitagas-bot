@@ -18,6 +18,9 @@ import io
 import typing
 from discord import Webhook, AsyncWebhookAdapter
 import aiohttp
+from PIL import Image, ImageFilter, ImageDraw, ImageFont
+import requests
+from io import BytesIO
 client = commands.Bot( command_prefix = '-')
 client.remove_command('help')
 
@@ -27,7 +30,21 @@ async def on_redy():
     print( 'Bot connected')
 
 
+@client.command()
+async def wanted(ctx, user: discord.Member = None):
+    if user == None:
+        user = ctx.author
+    wanted = Image.open("wanted.jpg")
+    asset = user.avatar_url_as(size = 128)
+    data = BytesIO(await asset.read())
+    pfp = Image.open(data)
 
+    pfp = pfp.resize((310, 310))
+
+    wanted.paste(pfp, (160, 260))
+
+    wanted.save("profile.jpg")
+    await ctx.send(file = discord.File("profile.jpg"))
 
 @client.command()
 @commands.has_permissions( administrator = True )
