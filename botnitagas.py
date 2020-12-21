@@ -375,10 +375,10 @@ async def on_member_join( member ):
 
     role = discord.utils.get( member.guild.roles, id = 705364781753958450 )
 
-    await member.add_roles( role )
+
     await channel.send( embed = discord.Embed( description = f'Пользователь {member.mention}\n{member.name}#{member.discriminator}, присоединился к нам!') )
     emb = discord.Embed( title = 'INFO', colour = discord.Color.red() )
-    emb.add_field( name = 'ИНФОРМАЦИЯ',value = 'Добро пожаловать на сервер Coders_community, наш сайт http://coders-community.smors.ru/\n**ОБЯЗАТЕЛЬНО ПРОЧИТАЙТЕ ПРАВИЛА НА СЕРВЕРЕ И НАЖМИТЕ НА РЕАКЦИЮ 📖**')
+    emb.add_field( name = 'ИНФОРМАЦИЯ',value = 'Добро пожаловать на сервер Coders_community, наш сайт http://coders-community.smors.ru/\n**ОБЯЗАТЕЛЬНО ПРОЙДИТЕ ВЕРИФИКАЦИЮ В КАНАЛЕ ВЕРИФИКАЦИЯ! А ТАК-ЖЕ ПРОЧИТАЙТЕ ПРАВИЛА НА СЕРВЕРЕ И НАЖМИТЕ НА РЕАКЦИЮ 📖**')
     await member.send( embed = emb )
 
 #autorole
